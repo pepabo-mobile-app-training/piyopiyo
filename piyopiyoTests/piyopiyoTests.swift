@@ -9,7 +9,7 @@
 import XCTest
 @testable import piyopiyo
 
-class piyopiyoTests: XCTestCase {
+class PiyopiyoTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
