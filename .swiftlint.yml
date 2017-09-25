@@ -1,0 +1,7 @@
+disabled_rules:
+- trailing_whitespace
+
+excluded:
+  - Carthage
+
+line_length: 250
