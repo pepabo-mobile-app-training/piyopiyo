@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */; };
+		AF161EF11F78A6FF00B2DD73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161EF01F78A6FF00B2DD73 /* ViewController.swift */; };
+		AF161EF41F78A6FF00B2DD73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF161EF21F78A6FF00B2DD73 /* Main.storyboard */; };
+		AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */; };
+		AF161EF91F78A6FF00B2DD73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF161EF71F78A6FF00B2DD73 /* LaunchScreen.storyboard */; };
+		AF161F041F78A6FF00B2DD73 /* piyopiyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F031F78A6FF00B2DD73 /* piyopiyoTests.swift */; };
+		AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF161F001F78A6FF00B2DD73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF161EE31F78A6FF00B2DD73 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF161EEA1F78A6FF00B2DD73;
+			remoteInfo = piyopiyo;
+		};
+		AF161F0B1F78A6FF00B2DD73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF161EE31F78A6FF00B2DD73 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF161EEA1F78A6FF00B2DD73;
+			remoteInfo = piyopiyo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AF161EEB1F78A6FF00B2DD73 /* piyopiyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = piyopiyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AF161EF01F78A6FF00B2DD73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AF161EF31F78A6FF00B2DD73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF161EF81F78A6FF00B2DD73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AF161EFA1F78A6FF00B2DD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF161EFF1F78A6FF00B2DD73 /* piyopiyoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = piyopiyoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF161F031F78A6FF00B2DD73 /* piyopiyoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piyopiyoTests.swift; sourceTree = "<group>"; };
+		AF161F051F78A6FF00B2DD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF161F0A1F78A6FF00B2DD73 /* piyopiyoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = piyopiyoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piyopiyoUITests.swift; sourceTree = "<group>"; };
+		AF161F101F78A6FF00B2DD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF161EE81F78A6FF00B2DD73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF161EFC1F78A6FF00B2DD73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF161F071F78A6FF00B2DD73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF161EE21F78A6FF00B2DD73 = {
+			isa = PBXGroup;
+			children = (
+				AF161EED1F78A6FF00B2DD73 /* piyopiyo */,
+				AF161F021F78A6FF00B2DD73 /* piyopiyoTests */,
+				AF161F0D1F78A6FF00B2DD73 /* piyopiyoUITests */,
+				AF161EEC1F78A6FF00B2DD73 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF161EEC1F78A6FF00B2DD73 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF161EEB1F78A6FF00B2DD73 /* piyopiyo.app */,
+				AF161EFF1F78A6FF00B2DD73 /* piyopiyoTests.xctest */,
+				AF161F0A1F78A6FF00B2DD73 /* piyopiyoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF161EED1F78A6FF00B2DD73 /* piyopiyo */ = {
+			isa = PBXGroup;
+			children = (
+				AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */,
+				AF161EF01F78A6FF00B2DD73 /* ViewController.swift */,
+				AF161EF21F78A6FF00B2DD73 /* Main.storyboard */,
+				AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */,
+				AF161EF71F78A6FF00B2DD73 /* LaunchScreen.storyboard */,
+				AF161EFA1F78A6FF00B2DD73 /* Info.plist */,
+			);
+			path = piyopiyo;
+			sourceTree = "<group>";
+		};
+		AF161F021F78A6FF00B2DD73 /* piyopiyoTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF161F031F78A6FF00B2DD73 /* piyopiyoTests.swift */,
+				AF161F051F78A6FF00B2DD73 /* Info.plist */,
+			);
+			path = piyopiyoTests;
+			sourceTree = "<group>";
+		};
+		AF161F0D1F78A6FF00B2DD73 /* piyopiyoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */,
+				AF161F101F78A6FF00B2DD73 /* Info.plist */,
+			);
+			path = piyopiyoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF161EEA1F78A6FF00B2DD73 /* piyopiyo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF161F131F78A6FF00B2DD73 /* Build configuration list for PBXNativeTarget "piyopiyo" */;
+			buildPhases = (
+				AF161EE71F78A6FF00B2DD73 /* Sources */,
+				AF161EE81F78A6FF00B2DD73 /* Frameworks */,
+				AF161EE91F78A6FF00B2DD73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = piyopiyo;
+			productName = piyopiyo;
+			productReference = AF161EEB1F78A6FF00B2DD73 /* piyopiyo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AF161EFE1F78A6FF00B2DD73 /* piyopiyoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF161F161F78A6FF00B2DD73 /* Build configuration list for PBXNativeTarget "piyopiyoTests" */;
+			buildPhases = (
+				AF161EFB1F78A6FF00B2DD73 /* Sources */,
+				AF161EFC1F78A6FF00B2DD73 /* Frameworks */,
+				AF161EFD1F78A6FF00B2DD73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF161F011F78A6FF00B2DD73 /* PBXTargetDependency */,
+			);
+			name = piyopiyoTests;
+			productName = piyopiyoTests;
+			productReference = AF161EFF1F78A6FF00B2DD73 /* piyopiyoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AF161F091F78A6FF00B2DD73 /* piyopiyoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF161F191F78A6FF00B2DD73 /* Build configuration list for PBXNativeTarget "piyopiyoUITests" */;
+			buildPhases = (
+				AF161F061F78A6FF00B2DD73 /* Sources */,
+				AF161F071F78A6FF00B2DD73 /* Frameworks */,
+				AF161F081F78A6FF00B2DD73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF161F0C1F78A6FF00B2DD73 /* PBXTargetDependency */,
+			);
+			name = piyopiyoUITests;
+			productName = piyopiyoUITests;
+			productReference = AF161F0A1F78A6FF00B2DD73 /* piyopiyoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF161EE31F78A6FF00B2DD73 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "GMO Pepabo";
+				TargetAttributes = {
+					AF161EEA1F78A6FF00B2DD73 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					AF161EFE1F78A6FF00B2DD73 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AF161EEA1F78A6FF00B2DD73;
+					};
+					AF161F091F78A6FF00B2DD73 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AF161EEA1F78A6FF00B2DD73;
+					};
+				};
+			};
+			buildConfigurationList = AF161EE61F78A6FF00B2DD73 /* Build configuration list for PBXProject "piyopiyo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AF161EE21F78A6FF00B2DD73;
+			productRefGroup = AF161EEC1F78A6FF00B2DD73 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF161EEA1F78A6FF00B2DD73 /* piyopiyo */,
+				AF161EFE1F78A6FF00B2DD73 /* piyopiyoTests */,
+				AF161F091F78A6FF00B2DD73 /* piyopiyoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF161EE91F78A6FF00B2DD73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF161EF91F78A6FF00B2DD73 /* LaunchScreen.storyboard in Resources */,
+				AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */,
+				AF161EF41F78A6FF00B2DD73 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF161EFD1F78A6FF00B2DD73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF161F081F78A6FF00B2DD73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF161EE71F78A6FF00B2DD73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF161EF11F78A6FF00B2DD73 /* ViewController.swift in Sources */,
+				AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF161EFB1F78A6FF00B2DD73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF161F041F78A6FF00B2DD73 /* piyopiyoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF161F061F78A6FF00B2DD73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF161F011F78A6FF00B2DD73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF161EEA1F78A6FF00B2DD73 /* piyopiyo */;
+			targetProxy = AF161F001F78A6FF00B2DD73 /* PBXContainerItemProxy */;
+		};
+		AF161F0C1F78A6FF00B2DD73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF161EEA1F78A6FF00B2DD73 /* piyopiyo */;
+			targetProxy = AF161F0B1F78A6FF00B2DD73 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AF161EF21F78A6FF00B2DD73 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF161EF31F78A6FF00B2DD73 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AF161EF71F78A6FF00B2DD73 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF161EF81F78A6FF00B2DD73 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AF161F111F78A6FF00B2DD73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AF161F121F78A6FF00B2DD73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF161F141F78A6FF00B2DD73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = piyopiyo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.piyopiyo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AF161F151F78A6FF00B2DD73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = piyopiyo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.piyopiyo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AF161F171F78A6FF00B2DD73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = piyopiyoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.piyopiyoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/piyopiyo.app/piyopiyo";
+			};
+			name = Debug;
+		};
+		AF161F181F78A6FF00B2DD73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = piyopiyoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.piyopiyoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/piyopiyo.app/piyopiyo";
+			};
+			name = Release;
+		};
+		AF161F1A1F78A6FF00B2DD73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = piyopiyoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.piyopiyoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = piyopiyo;
+			};
+			name = Debug;
+		};
+		AF161F1B1F78A6FF00B2DD73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = piyopiyoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.piyopiyoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = piyopiyo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF161EE61F78A6FF00B2DD73 /* Build configuration list for PBXProject "piyopiyo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF161F111F78A6FF00B2DD73 /* Debug */,
+				AF161F121F78A6FF00B2DD73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF161F131F78A6FF00B2DD73 /* Build configuration list for PBXNativeTarget "piyopiyo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF161F141F78A6FF00B2DD73 /* Debug */,
+				AF161F151F78A6FF00B2DD73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF161F161F78A6FF00B2DD73 /* Build configuration list for PBXNativeTarget "piyopiyoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF161F171F78A6FF00B2DD73 /* Debug */,
+				AF161F181F78A6FF00B2DD73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF161F191F78A6FF00B2DD73 /* Build configuration list for PBXNativeTarget "piyopiyoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF161F1A1F78A6FF00B2DD73 /* Debug */,
+				AF161F1B1F78A6FF00B2DD73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF161EE31F78A6FF00B2DD73 /* Project object */;
+}
