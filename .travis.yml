@@ -1,0 +1,9 @@
+before_install:
+    - carthage update --platform ios
+osx_image: xcode9
+language: objective-c
+script: xcodebuild clean && xcodebuild build -project piyopiyo.xcodeproj -scheme piyopiyo CODE_SIGNING_REQUIRED=NO
+branches:
+    only:
+        - master
+        - integration-travis
