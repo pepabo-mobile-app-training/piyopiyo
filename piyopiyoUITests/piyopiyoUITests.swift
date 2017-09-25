@@ -8,7 +8,7 @@
 
 import XCTest
 
-class piyopiyoUITests: XCTestCase {
+class PiyopiyoUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
