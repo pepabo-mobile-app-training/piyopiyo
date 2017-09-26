@@ -10,22 +10,19 @@ import UIKit
 
 @IBDesignable class ColorButton: UIButton {
 
-    @IBInspectable
-    var cornerRadius: CGFloat = 0 {
+    @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
             self.layer.cornerRadius = cornerRadius
         }
     }
     
-    @IBInspectable
-    var buttonColor: UIColor = UIColor.white {
+    @IBInspectable var buttonColor: UIColor = UIColor.white {
         didSet {
             self.backgroundColor = buttonColor
         }
     }
     
-    @IBInspectable
-    var textColor: UIColor = UIColor.white {
+    @IBInspectable var textColor: UIColor = UIColor.white {
         didSet {
             self.setTitleColor(textColor, for: .normal)
         }
