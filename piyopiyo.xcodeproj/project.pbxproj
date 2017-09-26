@@ -12,7 +12,7 @@
 		AF087D9A1F790BA5006C6BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF087D981F790B2B006C6BAF /* LaunchScreen.storyboard */; };
 		AF087D9B1F790BA5006C6BAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF087D991F790B2B006C6BAF /* Main.storyboard */; };
 		AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */; };
-		AF161EF11F78A6FF00B2DD73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161EF01F78A6FF00B2DD73 /* ViewController.swift */; };
+		AF161EF11F78A6FF00B2DD73 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161EF01F78A6FF00B2DD73 /* FeedViewController.swift */; };
 		AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */; };
 		AF161F041F78A6FF00B2DD73 /* piyopiyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F031F78A6FF00B2DD73 /* piyopiyoTests.swift */; };
 		AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */; };
@@ -49,7 +49,7 @@
 		AF087D991F790B2B006C6BAF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AF161EEB1F78A6FF00B2DD73 /* piyopiyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = piyopiyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AF161EF01F78A6FF00B2DD73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AF161EF01F78A6FF00B2DD73 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF161EFA1F78A6FF00B2DD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF161EFF1F78A6FF00B2DD73 /* piyopiyoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = piyopiyoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +118,7 @@
 		AF087D911F790AA4006C6BAF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AF161EF01F78A6FF00B2DD73 /* ViewController.swift */,
+				AF161EF01F78A6FF00B2DD73 /* FeedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -386,7 +386,7 @@
 			files = (
 				AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */,
 				E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */,
-				AF161EF11F78A6FF00B2DD73 /* ViewController.swift in Sources */,
+				AF161EF11F78A6FF00B2DD73 /* FeedViewController.swift in Sources */,
 				AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
