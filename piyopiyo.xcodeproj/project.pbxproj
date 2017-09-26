@@ -19,7 +19,9 @@
 		AFBDE5B91F7A265500441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5B81F7A265500441353 /* .gitkeep */; };
 		AFBDE5BB1F7A267300441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BA1F7A267300441353 /* .gitkeep */; };
 		AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BC1F7A268200441353 /* .gitkeep */; };
-		AFBDE5C11F7A269900441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5C01F7A269900441353 /* .gitkeep */; };
+		AFBDE5BF1F7A268D00441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BE1F7A268D00441353 /* .gitkeep */; };
+		AFBDE5C31F7A34F000441353 /* BalloonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5C21F7A34F000441353 /* BalloonView.xib */; };
+		AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBDE5C41F7A390C00441353 /* BalloonView.swift */; };
 		E4F700641F7A260700869BD5 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F700631F7A260700869BD5 /* TutorialView.xib */; };
 		E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F700651F7A2FBD00869BD5 /* ColorButton.swift */; };
 /* End PBXBuildFile section */
@@ -60,9 +62,11 @@
 		AFBDE5B81F7A265500441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BA1F7A267300441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BC1F7A268200441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		AFBDE5C01F7A269900441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		AFBDE5BE1F7A268D00441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		E4F700631F7A260700869BD5 /* TutorialView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
 		E4F700651F7A2FBD00869BD5 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
+		AFBDE5C21F7A34F000441353 /* BalloonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalloonView.xib; sourceTree = "<group>"; };
+		AFBDE5C41F7A390C00441353 /* BalloonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,8 +152,10 @@
 		AF087D951F790AA4006C6BAF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E4F700651F7A2FBD00869BD5 /* ColorButton.swift */,
-				E4F700631F7A260700869BD5 /* TutorialView.xib */,
+			  E4F700651F7A2FBD00869BD5 /* ColorButton.swift */,
+			  E4F700631F7A260700869BD5 /* TutorialView.xib */,
+				AFBDE5BE1F7A268D00441353 /* .gitkeep */,
+				AFBDE5C41F7A390C00441353 /* BalloonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,7 +172,7 @@
 		AF087D971F790AA4006C6BAF /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				AFBDE5C01F7A269900441353 /* .gitkeep */,
+				AFBDE5C21F7A34F000441353 /* BalloonView.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -338,7 +344,8 @@
 				AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */,
 				AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */,
 				AFBDE5B91F7A265500441353 /* .gitkeep in Resources */,
-				AFBDE5C11F7A269900441353 /* .gitkeep in Resources */,
+				AFBDE5C31F7A34F000441353 /* BalloonView.xib in Resources */,
+				AFBDE5BF1F7A268D00441353 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */,
 				E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */,
 				AF161EF11F78A6FF00B2DD73 /* ViewController.swift in Sources */,
 				AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */,
