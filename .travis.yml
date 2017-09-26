@@ -1,14 +1,14 @@
 osx_image: xcode9
 language: objective-c
 cache:
-    directories:
+  directories:
     - Carthage
 before_install:
-    - carthage bootstrap --platform iOS --cache-builds
+  - carthage bootstrap --platform iOS --cache-builds
 script:
-    - xcodebuild clean && xcodebuild build -project piyopiyo.xcodeproj -scheme piyopiyo CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
-    - xcodebuild test -workspace piyopiyo.xcodeproj/project.xcworkspace -scheme piyopiyoTests -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6s" 
-    - xcodebuild test -workspace piyopiyo.xcodeproj/project.xcworkspace -scheme piyopiyoUITests -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6s" 
+  - xcodebuild clean && xcodebuild build -project piyopiyo.xcodeproj -scheme piyopiyo CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
+  - xcodebuild test -workspace piyopiyo.xcodeproj/project.xcworkspace -scheme piyopiyoTests -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6s"
+  - xcodebuild test -workspace piyopiyo.xcodeproj/project.xcworkspace -scheme piyopiyoUITests -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6s"
 notifications:
   slack:
     secure: LvfKw6RbhwSnQauScpbd9cpTOQFNubhkDkMchAYimeAT5/AUlGpErAZ9xw1/N8/nLvQSKb/+mbjoTFZ3IIdRWG69a1o0yiQ8SVUnuon7IaB5Uoy724bsT63iJ6X9ZQAsr+LAtkIOnS7/45WVPOjQCZ0h3G412sXJwUKzIq8y1ytaqn551KSLvHkJxPHh279tDBEAhjg7sDTd0CedWGFNt3YIIqwC+cF9jdfORBrzmhPOPol2Lvz6Z1gzPMSHadeefXmrr/mtHQtkWQRHlhPtoet9AFcGusBTJvPW3Ybzgbi9J7mRJq9r8leZkvyWf87PdOZJDVIK6H034cPVc9IBtXHwVxmgga+NlDuVdoxCpkI/TG2uIUMu2RrCbto7XO+BGjr5us9jYK1PzdodK0EwLehkmgklUolBmznLcHX9koMmk4zKe0okghBNYVaCRu3DUK3m+KwwwWCYfPofIzPnWBgqJDxWx3P9/7QKYnJnOTeJqBsOtW76kQtWHPfHDdzRnljrEeUaO5ATCqcFLbfvvL8zkfq5TyqxBel9IbkISqD+37VKOTzCOjDnRL6aVbvEiczanmTgsDeBoEnZx5XgWlP7hvL9RFq4e1mPgFouO+eMN2MsjQVAEeQLuu3eAIQ/Qwa1Q2vxUYqGQ6rjj8aFbQZV8RgofJ2mBSyD6HDeQTU=
