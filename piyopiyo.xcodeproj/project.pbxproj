@@ -17,6 +17,11 @@
 		AF161F041F78A6FF00B2DD73 /* piyopiyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F031F78A6FF00B2DD73 /* piyopiyoTests.swift */; };
 		AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */; };
 		E4F700641F7A260700869BD5 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F700631F7A260700869BD5 /* TutorialView.xib */; };
+		AFBDE5B91F7A265500441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5B81F7A265500441353 /* .gitkeep */; };
+		AFBDE5BB1F7A267300441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BA1F7A267300441353 /* .gitkeep */; };
+		AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BC1F7A268200441353 /* .gitkeep */; };
+		AFBDE5BF1F7A268D00441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BE1F7A268D00441353 /* .gitkeep */; };
+		AFBDE5C11F7A269900441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5C01F7A269900441353 /* .gitkeep */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,11 @@
 		AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piyopiyoUITests.swift; sourceTree = "<group>"; };
 		AF161F101F78A6FF00B2DD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4F700631F7A260700869BD5 /* TutorialView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
+		AFBDE5B81F7A265500441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		AFBDE5BA1F7A267300441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		AFBDE5BC1F7A268200441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		AFBDE5BE1F7A268D00441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		AFBDE5C01F7A269900441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +124,7 @@
 		AF087D921F790AA4006C6BAF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AFBDE5B81F7A265500441353 /* .gitkeep */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -121,6 +132,7 @@
 		AF087D931F790AA4006C6BAF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AFBDE5BA1F7A267300441353 /* .gitkeep */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,6 +140,7 @@
 		AF087D941F790AA4006C6BAF /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				AFBDE5BC1F7A268200441353 /* .gitkeep */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -135,6 +148,7 @@
 		AF087D951F790AA4006C6BAF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AFBDE5BE1F7A268D00441353 /* .gitkeep */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,6 +165,7 @@
 		AF087D971F790AA4006C6BAF /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				AFBDE5C01F7A269900441353 /* .gitkeep */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -319,7 +334,12 @@
 				E4F700641F7A260700869BD5 /* TutorialView.xib in Resources */,
 				AF087D9A1F790BA5006C6BAF /* LaunchScreen.storyboard in Resources */,
 				AF087D9B1F790BA5006C6BAF /* Main.storyboard in Resources */,
+				AFBDE5BB1F7A267300441353 /* .gitkeep in Resources */,
+				AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */,
 				AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */,
+				AFBDE5B91F7A265500441353 /* .gitkeep in Resources */,
+				AFBDE5BF1F7A268D00441353 /* .gitkeep in Resources */,
+				AFBDE5C11F7A269900441353 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
