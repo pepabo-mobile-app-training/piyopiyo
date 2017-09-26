@@ -1,7 +1,10 @@
-before_install:
-- carthage update --platform ios
 osx_image: xcode9
 language: objective-c
+cache:
+    directories:
+    - Carthage
+before_install:
+    - carthage bootstrap --platform iOS --cache-builds
 script:
     - xcodebuild clean && xcodebuild build -project piyopiyo.xcodeproj -scheme piyopiyo CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
     - xcodebuild test -workspace piyopiyo.xcodeproj/project.xcworkspace -scheme piyopiyoTests -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6s" 
