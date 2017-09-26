@@ -15,15 +15,33 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWA-b1-SbU">
-                    <rect key="frame" x="53" y="45" width="269" height="57"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAw-AX-HPt">
+                    <rect key="frame" x="51" y="65" width="273" height="72"/>
+                    <string key="text">みんなのつぶやきがながれるよ！</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91m-OZ-h2j">
+                    <rect key="frame" x="51" y="157" width="273" height="72"/>
+                    <string key="text">気になるつぶやきをタップ！</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3J-7g-DK0">
+                    <rect key="frame" x="121" y="523" width="132" height="89"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bAw-AX-HPt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="45" id="5d8-eF-tMh"/>
+                <constraint firstItem="91m-OZ-h2j" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Y9f-C8-9tD"/>
+                <constraint firstItem="91m-OZ-h2j" firstAttribute="top" secondItem="bAw-AX-HPt" secondAttribute="bottom" constant="20" id="feN-OV-e6r"/>
+                <constraint firstItem="bAw-AX-HPt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jtp-t7-HmE"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="8.5" y="-27.5"/>
         </view>
