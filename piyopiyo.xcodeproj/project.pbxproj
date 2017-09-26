@@ -16,12 +16,13 @@
 		AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */; };
 		AF161F041F78A6FF00B2DD73 /* piyopiyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F031F78A6FF00B2DD73 /* piyopiyoTests.swift */; };
 		AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */; };
-		E4F700641F7A260700869BD5 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F700631F7A260700869BD5 /* TutorialView.xib */; };
 		AFBDE5B91F7A265500441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5B81F7A265500441353 /* .gitkeep */; };
 		AFBDE5BB1F7A267300441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BA1F7A267300441353 /* .gitkeep */; };
 		AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BC1F7A268200441353 /* .gitkeep */; };
 		AFBDE5BF1F7A268D00441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BE1F7A268D00441353 /* .gitkeep */; };
 		AFBDE5C11F7A269900441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5C01F7A269900441353 /* .gitkeep */; };
+		E4F700641F7A260700869BD5 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F700631F7A260700869BD5 /* TutorialView.xib */; };
+		E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F700651F7A2FBD00869BD5 /* ColorButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,12 +58,13 @@
 		AF161F0A1F78A6FF00B2DD73 /* piyopiyoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = piyopiyoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piyopiyoUITests.swift; sourceTree = "<group>"; };
 		AF161F101F78A6FF00B2DD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4F700631F7A260700869BD5 /* TutorialView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
 		AFBDE5B81F7A265500441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BA1F7A267300441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BC1F7A268200441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BE1F7A268D00441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5C01F7A269900441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		E4F700631F7A260700869BD5 /* TutorialView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
+		E4F700651F7A2FBD00869BD5 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,8 @@
 		AF087D951F790AA4006C6BAF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E4F700651F7A2FBD00869BD5 /* ColorButton.swift */,
+				E4F700631F7A260700869BD5 /* TutorialView.xib */,
 				AFBDE5BE1F7A268D00441353 /* .gitkeep */,
 			);
 			path = Views;
@@ -200,7 +204,6 @@
 				AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */,
 				AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */,
 				AF161EFA1F78A6FF00B2DD73 /* Info.plist */,
-				E4F700631F7A260700869BD5 /* TutorialView.xib */,
 			);
 			path = piyopiyo;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */,
 				AF161EF11F78A6FF00B2DD73 /* ViewController.swift in Sources */,
 				AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */,
 			);
