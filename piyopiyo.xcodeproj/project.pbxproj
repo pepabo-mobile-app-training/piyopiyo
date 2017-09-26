@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		AF087D8E1F78E3DB006C6BAF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF087D8C1F78E3DB006C6BAF /* SwiftyJSON.framework */; };
 		AF087D8F1F78E3DB006C6BAF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF087D8D1F78E3DB006C6BAF /* Alamofire.framework */; };
+		AF087D9A1F790BA5006C6BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF087D981F790B2B006C6BAF /* LaunchScreen.storyboard */; };
+		AF087D9B1F790BA5006C6BAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF087D991F790B2B006C6BAF /* Main.storyboard */; };
 		AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */; };
 		AF161EF11F78A6FF00B2DD73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161EF01F78A6FF00B2DD73 /* ViewController.swift */; };
-		AF161EF41F78A6FF00B2DD73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF161EF21F78A6FF00B2DD73 /* Main.storyboard */; };
 		AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */; };
-		AF161EF91F78A6FF00B2DD73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF161EF71F78A6FF00B2DD73 /* LaunchScreen.storyboard */; };
 		AF161F041F78A6FF00B2DD73 /* piyopiyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F031F78A6FF00B2DD73 /* piyopiyoTests.swift */; };
 		AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */; };
 /* End PBXBuildFile section */
@@ -38,12 +38,12 @@
 /* Begin PBXFileReference section */
 		AF087D8C1F78E3DB006C6BAF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		AF087D8D1F78E3DB006C6BAF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		AF087D981F790B2B006C6BAF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AF087D991F790B2B006C6BAF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AF161EEB1F78A6FF00B2DD73 /* piyopiyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = piyopiyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF161EF01F78A6FF00B2DD73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AF161EF31F78A6FF00B2DD73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AF161EF81F78A6FF00B2DD73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF161EFA1F78A6FF00B2DD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF161EFF1F78A6FF00B2DD73 /* piyopiyoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = piyopiyoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF161F031F78A6FF00B2DD73 /* piyopiyoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piyopiyoTests.swift; sourceTree = "<group>"; };
@@ -89,6 +89,70 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AF087D901F790AA4006C6BAF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AF087D911F790AA4006C6BAF /* Controllers */,
+				AF087D921F790AA4006C6BAF /* Helpers */,
+				AF087D931F790AA4006C6BAF /* Models */,
+				AF087D941F790AA4006C6BAF /* Stores */,
+				AF087D951F790AA4006C6BAF /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AF087D911F790AA4006C6BAF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AF161EF01F78A6FF00B2DD73 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AF087D921F790AA4006C6BAF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AF087D931F790AA4006C6BAF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AF087D941F790AA4006C6BAF /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		AF087D951F790AA4006C6BAF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AF087D961F790AA4006C6BAF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AF087D981F790B2B006C6BAF /* LaunchScreen.storyboard */,
+				AF087D991F790B2B006C6BAF /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		AF087D971F790AA4006C6BAF /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
 		AF161EE21F78A6FF00B2DD73 = {
 			isa = PBXGroup;
 			children = (
@@ -113,11 +177,11 @@
 		AF161EED1F78A6FF00B2DD73 /* piyopiyo */ = {
 			isa = PBXGroup;
 			children = (
+				AF087D901F790AA4006C6BAF /* Classes */,
+				AF087D961F790AA4006C6BAF /* Storyboards */,
+				AF087D971F790AA4006C6BAF /* Xibs */,
 				AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */,
-				AF161EF01F78A6FF00B2DD73 /* ViewController.swift */,
-				AF161EF21F78A6FF00B2DD73 /* Main.storyboard */,
 				AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */,
-				AF161EF71F78A6FF00B2DD73 /* LaunchScreen.storyboard */,
 				AF161EFA1F78A6FF00B2DD73 /* Info.plist */,
 			);
 			path = piyopiyo;
@@ -249,9 +313,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF161EF91F78A6FF00B2DD73 /* LaunchScreen.storyboard in Resources */,
+				AF087D9A1F790BA5006C6BAF /* LaunchScreen.storyboard in Resources */,
+				AF087D9B1F790BA5006C6BAF /* Main.storyboard in Resources */,
 				AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */,
-				AF161EF41F78A6FF00B2DD73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,25 +393,6 @@
 			targetProxy = AF161F0B1F78A6FF00B2DD73 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		AF161EF21F78A6FF00B2DD73 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AF161EF31F78A6FF00B2DD73 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AF161EF71F78A6FF00B2DD73 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AF161EF81F78A6FF00B2DD73 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AF161F111F78A6FF00B2DD73 /* Debug */ = {
