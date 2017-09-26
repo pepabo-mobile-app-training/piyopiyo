@@ -9,7 +9,9 @@
 import UIKit
 
 class BalloonView: UIView {
-
+    
+    @IBOutlet weak var textView: UITextView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
