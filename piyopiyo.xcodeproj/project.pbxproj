@@ -38,8 +38,8 @@
 /* Begin PBXFileReference section */
 		AF087D8C1F78E3DB006C6BAF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		AF087D8D1F78E3DB006C6BAF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		AF087D981F790B2B006C6BAF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "/Users/shizuna.ito/dev/mobile-training/piyopiyo/piyopiyo/Storyboards/LaunchScreen.storyboard"; sourceTree = "<absolute>"; };
-		AF087D991F790B2B006C6BAF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "/Users/shizuna.ito/dev/mobile-training/piyopiyo/piyopiyo/Storyboards/Main.storyboard"; sourceTree = "<absolute>"; };
+		AF087D981F790B2B006C6BAF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AF087D991F790B2B006C6BAF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AF161EEB1F78A6FF00B2DD73 /* piyopiyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = piyopiyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF161EF01F78A6FF00B2DD73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
