@@ -31,32 +31,59 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eI-Zr-eGv" customClass="ColorButton" customModule="piyopiyo" customModuleProvider="target">
-                    <rect key="frame" x="67" y="549" width="242" height="48"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hiyoko" translatesAutoresizingMaskIntoConstraints="NO" id="eio-4U-NzU">
+                    <rect key="frame" x="184" y="414" width="200" height="180"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="H7z-89-CeD"/>
+                        <constraint firstAttribute="height" constant="180" id="OXo-nL-dX8"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khC-Ep-hpp" customClass="ColorButton" customModule="piyopiyo" customModuleProvider="target">
+                    <rect key="frame" x="62.5" y="557" width="250" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="XI5-WV-dvh"/>
+                        <constraint firstAttribute="height" constant="50" id="m3w-FK-ZnX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="はじめる">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
-                            <color key="value" red="0.97544270753860474" green="0.23961767896378894" blue="0.16403501927669281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.97544270749999995" green="0.239617679" blue="0.1640350193" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="24"/>
+                            <real key="value" value="25"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fukidashi2" translatesAutoresizingMaskIntoConstraints="NO" id="Tcx-dR-10U">
+                    <rect key="frame" x="52" y="270" width="250" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="6IT-Dn-YaN"/>
+                        <constraint firstAttribute="width" constant="250" id="CGa-Xa-kVw"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="bAw-AX-HPt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="45" id="5d8-eF-tMh"/>
-                <constraint firstItem="3eI-Zr-eGv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="T7a-gc-GYw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="khC-Ep-hpp" secondAttribute="bottom" constant="60" id="NFJ-vD-GJP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Tcx-dR-10U" secondAttribute="trailing" constant="73" id="NrP-gc-1cV"/>
                 <constraint firstItem="91m-OZ-h2j" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Y9f-C8-9tD"/>
+                <constraint firstItem="khC-Ep-hpp" firstAttribute="top" secondItem="Tcx-dR-10U" secondAttribute="bottom" constant="137" id="Ysh-GT-gEy"/>
+                <constraint firstItem="khC-Ep-hpp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZJb-46-k1d"/>
                 <constraint firstItem="91m-OZ-h2j" firstAttribute="top" secondItem="bAw-AX-HPt" secondAttribute="bottom" constant="20" id="feN-OV-e6r"/>
                 <constraint firstItem="bAw-AX-HPt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jtp-t7-HmE"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="3eI-Zr-eGv" secondAttribute="bottom" constant="70" id="oAG-FX-xUU"/>
+                <constraint firstAttribute="trailing" secondItem="eio-4U-NzU" secondAttribute="trailing" constant="-9" id="kKT-ge-cmz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="eio-4U-NzU" secondAttribute="bottom" constant="73" id="oCP-5l-Fhq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="8.5" y="-27.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="fukidashi2" width="800" height="499"/>
+        <image name="hiyoko" width="879" height="751"/>
+    </resources>
 </document>

@@ -19,7 +19,6 @@
 		AFBDE5B91F7A265500441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5B81F7A265500441353 /* .gitkeep */; };
 		AFBDE5BB1F7A267300441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BA1F7A267300441353 /* .gitkeep */; };
 		AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BC1F7A268200441353 /* .gitkeep */; };
-		AFBDE5BF1F7A268D00441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BE1F7A268D00441353 /* .gitkeep */; };
 		AFBDE5C11F7A269900441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5C01F7A269900441353 /* .gitkeep */; };
 		E4F700641F7A260700869BD5 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F700631F7A260700869BD5 /* TutorialView.xib */; };
 		E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F700651F7A2FBD00869BD5 /* ColorButton.swift */; };
@@ -61,7 +60,6 @@
 		AFBDE5B81F7A265500441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BA1F7A267300441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BC1F7A268200441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		AFBDE5BE1F7A268D00441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5C01F7A269900441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		E4F700631F7A260700869BD5 /* TutorialView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
 		E4F700651F7A2FBD00869BD5 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 			children = (
 				E4F700651F7A2FBD00869BD5 /* ColorButton.swift */,
 				E4F700631F7A260700869BD5 /* TutorialView.xib */,
-				AFBDE5BE1F7A268D00441353 /* .gitkeep */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -341,7 +338,6 @@
 				AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */,
 				AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */,
 				AFBDE5B91F7A265500441353 /* .gitkeep in Resources */,
-				AFBDE5BF1F7A268D00441353 /* .gitkeep in Resources */,
 				AFBDE5C11F7A269900441353 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
