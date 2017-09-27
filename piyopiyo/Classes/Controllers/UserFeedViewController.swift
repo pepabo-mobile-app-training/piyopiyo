@@ -1,24 +1,21 @@
-//
-//  ViewController.swift
-//  piyopiyo
-//
-//  Created by shizuna.ito on 2017/09/25.
-//  Copyright © 2017年 GMO Pepabo. All rights reserved.
-//
-
 import UIKit
-
-class UserFeedViewController: UIViewController {
+import WebKit
+class UserFeedViewController: UIViewController, WKUIDelegate {
     
+    var webView: WKWebView!
+    
+    override func loadView() {
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        view = webView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        let myURL = URL(string: "https://www.apple.com")
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
     }
     
 }
-
