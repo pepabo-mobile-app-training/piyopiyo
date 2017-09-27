@@ -10,10 +10,10 @@ import UIKit
 
 class ProfileView: UIView {
     
-    @IBOutlet weak var profileImage: UIImageView! {
+    @IBOutlet weak var profileImageView: UIImageView! {
         didSet {
-            profileImage.layer.cornerRadius = 80
-            profileImage.layer.masksToBounds = true
+            profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
+            profileImageView.layer.masksToBounds = true
         }
     }
     
