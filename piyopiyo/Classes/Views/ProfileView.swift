@@ -28,13 +28,14 @@ class ProfileView: UIView {
     }
     
     fileprivate func setup() {
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 1
+
         guard let view = Bundle.main.loadNibNamed("ProfileView", owner: self, options: nil)?.first as? UIView else {
             return
         }
         view.frame = bounds
         addSubview(view)
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.borderWidth = 1
     }
     
 }
