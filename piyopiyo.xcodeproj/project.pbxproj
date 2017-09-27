@@ -25,6 +25,8 @@
 		E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F700651F7A2FBD00869BD5 /* ColorButton.swift */; };
 		E4F700681F7A4BEA00869BD5 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F700671F7A4BEA00869BD5 /* ProfileView.xib */; };
 		E4F7006A1F7A4E8E00869BD5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F700691F7A4E8E00869BD5 /* ProfileView.swift */; };
+		E4F7006E1F7B9BB900869BD5 /* UserFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F7006D1F7B9BB900869BD5 /* UserFeed.storyboard */; };
+		E4F700701F7B9D3E00869BD5 /* UserFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7006F1F7B9D3E00869BD5 /* UserFeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		E4F700651F7A2FBD00869BD5 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		E4F700671F7A4BEA00869BD5 /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		E4F700691F7A4E8E00869BD5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E4F7006D1F7B9BB900869BD5 /* UserFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserFeed.storyboard; sourceTree = "<group>"; };
+		E4F7006F1F7B9D3E00869BD5 /* UserFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				AF161EF01F78A6FF00B2DD73 /* FeedViewController.swift */,
+				E4F7006F1F7B9D3E00869BD5 /* UserFeedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -156,7 +161,6 @@
 			children = (
 				E4F700651F7A2FBD00869BD5 /* ColorButton.swift */,
 				E4F700691F7A4E8E00869BD5 /* ProfileView.swift */,
-				E4F700631F7A260700869BD5 /* TutorialView.xib */,
 				AFBDE5C41F7A390C00441353 /* BalloonView.swift */,
 			);
 			path = Views;
@@ -167,6 +171,7 @@
 			children = (
 				AF087D981F790B2B006C6BAF /* LaunchScreen.storyboard */,
 				AF087D991F790B2B006C6BAF /* Main.storyboard */,
+				E4F7006D1F7B9BB900869BD5 /* UserFeed.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 				E4F700641F7A260700869BD5 /* TutorialView.xib in Resources */,
 				AF087D9A1F790BA5006C6BAF /* LaunchScreen.storyboard in Resources */,
 				AF087D9B1F790BA5006C6BAF /* Main.storyboard in Resources */,
+				E4F7006E1F7B9BB900869BD5 /* UserFeed.storyboard in Resources */,
 				AFBDE5BB1F7A267300441353 /* .gitkeep in Resources */,
 				AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */,
 				E4F700681F7A4BEA00869BD5 /* ProfileView.xib in Resources */,
@@ -393,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4F7006A1F7A4E8E00869BD5 /* ProfileView.swift in Sources */,
+				E4F700701F7B9D3E00869BD5 /* UserFeedViewController.swift in Sources */,
 				AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */,
 				E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */,
 				AF161EF11F78A6FF00B2DD73 /* FeedViewController.swift in Sources */,
