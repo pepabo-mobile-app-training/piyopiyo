@@ -25,6 +25,7 @@
 		E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F700651F7A2FBD00869BD5 /* ColorButton.swift */; };
 		E4F700681F7A4BEA00869BD5 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F700671F7A4BEA00869BD5 /* ProfileView.xib */; };
 		E4F7006A1F7A4E8E00869BD5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F700691F7A4E8E00869BD5 /* ProfileView.swift */; };
+		E4F7006C1F7B81F300869BD5 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7006B1F7B81F300869BD5 /* TutorialView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		E4F700651F7A2FBD00869BD5 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		E4F700671F7A4BEA00869BD5 /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		E4F700691F7A4E8E00869BD5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E4F7006B1F7B81F300869BD5 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,8 +158,8 @@
 			children = (
 				E4F700651F7A2FBD00869BD5 /* ColorButton.swift */,
 				E4F700691F7A4E8E00869BD5 /* ProfileView.swift */,
-				E4F700631F7A260700869BD5 /* TutorialView.xib */,
 				AFBDE5C41F7A390C00441353 /* BalloonView.swift */,
+				E4F7006B1F7B81F300869BD5 /* TutorialView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -394,6 +396,7 @@
 			files = (
 				E4F7006A1F7A4E8E00869BD5 /* ProfileView.swift in Sources */,
 				AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */,
+				E4F7006C1F7B81F300869BD5 /* TutorialView.swift in Sources */,
 				E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */,
 				AF161EF11F78A6FF00B2DD73 /* FeedViewController.swift in Sources */,
 				AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */,
