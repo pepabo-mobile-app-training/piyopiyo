@@ -12,14 +12,15 @@
 		AF087D9A1F790BA5006C6BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF087D981F790B2B006C6BAF /* LaunchScreen.storyboard */; };
 		AF087D9B1F790BA5006C6BAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF087D991F790B2B006C6BAF /* Main.storyboard */; };
 		AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */; };
-		AF161EF11F78A6FF00B2DD73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161EF01F78A6FF00B2DD73 /* ViewController.swift */; };
+		AF161EF11F78A6FF00B2DD73 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161EF01F78A6FF00B2DD73 /* FeedViewController.swift */; };
 		AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */; };
 		AF161F041F78A6FF00B2DD73 /* piyopiyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F031F78A6FF00B2DD73 /* piyopiyoTests.swift */; };
 		AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */; };
 		AFBDE5B91F7A265500441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5B81F7A265500441353 /* .gitkeep */; };
 		AFBDE5BB1F7A267300441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BA1F7A267300441353 /* .gitkeep */; };
 		AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BC1F7A268200441353 /* .gitkeep */; };
-		AFBDE5C11F7A269900441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5C01F7A269900441353 /* .gitkeep */; };
+		AFBDE5C31F7A34F000441353 /* BalloonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5C21F7A34F000441353 /* BalloonView.xib */; };
+		AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBDE5C41F7A390C00441353 /* BalloonView.swift */; };
 		E4F700641F7A260700869BD5 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F700631F7A260700869BD5 /* TutorialView.xib */; };
 		E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F700651F7A2FBD00869BD5 /* ColorButton.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +49,7 @@
 		AF087D991F790B2B006C6BAF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AF161EEB1F78A6FF00B2DD73 /* piyopiyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = piyopiyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AF161EF01F78A6FF00B2DD73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AF161EF01F78A6FF00B2DD73 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF161EFA1F78A6FF00B2DD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF161EFF1F78A6FF00B2DD73 /* piyopiyoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = piyopiyoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +61,8 @@
 		AFBDE5B81F7A265500441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BA1F7A267300441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BC1F7A268200441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		AFBDE5C01F7A269900441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		AFBDE5C21F7A34F000441353 /* BalloonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalloonView.xib; sourceTree = "<group>"; };
+		AFBDE5C41F7A390C00441353 /* BalloonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonView.swift; sourceTree = "<group>"; };
 		E4F700631F7A260700869BD5 /* TutorialView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
 		E4F700651F7A2FBD00869BD5 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,7 +118,7 @@
 		AF087D911F790AA4006C6BAF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AF161EF01F78A6FF00B2DD73 /* ViewController.swift */,
+				AF161EF01F78A6FF00B2DD73 /* FeedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -150,6 +152,7 @@
 			children = (
 				E4F700651F7A2FBD00869BD5 /* ColorButton.swift */,
 				E4F700631F7A260700869BD5 /* TutorialView.xib */,
+				AFBDE5C41F7A390C00441353 /* BalloonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,7 +169,7 @@
 		AF087D971F790AA4006C6BAF /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				AFBDE5C01F7A269900441353 /* .gitkeep */,
+				AFBDE5C21F7A34F000441353 /* BalloonView.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -338,7 +341,7 @@
 				AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */,
 				AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */,
 				AFBDE5B91F7A265500441353 /* .gitkeep in Resources */,
-				AFBDE5C11F7A269900441353 /* .gitkeep in Resources */,
+				AFBDE5C31F7A34F000441353 /* BalloonView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,8 +384,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */,
 				E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */,
-				AF161EF11F78A6FF00B2DD73 /* ViewController.swift in Sources */,
+				AF161EF11F78A6FF00B2DD73 /* FeedViewController.swift in Sources */,
 				AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
