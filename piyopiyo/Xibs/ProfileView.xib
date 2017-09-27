@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileView" customModule="piyopiyo" customModuleProvider="target">
             <connections>
-                <outlet property="profileImage" destination="tXe-ji-jIM" id="9Fe-JM-s87"/>
                 <outlet property="profileImageView" destination="tXe-ji-jIM" id="XIq-ge-KKG"/>
             </connections>
         </placeholder>
