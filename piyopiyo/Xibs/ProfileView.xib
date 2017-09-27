@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileView" customModule="piyopiyo" customModuleProvider="target">
+            <connections>
+                <outlet property="profileImageView" destination="tXe-ji-jIM" id="XIq-ge-KKG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unknown_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="tXe-ji-jIM">
+                    <rect key="frame" x="107" y="96" width="160" height="160"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="TeQ-yM-Efc"/>
+                        <constraint firstAttribute="height" constant="160" id="iNF-Jr-Vd1"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザー名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkk-DH-BKU">
+                    <rect key="frame" x="99" y="281" width="176.5" height="42"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFI-7O-MLE" customClass="ColorButton" customModule="piyopiyo" customModuleProvider="target">
+                    <rect key="frame" x="54" y="497" width="266" height="71"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="266" id="MsV-te-bcF"/>
+                        <constraint firstAttribute="height" constant="71" id="aH4-do-5Ew"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                    <state key="normal" title="ほかのつぶやき">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" red="0.46144349093264247" green="0.32019209552247407" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                            <color key="value" red="1" green="0.57394265120341681" blue="0.0032060943817031617" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="11"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWs-qF-ZK2">
+                    <rect key="frame" x="304" y="36" width="55" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="URm-ve-m85"/>
+                        <constraint firstAttribute="width" constant="55" id="s1S-6S-i4B"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                    <state key="normal" title="×">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TWs-qF-ZK2" secondAttribute="trailing" constant="16" id="4te-q9-No5"/>
+                <constraint firstItem="tXe-ji-jIM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="76" id="9z3-ZN-APF"/>
+                <constraint firstItem="TWs-qF-ZK2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="Flk-Cf-fc2"/>
+                <constraint firstItem="Pkk-DH-BKU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RrI-p7-Ltn"/>
+                <constraint firstItem="nFI-7O-MLE" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="X4V-R5-Hl5"/>
+                <constraint firstItem="Pkk-DH-BKU" firstAttribute="top" secondItem="tXe-ji-jIM" secondAttribute="bottom" constant="25" id="YmC-x4-A6U"/>
+                <constraint firstItem="tXe-ji-jIM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="e6Y-5G-FcN"/>
+                <constraint firstItem="nFI-7O-MLE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eMn-px-NZa"/>
+                <constraint firstItem="tXe-ji-jIM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="geF-oV-0mw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="nFI-7O-MLE" secondAttribute="bottom" constant="99" id="v9v-pF-T7J"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="25.5" y="52.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="unknown_avatar" width="150" height="150"/>
+    </resources>
+</document>
