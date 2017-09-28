@@ -1,21 +1,41 @@
 import UIKit
 import WebKit
-class UserFeedViewController: UIViewController, WKUIDelegate {
+class UserFeedViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
-    var webView: WKWebView!
     var userFeedURL: URL?
     
-    override func loadView() {
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        webView.uiDelegate = self
-        view = webView
-    }
+    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var backPageBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var forwardPageBarButtonItem: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
         let myRequest = URLRequest(url: userFeedURL!)
-        webView.load(myRequest)      
+        webView.load(myRequest)
+        checkCanNavigate()
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func backPage(_ sender: Any) {
+        webView.goBack()
+    }
+    
+    @IBAction func forwardPage(_ sender: Any) {
+        webView.goForward()
+    }
+    
+    func checkCanNavigate() {
+        backPageBarButtonItem.isEnabled = webView.canGoBack
+        forwardPageBarButtonItem.isEnabled = webView.canGoForward
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!){
+        checkCanNavigate()
+    }
+
 }
