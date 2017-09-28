@@ -35,7 +35,6 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="f9c-EM-a9B" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="13" id="63S-X3-ukH"/>
                 <constraint firstItem="2em-0u-ba3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9Za-P0-tJc"/>
