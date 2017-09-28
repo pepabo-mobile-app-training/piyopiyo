@@ -28,10 +28,10 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(balloonView)
-        setBalloon()
+        animateBalloon()
     }
 
-    private func setBalloon() {
+    private func animateBalloon() {
         UIView.animate(withDuration: 1, delay: 0.5, animations: {
             let originBalloonX = FeedViewController.initialBalloonX - FeedViewController.balloonWidth
             let originBalloonY = FeedViewController.initialBalloonY - FeedViewController.balloonHeight
@@ -45,7 +45,7 @@ class FeedViewController: UIViewController {
             }) { _ in
                 self.balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
                 self.balloonView.layoutIfNeeded()
-                self.setBalloon()
+                self.animateBalloon()
             }
         }
     }
