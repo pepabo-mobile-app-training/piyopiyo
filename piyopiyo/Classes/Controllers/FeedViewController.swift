@@ -27,8 +27,15 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addTutorial()
+        
         view.addSubview(balloonView)
         animateBalloon()
+    }
+    
+    private func addTutorial() {
+        let tutorialView = TutorialView(frame: self.view.frame)
+        view.addSubview(tutorialView)
     }
 
     private func animateBalloon() {
