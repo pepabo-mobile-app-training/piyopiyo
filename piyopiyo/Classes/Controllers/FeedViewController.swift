@@ -23,19 +23,35 @@ class FeedViewController: UIViewController {
     static let initialBalloonY = screenSize.height - bottomMargin
 
     private let balloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0))
+    private var tutorialView: TutorialView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        addTutorial()
+
+        tutorialView = TutorialView(frame: self.view.frame)
+        if let tutorialView = tutorialView {
+            addTutorial(tutorialView: tutorialView)
+        }
+    }
+
+    private func addTutorial(tutorialView: TutorialView?) {
+        guard let tutorialView = tutorialView else {
+            return
+        }
+
+        tutorialView.startButton.addTarget(self, action: #selector(self.startButtonDidTap(_:)), for: .touchUpInside)
+        view.addSubview(tutorialView)
+    }
+
+    @objc private func startButtonDidTap(_ sender: UIButton) {
+        guard let tutorialView = tutorialView else {
+            return
+        }
+
+        tutorialView.removeFromSuperview()
         
         view.addSubview(balloonView)
         animateBalloon()
-    }
-    
-    private func addTutorial() {
-        let tutorialView = TutorialView(frame: self.view.frame)
-        view.addSubview(tutorialView)
     }
 
     private func animateBalloon() {

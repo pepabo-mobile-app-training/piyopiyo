@@ -10,6 +10,8 @@ import UIKit
 
 class TutorialView: UIView {
 
+    @IBOutlet weak var startButton: ColorButton!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
