@@ -1,45 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialView" customModule="piyopiyo" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAw-AX-HPt">
-                    <rect key="frame" x="51" y="65" width="273" height="72"/>
-                    <string key="text">みんなのつぶやきが
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAw-AX-HPt">
+                    <rect key="frame" x="10" y="50" width="300" height="90"/>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">みんなのつぶやきが
 ながれるよ！</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <nil key="textColor"/>
+                            <attributes>
+                                <font key="NSFont" size="30" name="HiraMaruProN-W4"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91m-OZ-h2j">
-                    <rect key="frame" x="51" y="157" width="273" height="72"/>
-                    <string key="text">気になるつぶやきを
-タップ！</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hiyoko" translatesAutoresizingMaskIntoConstraints="NO" id="eio-4U-NzU">
-                    <rect key="frame" x="184" y="414" width="200" height="180"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hiyoko_with_baloon" translatesAutoresizingMaskIntoConstraints="NO" id="kZu-H5-JRJ">
+                    <rect key="frame" x="33" y="277" width="297" height="236"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="200" id="H7z-89-CeD"/>
-                        <constraint firstAttribute="height" constant="180" id="OXo-nL-dX8"/>
+                        <constraint firstAttribute="width" secondItem="kZu-H5-JRJ" secondAttribute="height" multiplier="44:35" id="kfg-t6-eDc"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khC-Ep-hpp" customClass="ColorButton" customModule="piyopiyo" customModuleProvider="target">
-                    <rect key="frame" x="62.5" y="557" width="250" height="50"/>
+                    <rect key="frame" x="35" y="458" width="250" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="XI5-WV-dvh"/>
                         <constraint firstAttribute="height" constant="50" id="m3w-FK-ZnX"/>
@@ -57,33 +55,43 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fukidashi2" translatesAutoresizingMaskIntoConstraints="NO" id="Tcx-dR-10U">
-                    <rect key="frame" x="52" y="270" width="250" height="150"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="150" id="6IT-Dn-YaN"/>
-                        <constraint firstAttribute="width" constant="250" id="CGa-Xa-kVw"/>
-                    </constraints>
-                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91m-OZ-h2j">
+                    <rect key="frame" x="10" y="155" width="300" height="90"/>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">気になるつぶやきを
+タップ！</string>
+                            <attributes>
+                                <font key="NSFont" size="30" name="HiraMaruProN-W4"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="bAw-AX-HPt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="45" id="5d8-eF-tMh"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="khC-Ep-hpp" secondAttribute="bottom" constant="60" id="NFJ-vD-GJP"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Tcx-dR-10U" secondAttribute="trailing" constant="73" id="NrP-gc-1cV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="khC-Ep-hpp" secondAttribute="bottom" constant="60" id="0HJ-LE-Unw"/>
+                <constraint firstItem="kZu-H5-JRJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="33" id="2sT-pQ-0fO"/>
+                <constraint firstItem="bAw-AX-HPt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="5d8-eF-tMh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="kZu-H5-JRJ" secondAttribute="bottom" constant="55" id="Lkf-eu-q9C"/>
+                <constraint firstItem="91m-OZ-h2j" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="Oxg-W4-Prg"/>
                 <constraint firstItem="91m-OZ-h2j" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Y9f-C8-9tD"/>
-                <constraint firstItem="khC-Ep-hpp" firstAttribute="top" secondItem="Tcx-dR-10U" secondAttribute="bottom" constant="137" id="Ysh-GT-gEy"/>
                 <constraint firstItem="khC-Ep-hpp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZJb-46-k1d"/>
-                <constraint firstItem="91m-OZ-h2j" firstAttribute="top" secondItem="bAw-AX-HPt" secondAttribute="bottom" constant="20" id="feN-OV-e6r"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bAw-AX-HPt" secondAttribute="trailing" constant="10" id="iqP-3E-mVY"/>
                 <constraint firstItem="bAw-AX-HPt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jtp-t7-HmE"/>
-                <constraint firstAttribute="trailing" secondItem="eio-4U-NzU" secondAttribute="trailing" constant="-9" id="kKT-ge-cmz"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="eio-4U-NzU" secondAttribute="bottom" constant="73" id="oCP-5l-Fhq"/>
+                <constraint firstItem="bAw-AX-HPt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="mPU-RE-Zu3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="91m-OZ-h2j" secondAttribute="trailing" constant="10" id="mXY-Ux-hgR"/>
+                <constraint firstItem="91m-OZ-h2j" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mtU-23-d6W"/>
+                <constraint firstAttribute="trailing" secondItem="kZu-H5-JRJ" secondAttribute="trailing" constant="-10" id="pS5-rk-VCN"/>
+                <constraint firstItem="91m-OZ-h2j" firstAttribute="top" secondItem="bAw-AX-HPt" secondAttribute="bottom" constant="15" id="wsO-sC-hYN"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="8.5" y="-27.5"/>
+            <point key="canvasLocation" x="7.5" y="-28.5"/>
         </view>
     </objects>
     <resources>
-        <image name="fukidashi2" width="800" height="499"/>
-        <image name="hiyoko" width="879" height="751"/>
+        <image name="hiyoko_with_baloon" width="1498" height="1128"/>
     </resources>
 </document>
