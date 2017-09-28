@@ -3,6 +3,7 @@ import WebKit
 class UserFeedViewController: UIViewController, WKUIDelegate {
     
     var webView: WKWebView!
+    var userFeedURL: URL?
     
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
@@ -13,9 +14,8 @@ class UserFeedViewController: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let myURL = URL(string: "https://www.apple.com")
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
+        let myRequest = URLRequest(url: userFeedURL!)
+        webView.load(myRequest)      
     }
     
 }

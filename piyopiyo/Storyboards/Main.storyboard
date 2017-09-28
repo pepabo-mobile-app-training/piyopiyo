@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,17 +25,36 @@
                                     <constraint firstAttribute="width" secondItem="s90-Ne-38h" secondAttribute="height" multiplier="1:1" id="xpF-jq-uV2"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chp-2j-3lJ">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Xpz-S5-9ha" kind="show" id="dDt-LH-LNZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="s90-Ne-38h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="24d-C9-G4R"/>
+                            <constraint firstItem="Chp-2j-3lJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BLB-sv-E2I"/>
                             <constraint firstItem="s90-Ne-38h" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="LHd-p8-nXU"/>
+                            <constraint firstItem="Chp-2j-3lJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OVy-zu-sgN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cGc-Bw-a8u"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="488.80000000000001" y="35.532233883058474"/>
+        </scene>
+        <!--UserFeed-->
+        <scene sceneID="FmK-B0-DII">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserFeed" id="Xpz-S5-9ha" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ruI-IO-4ze" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1031" y="35"/>
         </scene>
     </scenes>
     <resources>

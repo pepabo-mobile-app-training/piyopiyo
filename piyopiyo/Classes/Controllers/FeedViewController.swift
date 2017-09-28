@@ -20,4 +20,9 @@ class FeedViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        // Mainから遷移する前の準備
+        let vc = segue.destination as? UserFeedViewController
+        vc!.userFeedURL = URL(string: "https://www.google.com")
+    }
 }
