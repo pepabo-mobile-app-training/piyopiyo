@@ -42,6 +42,7 @@
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khC-Ep-hpp" customClass="ColorButton" customModule="piyopiyo" customModuleProvider="target">
                     <rect key="frame" x="35" y="458" width="250" height="50"/>
+                    <accessibility key="accessibilityConfiguration" identifier="startButton"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="XI5-WV-dvh"/>
                         <constraint firstAttribute="height" constant="50" id="m3w-FK-ZnX"/>
