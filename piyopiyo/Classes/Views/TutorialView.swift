@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol TutorialDelegate: class {
+    func startButtonDidTap()
+}
+
 class TutorialView: UIView {
 
+    weak var delegate: TutorialDelegate?
     @IBOutlet weak var startButton: ColorButton!
 
     override init(frame: CGRect) {
@@ -30,4 +35,8 @@ class TutorialView: UIView {
         addSubview(view)
     }
     
+    @IBAction func startButtonDidTap(_ sender: ColorButton) {
+        removeFromSuperview()
+        delegate?.startButtonDidTap()
+    }
 }
