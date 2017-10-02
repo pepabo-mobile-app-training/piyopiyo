@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, TutorialDelegate {
 
     static let screenSize = UIScreen.main.bounds.size
     static let hiyokoHeight: CGFloat = 100.0
@@ -23,10 +23,28 @@ class FeedViewController: UIViewController {
     static let initialBalloonY = screenSize.height - bottomMargin
 
     private let balloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0))
+    private var tutorialView: TutorialView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        tutorialView = TutorialView(frame: self.view.frame)
+        if let tutorialView = tutorialView {
+            tutorialView.delegate = self
+            addTutorial(tutorialView: tutorialView)
+        }
+    }
+
+    private func addTutorial(tutorialView: TutorialView?) {
+        guard let tutorialView = tutorialView else {
+            return
+        }
+
+        view.addSubview(tutorialView)
+    }
+
+    
+    func startButtonDidTap() {
         view.addSubview(balloonView)
         animateBalloon()
     }
