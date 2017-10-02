@@ -27,7 +27,7 @@ class UserFeedControllerTests: XCTestCase {
     func testLoadInitialPage() {
         let app = XCUIApplication()
         let gotoButton = app.buttons["GotoWebView"]
-        gotoBtn.tap()
+        gotoButton.tap()
         
         XCTAssertTrue(app.otherElements["userFeedWebView"].waitForExistence(timeout: 10))
         XCTAssertTrue(app.buttons[">"].exists)
