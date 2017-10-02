@@ -2,6 +2,7 @@ import UIKit
 import WebKit
 class UserFeedViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
+    let defaultURL = URL(string: "http://shizuna.xyz")
     var userFeedURL: URL?
     
     @IBOutlet weak var webView: WKWebView!
@@ -13,10 +14,7 @@ class UserFeedViewController: UIViewController, WKUIDelegate, WKNavigationDelega
         webView.accessibilityIdentifier = "userFeedWebView"
         webView.uiDelegate = self
         webView.navigationDelegate = self
-        guard let url = userFeedURL else {
-            return
-        }
-        let myRequest = URLRequest(url: url)
+        let myRequest = URLRequest(url: userFeedURL ?? defaultURL!)
         webView.load(myRequest)
         checkCanNavigate()
     }
