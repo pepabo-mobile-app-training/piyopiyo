@@ -13,7 +13,10 @@ class UserFeedViewController: UIViewController, WKUIDelegate, WKNavigationDelega
         webView.accessibilityIdentifier = "userFeedWebView"
         webView.uiDelegate = self
         webView.navigationDelegate = self
-        let myRequest = URLRequest(url: userFeedURL!)
+        guard let url = userFeedURL else {
+            return
+        }
+        let myRequest = URLRequest(url: url)
         webView.load(myRequest)
         checkCanNavigate()
     }
