@@ -31,8 +31,6 @@ class UserFeedViewController: UIViewController, WKUIDelegate, WKNavigationDelega
     }
     
     func checkCanNavigate() {
-        print(webView.url!.absoluteString)
-
         backPageBarButtonItem.isEnabled = webView.canGoBack
         forwardPageBarButtonItem.isEnabled = webView.canGoForward
     }
