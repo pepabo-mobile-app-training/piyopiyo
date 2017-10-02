@@ -25,13 +25,13 @@ class FeedUITests: XCTestCase {
         let app = XCUIApplication()
         let startButton = app.buttons["startButton"]
         let commentTextView = app.textViews["commentLabel"]
-        let duration: TimeInterval = 5.0
+        let durationOfBalloon: TimeInterval = 5.0
         
         XCTAssert(startButton.exists)
         
         startButton.tap()
         XCTAssertFalse(startButton.exists)
 
-        XCTAssert(commentTextView.waitForExistence(timeout: duration))
+        XCTAssert(commentTextView.waitForExistence(timeout: durationOfBalloon))
     }
 }
