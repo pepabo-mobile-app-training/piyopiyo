@@ -24,6 +24,7 @@
                 </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9c-EM-a9B">
                     <rect key="frame" x="20" y="13" width="223" height="111"/>
+                    <accessibility key="accessibilityConfiguration" identifier="commentLabel"/>
                     <attributedString key="attributedText">
                         <fragment content="今日はいい天気だなあ。朝食も美味しかったなあ。">
                             <attributes>
