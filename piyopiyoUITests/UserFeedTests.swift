@@ -19,14 +19,18 @@ class UserFeedControllerTests: XCTestCase {
         continueAfterFailure = false
         XCUIApplication().launch()
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func testLoadInitialPage() {
         let app = XCUIApplication()
+        
+        app.buttons["はじめる"].tap()
+        
         let gotoButton = app.buttons["GotoWebView"]
+        XCTAssertTrue(gotoButton.waitForExistence(timeout: 10))
         gotoButton.tap()
         
         XCTAssertTrue(app.otherElements["userFeedWebView"].waitForExistence(timeout: 10))
