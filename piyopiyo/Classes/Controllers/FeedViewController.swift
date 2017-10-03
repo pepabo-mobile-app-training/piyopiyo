@@ -70,7 +70,11 @@ class FeedViewController: UIViewController, TutorialDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        //画面遷移時にURLを設定する実装にひとまずしてある状態
+        let vc = segue.destination as? UserFeedViewController
+        vc!.userFeedURL = URL(string: "https://www.google.com")
+    }
 }
