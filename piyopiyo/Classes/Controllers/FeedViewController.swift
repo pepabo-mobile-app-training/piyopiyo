@@ -33,6 +33,11 @@ class FeedViewController: UIViewController, TutorialDelegate {
             tutorialView.delegate = self
             addTutorial(tutorialView: tutorialView)
         }
+        
+        Micropost.fetchRandomMicroposts() { microposts in
+            print("---------------------------")
+            dump(microposts)
+        }
     }
 
     private func addTutorial(tutorialView: TutorialView?) {
