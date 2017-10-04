@@ -25,7 +25,6 @@ class FeedViewController: UIViewController, TutorialDelegate {
     static let balloonCount = 3
     
     private var balloonCycleCount: Int = 0
-    private let balloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0))
     private var balloonViews = [BalloonView]()
     private var tutorialView: TutorialView?
 
@@ -58,7 +57,6 @@ class FeedViewController: UIViewController, TutorialDelegate {
     
     func startButtonDidTap() {
         makeBalloons(FeedViewController.balloonCount)
-        view.addSubview(balloonView)
         
         for i in 0..<FeedViewController.balloonCount {
             let dispatchTime: DispatchTime = DispatchTime.now() + Double(1.7 * Double(i))
