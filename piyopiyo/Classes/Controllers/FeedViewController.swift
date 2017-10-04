@@ -49,7 +49,7 @@ class FeedViewController: UIViewController, TutorialDelegate {
     
     func makeBalloons(_ count: Int) {
         for i in 0..<count {
-            let addBalloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY + CGFloat(i * 20), width: 0, height: 0))
+            let addBalloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0))
             addBalloonView.textView.accessibilityIdentifier = "balloonText\(i)"
             balloonViews += [addBalloonView]
             view.addSubview(addBalloonView)
