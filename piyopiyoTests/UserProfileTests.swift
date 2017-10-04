@@ -20,9 +20,15 @@ class UserProfileTests: XCTestCase {
     }
     
     func testFetchUserProfile() {
-        UserProfile.fetchUserProfile(userID: 1) { profiles in
-            XCTAssertEqual(profiles.userID, 1)
+        let fetchUserProfileExpectation: XCTestExpectation? = self.expectation(description: "fetchUserProfile")
+
+        UserProfile.fetchUserProfile(userID: 1) { profile in
+            XCTAssertEqual(profile.userID, 1)
+            XCTAssertFalse(profile.name.isEmpty)
+            XCTAssertNotNil(profile.avatarURL)
+            fetchUserProfileExpectation?.fulfill()
         }
+        waitForExpectations(timeout: 10, handler: nil)
     }
     
 }
