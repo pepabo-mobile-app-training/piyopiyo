@@ -20,10 +20,8 @@ class APIClient {
         Alamofire.request(url, method: method).validate(statusCode: 200...299).responseJSON { response in
             switch response.result {
             case .success(let value):
-                print(value)
                 handler(JSON(value))
             case .failure(let error):
-                print(error)
                 handler([])
             }
         }
