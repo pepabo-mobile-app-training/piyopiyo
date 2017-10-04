@@ -9,7 +9,7 @@
 import UIKit
 
 class FeedViewController: UIViewController, TutorialDelegate {
-    
+
     static let screenSize = UIScreen.main.bounds.size
     static let hiyokoHeight: CGFloat = 100.0
     
@@ -23,9 +23,8 @@ class FeedViewController: UIViewController, TutorialDelegate {
     static let initialBalloonY = screenSize.height - bottomMargin
 
     private let balloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0))
-
     private var tutorialView: TutorialView?
- 
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
