@@ -21,6 +21,7 @@
 		AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BC1F7A268200441353 /* .gitkeep */; };
 		AFBDE5C31F7A34F000441353 /* BalloonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5C21F7A34F000441353 /* BalloonView.xib */; };
 		AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBDE5C41F7A390C00441353 /* BalloonView.swift */; };
+		AFE82D701F84B6E80009EFD2 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE82D6F1F84B6E80009EFD2 /* ColorPalette.swift */; };
 		AFECFAD31F7DF321001A9A0E /* FeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */; };
 		E4744B761F7CEC2D0013619D /* UserFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4744B751F7CEC2D0013619D /* UserFeedTests.swift */; };
 		E4AE01DB1F84A761002A1446 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE01DA1F84A761002A1446 /* UserProfile.swift */; };
@@ -75,6 +76,7 @@
 		AFBDE5BC1F7A268200441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5C21F7A34F000441353 /* BalloonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalloonView.xib; sourceTree = "<group>"; };
 		AFBDE5C41F7A390C00441353 /* BalloonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonView.swift; sourceTree = "<group>"; };
+		AFE82D6F1F84B6E80009EFD2 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUITests.swift; sourceTree = "<group>"; };
 		E4744B751F7CEC2D0013619D /* UserFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedTests.swift; sourceTree = "<group>"; };
 		E4AE01DA1F84A761002A1446 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				AFBDE5B81F7A265500441353 /* .gitkeep */,
 				E4D89D9F1F833AE0006A419A /* APIClient.swift */,
+				AFE82D6F1F84B6E80009EFD2 /* ColorPalette.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */,
 				E4D89DA01F833AE1006A419A /* APIClient.swift in Sources */,
 				E4F7006C1F7B81F300869BD5 /* TutorialView.swift in Sources */,
+				AFE82D701F84B6E80009EFD2 /* ColorPalette.swift in Sources */,
 				E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */,
 				AF161EF11F78A6FF00B2DD73 /* FeedViewController.swift in Sources */,
 				AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */,
