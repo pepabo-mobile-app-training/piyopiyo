@@ -20,8 +20,10 @@ class APIClient {
         Alamofire.request(url, method: method).validate(statusCode: 200...299).responseJSON { response in
             switch response.result {
             case .success(let value):
+                print(value)
                 handler(JSON(value))
             case .failure(let error):
+                print(error)
                 handler([])
             }
         }
@@ -34,16 +36,19 @@ class APIClient {
 
 enum Endpoint {
     case randomMicroposts
+    case userProfile(Int)
     
     func method() -> HTTPMethod {
         switch self {
         case .randomMicroposts: return .get
+        case .userProfile: return .get
         }
     }
     
     func path() -> String {
         switch self {
         case .randomMicroposts: return "/api/random"
+        case .userProfile(let val): return "/api/users/\(String(val))/profile"
         }
     }
 }

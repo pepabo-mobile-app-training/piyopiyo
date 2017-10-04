@@ -33,6 +33,10 @@ class FeedViewController: UIViewController, TutorialDelegate {
             tutorialView.delegate = self
             addTutorial(tutorialView: tutorialView)
         }
+        
+        UserProfile.fetchUserProfile(userID: 1) {profiles in
+            dump(profiles)
+        }
     }
 
     private func addTutorial(tutorialView: TutorialView?) {
