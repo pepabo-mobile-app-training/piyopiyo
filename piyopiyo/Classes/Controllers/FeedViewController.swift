@@ -22,8 +22,13 @@ class FeedViewController: UIViewController, TutorialDelegate {
     static let initialBalloonX = trailingMargin + balloonWidth
     static let initialBalloonY = screenSize.height - bottomMargin
 
+    static let balloonCount = 3
+    
+    private var balloonCycleCount: Int = 0
     private let balloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0))
     private var balloonViews = [BalloonView]()
+    private var balloonLower: BalloonView?
+    private var balloonHigher: BalloonView?
     private var tutorialView: TutorialView?
 
     override func viewDidLoad() {
@@ -44,29 +49,34 @@ class FeedViewController: UIViewController, TutorialDelegate {
         view.addSubview(tutorialView)
     }
     
-    func makeBalloons(_ count: Int){
+    func makeBalloons(_ count: Int) {
         for i in 0..<count {
             let addBalloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY + CGFloat(i * 20), width: 10, height: 10))
             balloonViews += [addBalloonView]
             view.addSubview(addBalloonView)
+            if( i == 0 ) {
+                balloonLower = addBalloonView
+            }
+            else if( i == count-1 ) {
+                balloonHigher = addBalloonView
+            }
         }
     }
     
     func startButtonDidTap() {
-        makeBalloons(5)
+        makeBalloons(FeedViewController.balloonCount)
         view.addSubview(balloonView)
-
         
-        for i in 0..<3 {
+        for i in 0..<FeedViewController.balloonCount {
             let dispatchTime: DispatchTime = DispatchTime.now() + Double(1.7 * Double(i))
             DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
-                self.animateBalloon(self.balloonViews[i])
+                self.animateBalloon(self.balloonViews[i], numberOfBalloon: i)
             }
         }
 
     }
 
-    private func animateBalloon(_ balloonView: BalloonView) {
+    private func animateBalloon(_ balloonView: BalloonView, numberOfBalloon: Int) {
         let originBalloonX = FeedViewController.initialBalloonX - FeedViewController.balloonWidth
         let originBalloonY = FeedViewController.initialBalloonY - FeedViewController.balloonHeight
 
@@ -95,7 +105,13 @@ class FeedViewController: UIViewController, TutorialDelegate {
         animator.addAnimations(flyAnimator, delayFactor: 0.2)
 
         animator.addCompletion {_ in
-            self.animateBalloon(balloonView)
+            self.balloonCycleCount += 1
+            if( numberOfBalloon == 2) {
+                self.balloonCycleCount = 0
+            }
+            print(self.balloonCycleCount)
+            balloonView.layer.zPosition = CGFloat(self.balloonCycleCount)
+            self.animateBalloon(balloonView, numberOfBalloon: numberOfBalloon)
         }
 
         animator.startAnimation()
@@ -105,7 +121,7 @@ class FeedViewController: UIViewController, TutorialDelegate {
         super.didReceiveMemoryWarning()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //画面遷移時にURLを設定する実装にひとまずしてある状態
         let vc = segue.destination as? UserFeedViewController
         vc!.userFeedURL = URL(string: "https://www.google.com")
