@@ -33,7 +33,6 @@ class FeedViewController: UIViewController, TutorialDelegate {
             tutorialView.delegate = self
             addTutorial(tutorialView: tutorialView)
         }
-
     }
 
     private func addTutorial(tutorialView: TutorialView?) {
