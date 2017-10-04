@@ -77,6 +77,10 @@ class FeedViewController: UIViewController, TutorialDelegate {
         animator.addAnimations(completeInflationAnimator, delayFactor: 0.2)
         animator.addAnimations(flyAnimator, delayFactor: 0.2)
 
+        animator.addCompletion {_ in
+            self.animateBalloon()
+        }
+
         animator.startAnimation()
     }
 
