@@ -42,7 +42,6 @@ class FeedViewController: UIViewController, TutorialDelegate {
 
         view.addSubview(tutorialView)
     }
-
     
     func startButtonDidTap() {
         view.addSubview(balloonView)
@@ -50,22 +49,38 @@ class FeedViewController: UIViewController, TutorialDelegate {
     }
 
     private func animateBalloon() {
-        UIView.animate(withDuration: 1, delay: 0.5, animations: {
-            let originBalloonX = FeedViewController.initialBalloonX - FeedViewController.balloonWidth
-            let originBalloonY = FeedViewController.initialBalloonY - FeedViewController.balloonHeight
-            
-            self.balloonView.frame = CGRect(x: originBalloonX, y: originBalloonY, width: FeedViewController.balloonWidth, height: FeedViewController.balloonHeight)
+        let originBalloonX = FeedViewController.initialBalloonX - FeedViewController.balloonWidth
+        let originBalloonY = FeedViewController.initialBalloonY - FeedViewController.balloonHeight
+
+        self.balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
+        self.balloonView.layoutIfNeeded()
+
+        let animator = UIViewPropertyAnimator(duration: 5.0, curve: .easeIn, animations: nil)
+
+        let inflateAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .linear) {
+            self.balloonView.frame = CGRect(x: originBalloonX, y: originBalloonY, width: FeedViewController.balloonWidth - 0.1, height: FeedViewController.balloonHeight - 0.1)
             self.balloonView.layoutIfNeeded()
-        }) { _ in
-            UIView.animate(withDuration: 5, delay: 0.5, animations: {
-                self.balloonView.frame.origin.y = -FeedViewController.balloonHeight
-                self.balloonView.layoutIfNeeded()
-            }) { _ in
-                self.balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
-                self.balloonView.layoutIfNeeded()
-                self.animateBalloon()
-            }
         }
+
+        func completeInflationAnimator() {
+            self.balloonView.frame.size = CGSize(width: FeedViewController.balloonWidth, height: FeedViewController.balloonHeight)
+            self.balloonView.layoutIfNeeded()
+        }
+
+        func flyAnimator() {
+            self.balloonView.frame.origin.y = -FeedViewController.balloonHeight
+            self.balloonView.layoutIfNeeded()
+        }
+
+        animator.addAnimations(inflateAnimator.startAnimation)
+        animator.addAnimations(completeInflationAnimator, delayFactor: 0.2)
+        animator.addAnimations(flyAnimator, delayFactor: 0.2)
+
+        animator.addCompletion {_ in
+            self.animateBalloon()
+        }
+
+        animator.startAnimation()
     }
 
     override func didReceiveMemoryWarning() {
