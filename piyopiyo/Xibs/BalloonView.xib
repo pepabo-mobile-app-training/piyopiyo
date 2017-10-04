@@ -25,6 +25,7 @@
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9c-EM-a9B">
                     <rect key="frame" x="20" y="13" width="223" height="111"/>
                     <accessibility key="accessibilityConfiguration" identifier="commentLabel"/>
+                    <gestureRecognizers/>
                     <attributedString key="attributedText">
                         <fragment content="今日はいい天気だなあ。朝食も美味しかったなあ。">
                             <attributes>
@@ -34,8 +35,12 @@
                         </fragment>
                     </attributedString>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="keT-wI-qiX" appends="YES" id="whQ-1u-yCa"/>
+                    </connections>
                 </textView>
             </subviews>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="f9c-EM-a9B" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="13" id="63S-X3-ukH"/>
                 <constraint firstItem="2em-0u-ba3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9Za-P0-tJc"/>
@@ -50,6 +55,11 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="43" y="-164"/>
         </view>
+        <tapGestureRecognizer cancelsTouchesInView="NO" id="keT-wI-qiX">
+            <connections>
+                <action selector="tap:" destination="-1" id="caB-s7-BdX"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="balloon" width="800" height="499"/>
