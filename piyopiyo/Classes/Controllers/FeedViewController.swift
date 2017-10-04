@@ -54,10 +54,9 @@ class FeedViewController: UIViewController, TutorialDelegate {
             let addBalloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY + CGFloat(i * 20), width: 10, height: 10))
             balloonViews += [addBalloonView]
             view.addSubview(addBalloonView)
-            if( i == 0 ) {
+            if i == 0 {
                 balloonLower = addBalloonView
-            }
-            else if( i == count-1 ) {
+            } else if i == count - 1 {
                 balloonHigher = addBalloonView
             }
         }
@@ -106,10 +105,9 @@ class FeedViewController: UIViewController, TutorialDelegate {
 
         animator.addCompletion {_ in
             self.balloonCycleCount += 1
-            if( numberOfBalloon == 2) {
+            if numberOfBalloon == 2 {
                 self.balloonCycleCount = 0
             }
-            print(self.balloonCycleCount)
             balloonView.layer.zPosition = CGFloat(self.balloonCycleCount)
             self.animateBalloon(balloonView, numberOfBalloon: numberOfBalloon)
         }
