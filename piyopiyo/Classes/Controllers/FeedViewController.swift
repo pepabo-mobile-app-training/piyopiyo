@@ -27,8 +27,6 @@ class FeedViewController: UIViewController, TutorialDelegate {
     private var balloonCycleCount: Int = 0
     private let balloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0))
     private var balloonViews = [BalloonView]()
-    private var balloonLower: BalloonView?
-    private var balloonHigher: BalloonView?
     private var tutorialView: TutorialView?
 
     override func viewDidLoad() {
@@ -54,11 +52,6 @@ class FeedViewController: UIViewController, TutorialDelegate {
             let addBalloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY + CGFloat(i * 20), width: 10, height: 10))
             balloonViews += [addBalloonView]
             view.addSubview(addBalloonView)
-            if i == 0 {
-                balloonLower = addBalloonView
-            } else if i == count - 1 {
-                balloonHigher = addBalloonView
-            }
         }
     }
     
