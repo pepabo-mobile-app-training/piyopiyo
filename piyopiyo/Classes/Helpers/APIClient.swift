@@ -46,7 +46,7 @@ enum Endpoint {
     func path() -> String {
         switch self {
         case .randomMicroposts: return "/api/random"
-        case .userProfile(let val): return "/api/users/\(String(val))/profile"
+        case .userProfile(let value): return "/api/users/\(String(value))/profile"
         }
     }
 }
