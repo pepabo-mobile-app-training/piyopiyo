@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedViewController: UIViewController, TutorialDelegate {
+class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegate {
 
     static let screenSize = UIScreen.main.bounds.size
     static let hiyokoHeight: CGFloat = 100.0
@@ -26,16 +26,26 @@ class FeedViewController: UIViewController, TutorialDelegate {
     
     private var balloonCycleCount: Int = 0
     private var balloonViews = [BalloonView]()
+    
+    static let originalProfileSize = CGSize(width: 280, height: 500)
+    static let originalProfilePoint = CGPoint(x: (screenSize.width - originalProfileSize.width)/2, y: (screenSize.height - originalProfileSize.height)/2)
+
     private var tutorialView: TutorialView?
+    private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
+    private var profileBackgroundView = UIView(frame: CGRect(origin: CGPoint.zero, size: FeedViewController.screenSize))
+
+    private let animator = UIViewPropertyAnimator(duration: 5.0, curve: .easeIn, animations: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        balloonView.delegate = self
         tutorialView = TutorialView(frame: self.view.frame)
         if let tutorialView = tutorialView {
             tutorialView.delegate = self
             addTutorial(tutorialView: tutorialView)
         }
+        profileBackgroundView.backgroundColor = ColorPalette.profileBackgroundColor
     }
 
     private func addTutorial(tutorialView: TutorialView?) {
@@ -74,8 +84,6 @@ class FeedViewController: UIViewController, TutorialDelegate {
         balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
         balloonView.layoutIfNeeded()
 
-        let animator = UIViewPropertyAnimator(duration: 5.0, curve: .easeIn, animations: nil)
-
         let inflateAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .linear) {
             balloonView.frame = CGRect(x: originBalloonX, y: originBalloonY, width: FeedViewController.balloonWidth - 0.1, height: FeedViewController.balloonHeight - 0.1)
             balloonView.layoutIfNeeded()
@@ -105,6 +113,12 @@ class FeedViewController: UIViewController, TutorialDelegate {
         }
 
         animator.startAnimation()
+    }
+
+    func textViewDidTap() {
+        animator.pauseAnimation()
+        view.addSubview(profileBackgroundView)
+        view.addSubview(profileView)
     }
 
     override func didReceiveMemoryWarning() {
