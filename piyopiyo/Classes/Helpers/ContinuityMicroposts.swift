@@ -29,10 +29,10 @@ class ContinuityMicroposts {
     
     func getMicropost() -> Micropost? {
         if microposts.count < ContinuityMicroposts.lowestMicropostCount {
-            self.fetchMicroposts()
+            fetchMicroposts()
         }
         if microposts.count != 0 {
-            return self.microposts.removeFirst()
+            return microposts.removeFirst()
         } else {
             return nil
         }
