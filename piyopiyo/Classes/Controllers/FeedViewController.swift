@@ -119,6 +119,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func textViewDidTap() {
         view.addSubview(profileBackgroundView)
         view.addSubview(profileView)
+        profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.balloonCount + 1)
+        profileView.layer.zPosition = CGFloat(FeedViewController.balloonCount + 2)
     }
 
     func closeButtonDidTap() {
