@@ -37,7 +37,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        balloonView.delegate = self
         tutorialView = TutorialView(frame: self.view.frame)
         if let tutorialView = tutorialView {
             tutorialView.delegate = self
@@ -60,6 +59,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             let balloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0))
             balloonView.textView.accessibilityIdentifier = "balloonText\(i)"
             balloonViews += [balloonView]
+            balloonView.delegate = self
             view.addSubview(balloonView)
         }
     }
