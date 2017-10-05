@@ -11,6 +11,7 @@
 		AF087D8F1F78E3DB006C6BAF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF087D8D1F78E3DB006C6BAF /* Alamofire.framework */; };
 		AF087D9A1F790BA5006C6BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF087D981F790B2B006C6BAF /* LaunchScreen.storyboard */; };
 		AF087D9B1F790BA5006C6BAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF087D991F790B2B006C6BAF /* Main.storyboard */; };
+		AF113E2A1F8609070026921A /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF113E291F8609070026921A /* ColorPalette.swift */; };
 		AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */; };
 		AF161EF11F78A6FF00B2DD73 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161EF01F78A6FF00B2DD73 /* FeedViewController.swift */; };
 		AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		AF087D8D1F78E3DB006C6BAF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		AF087D981F790B2B006C6BAF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF087D991F790B2B006C6BAF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		AF113E291F8609070026921A /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		AF161EEB1F78A6FF00B2DD73 /* piyopiyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = piyopiyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF161EF01F78A6FF00B2DD73 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				AFBDE5B81F7A265500441353 /* .gitkeep */,
 				E4D89D9F1F833AE0006A419A /* APIClient.swift */,
 				E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */,
+				AF113E291F8609070026921A /* ColorPalette.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				AF161EEF1F78A6FF00B2DD73 /* AppDelegate.swift in Sources */,
 				E4AE01DB1F84A761002A1446 /* UserProfile.swift in Sources */,
 				E4D89DA21F833BE2006A419A /* Micropost.swift in Sources */,
+				AF113E2A1F8609070026921A /* ColorPalette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

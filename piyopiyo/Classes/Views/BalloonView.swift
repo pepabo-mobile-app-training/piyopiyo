@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol BalloonViewDelegate: class {
+    func textViewDidTap()
+}
+
 class BalloonView: UIView {
     
+    weak var delegate: BalloonViewDelegate?
     @IBOutlet weak var textView: UITextView!
     
     var micropost: Micropost? {
@@ -37,5 +42,9 @@ class BalloonView: UIView {
         }
         view.frame = bounds
         addSubview(view)
+    }
+
+    @IBAction func tap(_ sender: UIGestureRecognizer) {
+        delegate?.textViewDidTap()
     }
 }
