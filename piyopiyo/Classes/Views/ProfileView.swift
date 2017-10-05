@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol ProfileViewDelegate: class {
+    func closeButtonDidTap()
+}
+
 class ProfileView: UIView {
     
+    weak var delegate: ProfileViewDelegate?
     @IBOutlet weak var profileImageView: UIImageView! {
         didSet {
             profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
@@ -38,4 +43,8 @@ class ProfileView: UIView {
         addSubview(view)
     }
     
+    @IBAction func closeButtonDidTap(_ sender: UIButton) {
+        delegate?.closeButtonDidTap()
+        removeFromSuperview()
+    }
 }

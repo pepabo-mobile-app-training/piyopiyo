@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedViewController: UIViewController, TutorialDelegate {
+class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegate , ProfileViewDelegate {
 
     static let screenSize = UIScreen.main.bounds.size
     static let hiyokoHeight: CGFloat = 100.0
@@ -26,7 +26,13 @@ class FeedViewController: UIViewController, TutorialDelegate {
     
     private var balloonCycleCount: Int = 0
     private var balloonViews = [BalloonView]()
+    
+    static let originalProfileSize = CGSize(width: 300, height: 533.5)
+    static let originalProfilePoint = CGPoint(x: (screenSize.width - originalProfileSize.width)/2, y: (screenSize.height - originalProfileSize.height)/2)
+
     private var tutorialView: TutorialView?
+    private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
+    private var profileBackgroundView = UIView(frame: CGRect(origin: CGPoint.zero, size: FeedViewController.screenSize))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,8 @@ class FeedViewController: UIViewController, TutorialDelegate {
             tutorialView.delegate = self
             addTutorial(tutorialView: tutorialView)
         }
+        profileView.delegate = self
+        profileBackgroundView.backgroundColor = ColorPalette.profileBackgroundColor
     }
 
     private func addTutorial(tutorialView: TutorialView?) {
@@ -51,6 +59,7 @@ class FeedViewController: UIViewController, TutorialDelegate {
             let balloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0))
             balloonView.textView.accessibilityIdentifier = "balloonText\(i)"
             balloonViews += [balloonView]
+            balloonView.delegate = self
             view.addSubview(balloonView)
         }
     }
@@ -105,6 +114,17 @@ class FeedViewController: UIViewController, TutorialDelegate {
         }
 
         animator.startAnimation()
+    }
+
+    func textViewDidTap() {
+        view.addSubview(profileBackgroundView)
+        view.addSubview(profileView)
+        profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.balloonCount + 1)
+        profileView.layer.zPosition = CGFloat(FeedViewController.balloonCount + 2)
+    }
+
+    func closeButtonDidTap() {
+        profileBackgroundView.removeFromSuperview()
     }
 
     override func didReceiveMemoryWarning() {
