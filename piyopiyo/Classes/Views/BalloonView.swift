@@ -12,6 +12,15 @@ class BalloonView: UIView {
     
     @IBOutlet weak var textView: UITextView!
     
+    var micropost: Micropost? {
+        didSet {
+            guard let micropost = micropost else {
+                return
+            }
+            textView.text = micropost.content
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()

@@ -27,10 +27,13 @@ class FeedViewController: UIViewController, TutorialDelegate {
     private var balloonCycleCount: Int = 0
     private var balloonViews = [BalloonView]()
     private var tutorialView: TutorialView?
+    
+    private var microposts = ContinuityMicroposts()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        microposts.fetchMicroposts()
         tutorialView = TutorialView(frame: self.view.frame)
         if let tutorialView = tutorialView {
             tutorialView.delegate = self
@@ -73,6 +76,8 @@ class FeedViewController: UIViewController, TutorialDelegate {
 
         balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
         balloonView.layoutIfNeeded()
+        
+        balloonView.micropost = microposts.getMicropost()
 
         let animator = UIViewPropertyAnimator(duration: 5.0, curve: .easeIn, animations: nil)
 

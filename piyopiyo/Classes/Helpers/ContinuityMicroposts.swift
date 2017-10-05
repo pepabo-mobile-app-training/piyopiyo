@@ -8,20 +8,33 @@
 
 import Foundation
 
-class ContinuityMicroposts{
-    var microposts = [Micropost]()
+class ContinuityMicroposts {
+    private var microposts = [Micropost]()
+    private var isRequestingMicroposts: Bool = false
     static let lowestMicropostCount = 5
     
-    func getMicropost(handler: @escaping ((Micropost) -> Void)) {
-        if( microposts.count < ContinuityMicroposts.lowestMicropostCount ) {
-            Micropost.fetchRandomMicroposts() { randomPosts in
+    var count: Int {
+        return microposts.count
+    }
+    
+    func fetchMicroposts() {
+        if !isRequestingMicroposts {
+            isRequestingMicroposts = true
+            Micropost.fetchRandomMicroposts { randomPosts in
                 self.microposts += randomPosts
-                handler(self.microposts.removeFirst())
+                self.isRequestingMicroposts = false
             }
         }
-        else{
-            handler(self.microposts.removeFirst())
+    }
+    
+    func getMicropost() -> Micropost? {
+        if microposts.count < ContinuityMicroposts.lowestMicropostCount {
+            self.fetchMicroposts()
+        }
+        if microposts.count != 0 {
+            return self.microposts.removeFirst()
+        } else {
+            return nil
         }
     }
 }
-
