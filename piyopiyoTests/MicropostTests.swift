@@ -20,9 +20,14 @@ class MicropostTests: XCTestCase {
     }
     
     func testFatchRandomMicroposts() {
+        let fetchRandomMicropostExpectation: XCTestExpectation? = self.expectation(description: "fetchUserProfile")
+
         Micropost.fetchRandomMicroposts() { micropost in
             XCTAssertEqual(micropost.count, 10)
+            fetchRandomMicropostExpectation?.fulfill()
         }
+        waitForExpectations(timeout: 10, handler: nil)
+
     }
     
 }

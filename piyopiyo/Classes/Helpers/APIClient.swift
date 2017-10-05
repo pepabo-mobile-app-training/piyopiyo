@@ -34,16 +34,19 @@ class APIClient {
 
 enum Endpoint {
     case randomMicroposts
+    case userProfile(Int)
     
     func method() -> HTTPMethod {
         switch self {
         case .randomMicroposts: return .get
+        case .userProfile: return .get
         }
     }
     
     func path() -> String {
         switch self {
         case .randomMicroposts: return "/api/random"
+        case .userProfile(let value): return "/api/users/\(String(value))/profile"
         }
     }
 }
