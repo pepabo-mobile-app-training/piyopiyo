@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProfileViewDelegate: class {
     func closeButtonDidTap()
+    func showButtonDidTap()
 }
 
 class ProfileView: UIView {
@@ -45,6 +46,11 @@ class ProfileView: UIView {
     
     @IBAction func closeButtonDidTap(_ sender: UIButton) {
         delegate?.closeButtonDidTap()
+        removeFromSuperview()
+    }
+
+    @IBAction func showButtonDidTap(_ sender: ColorButton) {
+        delegate?.showButtonDidTap()
         removeFromSuperview()
     }
 }

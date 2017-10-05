@@ -132,6 +132,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         profileBackgroundView.removeFromSuperview()
     }
 
+    func showButtonDidTap() {
+        profileBackgroundView.removeFromSuperview()
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

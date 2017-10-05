@@ -65,6 +65,9 @@
                             <real key="value" value="11"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="showButtonDidTap:" destination="-1" eventType="touchUpInside" id="bF3-td-VMK"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
