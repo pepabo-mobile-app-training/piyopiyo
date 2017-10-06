@@ -152,7 +152,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         profileBackgroundView.removeFromSuperview()
     }
 
-    func showButtonDidTap() {
+    func showUserFeedButtonDidTap() {
         profileBackgroundView.removeFromSuperview()
         isDismiss = true
         performSegue(withIdentifier: "showUserFeed", sender: nil)
