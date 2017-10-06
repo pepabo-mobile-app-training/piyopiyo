@@ -34,7 +34,13 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     
     private var microposts = ContinuityMicroposts()
     private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
-    private var profileBackgroundView = UIView(frame: CGRect(origin: CGPoint.zero, size: FeedViewController.screenSize))
+
+    @IBOutlet weak var profileBackgroundView: UIView! {
+        didSet {
+            profileBackgroundView.isHidden = true
+        }
+    }
+
     private var activityIndicator: UIActivityIndicatorView! {
         didSet {
             activityIndicator.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
@@ -58,7 +64,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             addTutorial(tutorialView: tutorialView)
         }
         profileView.delegate = self
-        profileBackgroundView.backgroundColor = ColorPalette.profileBackgroundColor
         activityIndicator = UIActivityIndicatorView()
         view.addSubview(activityIndicator)
     }
@@ -159,18 +164,18 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 self.view.addSubview(self.profileView)
             }
         }
-        view.addSubview(profileBackgroundView)
+        profileBackgroundView.isHidden = false
 
         profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.balloonCount + 1)
         profileView.layer.zPosition = CGFloat(FeedViewController.balloonCount + 2)
     }
 
     func closeButtonDidTap() {
-        profileBackgroundView.removeFromSuperview()
+        profileBackgroundView.isHidden = true
     }
 
     func showUserFeedButtonDidTap() {
-        profileBackgroundView.removeFromSuperview()
+        profileBackgroundView.isHidden = true
         isDismiss = true
         showingUserProfile = profileView.profile
         performSegue(withIdentifier: "showUserFeed", sender: nil)

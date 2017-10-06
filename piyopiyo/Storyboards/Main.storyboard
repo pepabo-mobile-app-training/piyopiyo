@@ -41,16 +41,25 @@
                                     <constraint firstAttribute="width" secondItem="s90-Ne-38h" secondAttribute="height" multiplier="1:1" id="xpF-jq-uV2"/>
                                 </constraints>
                             </imageView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4B-UH-64h">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="s90-Ne-38h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="24d-C9-G4R"/>
+                            <constraint firstItem="s4B-UH-64h" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4w1-L1-0RE"/>
+                            <constraint firstItem="s4B-UH-64h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="J6u-we-jGi"/>
                             <constraint firstItem="s90-Ne-38h" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="LHd-p8-nXU"/>
+                            <constraint firstItem="s4B-UH-64h" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VcZ-cx-Off"/>
+                            <constraint firstItem="s4B-UH-64h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cab-1j-zBO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="cGc-Bw-a8u"/>
                     <connections>
+                        <outlet property="profileBackgroundView" destination="s4B-UH-64h" id="d6r-zI-RH0"/>
                         <segue destination="Xpz-S5-9ha" kind="show" identifier="showUserFeed" id="eWn-JF-mp5"/>
                     </connections>
                 </viewController>
