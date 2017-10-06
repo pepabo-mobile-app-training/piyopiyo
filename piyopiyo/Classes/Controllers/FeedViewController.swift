@@ -56,12 +56,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         navigationController?.setNavigationBarHidden(true, animated: false)
 
         if isDismiss {
-            for i in 0..<FeedViewController.balloonCount {
-                let dispatchTime: DispatchTime = DispatchTime.now() + Double(1.7 * Double(i))
-                DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
-                    self.animateBalloon(self.balloonViews[i], numberOfBalloon: i)
-                }
-            }
+            setupBalloons(FeedViewController.balloonCount)
             isDismiss = false
         }
     }
@@ -84,16 +79,18 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     
-    func startButtonDidTap() {
-        makeBalloons(FeedViewController.balloonCount)
-        
-        for i in 0..<FeedViewController.balloonCount {
+    func setupBalloons(_ count: Int) {
+        for i in 0..<count {
             let dispatchTime: DispatchTime = DispatchTime.now() + Double(1.7 * Double(i))
             DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
                 self.animateBalloon(self.balloonViews[i], numberOfBalloon: i)
             }
         }
+    }
 
+    func startButtonDidTap() {
+        makeBalloons(FeedViewController.balloonCount)
+        setupBalloons(FeedViewController.balloonCount)
     }
 
     private func animateBalloon(_ balloonView: BalloonView, numberOfBalloon: Int) {
