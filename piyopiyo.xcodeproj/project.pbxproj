@@ -220,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				AF161EED1F78A6FF00B2DD73 /* piyopiyo */,
+				AF161F021F78A6FF00B2DD73 /* piyopiyoTests */,
 				AF161F0D1F78A6FF00B2DD73 /* piyopiyoUITests */,
 				AF161EEC1F78A6FF00B2DD73 /* Products */,
 				AF087D8B1F78E3DB006C6BAF /* Frameworks */,
@@ -245,7 +246,6 @@
 				AF161EEE1F78A6FF00B2DD73 /* AppDelegate.swift */,
 				AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */,
 				AF161EFA1F78A6FF00B2DD73 /* Info.plist */,
-				AF161F021F78A6FF00B2DD73 /* piyopiyoTests */,
 			);
 			path = piyopiyo;
 			sourceTree = "<group>";
