@@ -32,14 +32,10 @@ class ContinuityMicropostsTests: XCTestCase {
         waitForExpectations(timeout: 4, handler: nil)
         
         //取得したMicropostが正しく取得できるかどうかを確認
-        XCTAssertNotNil(microposts.getMicropost())
-        XCTAssertNotNil(microposts.getMicropost())
-        XCTAssertNotNil(microposts.getMicropost())
-        XCTAssertNotNil(microposts.getMicropost())
-        XCTAssertNotNil(microposts.getMicropost())
-        XCTAssertNotNil(microposts.getMicropost())
-        XCTAssertNotNil(microposts.getMicropost())
-        
+        for _ in 0..<7 {
+            XCTAssertNotNil(microposts.getMicropost())
+        }
+
         //Micropostが一定数を下回った時に新たにMicropostを取りに行ってくれているかどうか確認
         let fetchSecondMicropostExpectation: XCTestExpectation? = self.expectation(description: "fetchSecondMicroposts")
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
