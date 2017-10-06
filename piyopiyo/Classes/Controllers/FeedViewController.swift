@@ -181,11 +181,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let showingUserProfile = showingUserProfile else {
-            return
+        switch segue.destination {
+            case let vc as UserFeedViewController:
+                guard let showingUserProfile = showingUserProfile else {
+                    return
+                }
+                vc.userFeedURL = APIClient.userFeedURL(showingUserProfile)
+                self.showingUserProfile = nil
+            default:
+                break
         }
-        let vc = segue.destination as? UserFeedViewController
-        vc!.userFeedURL = APIClient.userFeedURL(showingUserProfile)
-        showingUserProfile = nil
+        
     }
 }
