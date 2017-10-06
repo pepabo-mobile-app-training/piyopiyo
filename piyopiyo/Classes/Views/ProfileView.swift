@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol ProfileViewDelegate: class {
     func closeButtonDidTap()
@@ -30,6 +31,7 @@ class ProfileView: UIView {
                 return
             }
             userNameLabel.text = profile.name
+            profileImageView.sd_setImage(with: profile.avatarURL, placeholderImage: UIImage(named: "avatar"))
         }
     }
     
