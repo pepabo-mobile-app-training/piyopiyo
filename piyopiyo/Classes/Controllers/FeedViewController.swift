@@ -44,6 +44,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             activityIndicator.layer.zPosition = CGFloat(FeedViewController.balloonCount + 3)
         }
     }
+    private var showingUserProfile: UserProfile?
     
     private var isDismiss = false
 
@@ -171,6 +172,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func showUserFeedButtonDidTap() {
         profileBackgroundView.removeFromSuperview()
         isDismiss = true
+        showingUserProfile = profileView.profile
         performSegue(withIdentifier: "showUserFeed", sender: nil)
     }
 
@@ -179,8 +181,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //画面遷移時にURLを設定する実装にひとまずしてある状態
-        let vc = segue.destination as? UserFeedViewController
-        vc!.userFeedURL = URL(string: "https://www.google.com")
+        switch segue.destination {
+            case let vc as UserFeedViewController:
+                guard let showingUserProfile = showingUserProfile else {
+                    return
+                }
+                vc.userFeedURL = APIClient.userFeedURL(showingUserProfile)
+                self.showingUserProfile = nil
+            default:
+                break
+        }
+        
     }
 }

@@ -30,6 +30,10 @@ class APIClient {
     static private func fullURL(endpoint: Endpoint) -> String {
         return baseUrl + endpoint.path()
     }
+    
+    static func userFeedURL(_ userProfile: UserProfile) -> URL {
+        return URL(string: "\(baseUrl)/users/\(userProfile.userID)")!
+    }
 }
 
 enum Endpoint {
