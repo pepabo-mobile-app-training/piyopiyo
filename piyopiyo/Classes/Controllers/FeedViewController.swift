@@ -157,7 +157,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 self.profileView.profile = profile
                 self.activityIndicator.stopAnimating()
                 self.view.addSubview(self.profileView)
-                self.showingUserProfile = profile
             }
         }
         view.addSubview(profileBackgroundView)
@@ -168,12 +167,12 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     func closeButtonDidTap() {
         profileBackgroundView.removeFromSuperview()
-        showingUserProfile = nil
     }
 
     func showUserFeedButtonDidTap() {
         profileBackgroundView.removeFromSuperview()
         isDismiss = true
+        showingUserProfile = profileView.profile
         performSegue(withIdentifier: "showUserFeed", sender: nil)
     }
 
@@ -187,5 +186,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
         let vc = segue.destination as? UserFeedViewController
         vc!.userFeedURL = APIClient.userFeedURL(showingUserProfile)
+        showingUserProfile = nil
     }
 }
