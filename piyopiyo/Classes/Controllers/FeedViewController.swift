@@ -174,6 +174,11 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         profileBackgroundView.isHidden = true
     }
 
+    @IBAction func profileBackgroundDidTap(_ sender: UITapGestureRecognizer) {
+        profileView.removeFromSuperview()
+        profileBackgroundView.isHidden = true
+    }
+
     func showUserFeedButtonDidTap() {
         profileBackgroundView.isHidden = true
         isDismiss = true
