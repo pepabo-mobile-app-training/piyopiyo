@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol ProfileViewDelegate: class {
     func closeButtonDidTap()
@@ -20,6 +21,18 @@ class ProfileView: UIView {
         didSet {
             profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
             profileImageView.layer.masksToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    var profile: UserProfile? {
+        didSet {
+            guard let profile = profile else {
+                return
+            }
+            userNameLabel.text = profile.name
+            profileImageView.sd_setImage(with: profile.avatarURL, placeholderImage: UIImage(named: "avatar"))
         }
     }
     

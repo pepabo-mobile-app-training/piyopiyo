@@ -35,7 +35,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     private var microposts = ContinuityMicroposts()
     private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
     private var profileBackgroundView = UIView(frame: CGRect(origin: CGPoint.zero, size: FeedViewController.screenSize))
-
+    private var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.white
+            activityIndicator.layer.zPosition = CGFloat(FeedViewController.balloonCount + 3)
+        }
+    }
+    
     private var isDismiss = false
 
     override func viewDidLoad() {
@@ -49,6 +58,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
         profileView.delegate = self
         profileBackgroundView.backgroundColor = ColorPalette.profileBackgroundColor
+        activityIndicator = UIActivityIndicatorView()
+        view.addSubview(activityIndicator)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +76,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         guard let tutorialView = tutorialView else {
             return
         }
-
         view.addSubview(tutorialView)
     }
     
@@ -138,9 +148,18 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         animator.startAnimation()
     }
 
-    func textViewDidTap() {
+    func textViewDidTap(_ micropost: Micropost?) {
+        activityIndicator.startAnimating()
+        
+        if let micropost = micropost {
+            UserProfile.fetchUserProfile(userID: micropost.userID) { profile in
+                self.profileView.profile = profile
+                self.activityIndicator.stopAnimating()
+                self.view.addSubview(self.profileView)
+            }
+        }
         view.addSubview(profileBackgroundView)
-        view.addSubview(profileView)
+
         profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.balloonCount + 1)
         profileView.layer.zPosition = CGFloat(FeedViewController.balloonCount + 2)
     }

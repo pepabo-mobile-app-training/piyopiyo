@@ -20,7 +20,7 @@ class Micropost {
     static func fetchRandomMicroposts(handler: @escaping ((Array<Micropost>) -> Void)) {
         APIClient.request(endpoint: Endpoint.randomMicroposts) { json in
             let randomMicroposts = json["microposts"].arrayValue.map {
-                Micropost(content: $0["content"].stringValue, userID: $0["id"].intValue)
+                Micropost(content: $0["content"].stringValue, userID: $0["user_id"].intValue)
             }
             
             handler(randomMicroposts)
