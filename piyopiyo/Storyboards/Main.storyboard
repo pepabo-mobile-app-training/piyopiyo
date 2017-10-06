@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7vJ-SZ-8XV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="T34-JA-Mgn">
+            <objects>
+                <navigationController id="7vJ-SZ-8XV" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tg5-9H-eGO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="zH6-ku-gEB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tsL-gg-chc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-353" y="36"/>
+        </scene>
         <!--Feed View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -25,24 +41,18 @@
                                     <constraint firstAttribute="width" secondItem="s90-Ne-38h" secondAttribute="height" multiplier="1:1" id="xpF-jq-uV2"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chp-2j-3lJ">
-                                <rect key="frame" x="0.0" y="0.0" width="96" height="30"/>
-                                <state key="normal" title="GotoWebView"/>
-                                <connections>
-                                    <segue destination="Xpz-S5-9ha" kind="show" id="dDt-LH-LNZ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="s90-Ne-38h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="24d-C9-G4R"/>
                             <constraint firstItem="s90-Ne-38h" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="LHd-p8-nXU"/>
-                            <constraint firstItem="Chp-2j-3lJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zd5-0e-lyn"/>
-                            <constraint firstItem="Chp-2j-3lJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sSN-1h-1r9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="cGc-Bw-a8u"/>
+                    <connections>
+                        <segue destination="Xpz-S5-9ha" kind="show" identifier="showUserFeed" id="eWn-JF-mp5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

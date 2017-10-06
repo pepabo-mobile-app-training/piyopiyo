@@ -19,6 +19,10 @@ class UserFeedViewController: UIViewController, WKUIDelegate, WKNavigationDelega
         checkCanNavigate()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
