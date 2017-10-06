@@ -35,7 +35,15 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     private var microposts = ContinuityMicroposts()
     private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
     private var profileBackgroundView = UIView(frame: CGRect(origin: CGPoint.zero, size: FeedViewController.screenSize))
-    private var activityIndicator: UIActivityIndicatorView!
+    private var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.white
+            activityIndicator.layer.zPosition = CGFloat(FeedViewController.balloonCount + 3)
+        }
+    }
     
     private var isDismiss = false
 
@@ -50,13 +58,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
         profileView.delegate = self
         profileBackgroundView.backgroundColor = ColorPalette.profileBackgroundColor
-        
         activityIndicator = UIActivityIndicatorView()
-        activityIndicator.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.white
-        activityIndicator.layer.zPosition = CGFloat(FeedViewController.balloonCount + 3)
         view.addSubview(activityIndicator)
     }
 
@@ -74,7 +76,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         guard let tutorialView = tutorialView else {
             return
         }
-
         view.addSubview(tutorialView)
     }
     
