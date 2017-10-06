@@ -28,6 +28,7 @@
 		E4AE01DD1F84AC46002A1446 /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */; };
 		E4B874911F85E0CD00B7F0BF /* ContinuityMicroposts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */; };
 		E4B874931F8600FD00B7F0BF /* ContinuityMicropostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B874921F8600FD00B7F0BF /* ContinuityMicropostsTests.swift */; };
+		E4B874951F8736A900B7F0BF /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B874941F8736A900B7F0BF /* SDWebImage.framework */; };
 		E4D89DA01F833AE1006A419A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D89D9F1F833AE0006A419A /* APIClient.swift */; };
 		E4D89DA21F833BE2006A419A /* Micropost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D89DA11F833BE2006A419A /* Micropost.swift */; };
 		E4D89DA41F8383CD006A419A /* MicropostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D89DA31F8383CD006A419A /* MicropostTests.swift */; };
@@ -85,6 +86,7 @@
 		E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
 		E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuityMicroposts.swift; sourceTree = "<group>"; };
 		E4B874921F8600FD00B7F0BF /* ContinuityMicropostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuityMicropostsTests.swift; sourceTree = "<group>"; };
+		E4B874941F8736A900B7F0BF /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 		E4D89D9F1F833AE0006A419A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		E4D89DA11F833BE2006A419A /* Micropost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Micropost.swift; sourceTree = "<group>"; };
 		E4D89DA31F8383CD006A419A /* MicropostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicropostTests.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B874951F8736A900B7F0BF /* SDWebImage.framework in Frameworks */,
 				AF087D8E1F78E3DB006C6BAF /* SwiftyJSON.framework in Frameworks */,
 				AF087D8F1F78E3DB006C6BAF /* Alamofire.framework in Frameworks */,
 			);
@@ -127,6 +130,7 @@
 		AF087D8B1F78E3DB006C6BAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4B874941F8736A900B7F0BF /* SDWebImage.framework */,
 				AF087D8D1F78E3DB006C6BAF /* Alamofire.framework */,
 				AF087D8C1F78E3DB006C6BAF /* SwiftyJSON.framework */,
 			);
