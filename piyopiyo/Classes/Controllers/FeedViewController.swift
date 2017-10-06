@@ -182,7 +182,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //画面遷移時にURLを設定する実装にひとまずしてある状態
         guard let showingUserProfile = showingUserProfile else {
             return
         }
