@@ -12,7 +12,7 @@ class UserProfile {
     var userID: Int
     var name: String
     var avatarURL: URL?
-    
+ 
     init(name: String, userID: Int, avatarURL: URL?) {
         self.name = name
         self.userID = userID

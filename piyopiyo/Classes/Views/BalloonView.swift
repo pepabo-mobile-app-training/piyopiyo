@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BalloonViewDelegate: class {
-    func textViewDidTap()
+    func textViewDidTap(_ micropost: Micropost?)
 }
 
 class BalloonView: UIView {
@@ -45,6 +45,6 @@ class BalloonView: UIView {
     }
 
     @IBAction func tap(_ sender: UIGestureRecognizer) {
-        delegate?.textViewDidTap()
+        delegate?.textViewDidTap(micropost)
     }
 }

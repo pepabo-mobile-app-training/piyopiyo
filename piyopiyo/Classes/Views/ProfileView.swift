@@ -22,6 +22,17 @@ class ProfileView: UIView {
         }
     }
     
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    var profile: UserProfile? {
+        didSet {
+            guard let profile = profile else {
+                return
+            }
+            userNameLabel.text = profile.name
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()

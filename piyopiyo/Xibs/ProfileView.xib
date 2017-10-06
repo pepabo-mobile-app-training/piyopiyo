@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileView" customModule="piyopiyo" customModuleProvider="target">
             <connections>
                 <outlet property="profileImageView" destination="tXe-ji-jIM" id="XIq-ge-KKG"/>
+                <outlet property="userNameLabel" destination="Pkk-DH-BKU" id="6Sc-eX-LIa"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
