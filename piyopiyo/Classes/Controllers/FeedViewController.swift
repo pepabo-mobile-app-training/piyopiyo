@@ -36,6 +36,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
     private var profileBackgroundView = UIView(frame: CGRect(origin: CGPoint.zero, size: FeedViewController.screenSize))
 
+    private var isDismiss = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,6 +49,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
         profileView.delegate = self
         profileBackgroundView.backgroundColor = ColorPalette.profileBackgroundColor
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+
+        if isDismiss {
+            setupBalloons(FeedViewController.balloonCount)
+            isDismiss = false
+        }
     }
 
     private func addTutorial(tutorialView: TutorialView?) {
@@ -67,16 +79,18 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     
-    func startButtonDidTap() {
-        makeBalloons(FeedViewController.balloonCount)
-        
-        for i in 0..<FeedViewController.balloonCount {
+    func setupBalloons(_ count: Int) {
+        for i in 0..<count {
             let dispatchTime: DispatchTime = DispatchTime.now() + Double(1.7 * Double(i))
             DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
                 self.animateBalloon(self.balloonViews[i], numberOfBalloon: i)
             }
         }
+    }
 
+    func startButtonDidTap() {
+        makeBalloons(FeedViewController.balloonCount)
+        setupBalloons(FeedViewController.balloonCount)
     }
 
     private func animateBalloon(_ balloonView: BalloonView, numberOfBalloon: Int) {
@@ -115,7 +129,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 self.balloonCycleCount = 0
             }
             balloonView.layer.zPosition = CGFloat(self.balloonCycleCount)
-            self.animateBalloon(balloonView, numberOfBalloon: numberOfBalloon)
+
+            if !self.isDismiss {
+                self.animateBalloon(balloonView, numberOfBalloon: numberOfBalloon)
+            }
         }
 
         animator.startAnimation()
@@ -130,6 +147,12 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     func closeButtonDidTap() {
         profileBackgroundView.removeFromSuperview()
+    }
+
+    func showUserFeedButtonDidTap() {
+        profileBackgroundView.removeFromSuperview()
+        isDismiss = true
+        performSegue(withIdentifier: "showUserFeed", sender: nil)
     }
 
     override func didReceiveMemoryWarning() {

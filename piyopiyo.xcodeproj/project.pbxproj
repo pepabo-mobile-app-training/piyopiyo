@@ -23,7 +23,6 @@
 		AFBDE5C31F7A34F000441353 /* BalloonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5C21F7A34F000441353 /* BalloonView.xib */; };
 		AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBDE5C41F7A390C00441353 /* BalloonView.swift */; };
 		AFECFAD31F7DF321001A9A0E /* FeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */; };
-		E4744B761F7CEC2D0013619D /* UserFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4744B751F7CEC2D0013619D /* UserFeedTests.swift */; };
 		E4AE01DB1F84A761002A1446 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE01DA1F84A761002A1446 /* UserProfile.swift */; };
 		E4AE01DD1F84AC46002A1446 /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */; };
 		E4B874911F85E0CD00B7F0BF /* ContinuityMicroposts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */; };
@@ -80,7 +79,6 @@
 		AFBDE5C21F7A34F000441353 /* BalloonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalloonView.xib; sourceTree = "<group>"; };
 		AFBDE5C41F7A390C00441353 /* BalloonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonView.swift; sourceTree = "<group>"; };
 		AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUITests.swift; sourceTree = "<group>"; };
-		E4744B751F7CEC2D0013619D /* UserFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedTests.swift; sourceTree = "<group>"; };
 		E4AE01DA1F84A761002A1446 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
 		E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuityMicroposts.swift; sourceTree = "<group>"; };
@@ -266,7 +264,6 @@
 				AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */,
 				AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */,
 				AF161F101F78A6FF00B2DD73 /* Info.plist */,
-				E4744B751F7CEC2D0013619D /* UserFeedTests.swift */,
 			);
 			path = piyopiyoUITests;
 			sourceTree = "<group>";
@@ -461,7 +458,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4744B761F7CEC2D0013619D /* UserFeedTests.swift in Sources */,
 				AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */,
 				AFECFAD31F7DF321001A9A0E /* FeedUITests.swift in Sources */,
 			);
@@ -595,6 +591,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -613,6 +610,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
