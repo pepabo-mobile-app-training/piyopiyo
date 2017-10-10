@@ -22,9 +22,9 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let initialBalloonX = trailingMargin + balloonWidth
     static let initialBalloonY = screenSize.height - bottomMargin
 
-    static let balloonCount = 3
-    static let balloonResetCountValue = 6
-    private var resetTriggerBalloonNumber: Int?
+    static let balloonCount = 3                             //ふきだしViewの個数
+    static let resetBalloonCountValue = 6                   //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
+    private var resetTriggerBalloonNumber: Int?             //リセットのタイミング（nil以外でリセットをかける）
     
     private var balloonCycleCount: Int = 0
     private var balloonViews = [BalloonView]()
@@ -157,7 +157,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                     self.balloonCycleCount = 0
                     self.setupBalloons(FeedViewController.balloonCount)
                 }
-            } else if self.balloonCycleCount == FeedViewController.balloonResetCountValue-1 {
+            } else if self.balloonCycleCount == (FeedViewController.resetBalloonCountValue - 1) {
                 self.resetTriggerBalloonNumber = numberOfBalloon
                 nextBalloon()
             } else {
@@ -180,8 +180,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
         profileBackgroundView.isHidden = false
 
-        profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.balloonResetCountValue + 1)
-        profileView.layer.zPosition = CGFloat(FeedViewController.balloonResetCountValue + 2)
+        profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 1)
+        profileView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 2)
     }
 
     func closeButtonDidTap() {
