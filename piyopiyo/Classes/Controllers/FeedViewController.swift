@@ -210,6 +210,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 guard let showingUserProfile = showingUserProfile else {
                     return
                 }
+
+                vc.profile = showingUserProfile
                 self.showingUserProfile = nil
             default:
                 break

@@ -1,5 +1,6 @@
 import UIKit
-import WebKit
+import SDWebImage
+
 class UserFeedViewController: UIViewController {
     
     @IBOutlet weak var avatarImageView: UIImageView! {
@@ -16,8 +17,12 @@ class UserFeedViewController: UIViewController {
         }
     }
     
+    var profile: UserProfile?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        fetchProfile(profile: profile)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,6 +31,14 @@ class UserFeedViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    private func fetchProfile(profile: UserProfile?) {
+        guard let profile = profile else {
+            return
+        }
+        nameLabel.text = profile.name
+        avatarImageView.sd_setImage(with: profile.avatarURL, placeholderImage: UIImage(named: "avatar"))
     }
 }
 
