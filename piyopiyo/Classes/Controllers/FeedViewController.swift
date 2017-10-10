@@ -23,7 +23,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let initialBalloonY = screenSize.height - bottomMargin
 
     static let balloonCount = 3
-    static let balloonResetCountValue = 5
+    static let balloonResetCountValue = 6
     private var resetTriggerBalloonNumber: Int?
     
     private var balloonCycleCount: Int = 0
@@ -180,8 +180,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
         profileBackgroundView.isHidden = false
 
-        profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.balloonCount + 1)
-        profileView.layer.zPosition = CGFloat(FeedViewController.balloonCount + 2)
+        profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.balloonResetCountValue + 1)
+        profileView.layer.zPosition = CGFloat(FeedViewController.balloonResetCountValue + 2)
     }
 
     func closeButtonDidTap() {
