@@ -14,6 +14,8 @@ class UserFeedViewController: UIViewController {
         didSet {
             let cellName = "FeedTableViewCell"
             feedTableView.register(UINib(nibName: cellName, bundle: nil), forCellReuseIdentifier: cellName)
+            feedTableView.estimatedRowHeight = 90
+            feedTableView.rowHeight = UITableViewAutomaticDimension
         }
     }
     
