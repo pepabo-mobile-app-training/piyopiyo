@@ -22,6 +22,8 @@
 		AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BC1F7A268200441353 /* .gitkeep */; };
 		AFBDE5C31F7A34F000441353 /* BalloonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5C21F7A34F000441353 /* BalloonView.xib */; };
 		AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBDE5C41F7A390C00441353 /* BalloonView.swift */; };
+		AFC1F0231F8C9863007AB2E0 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC1F0211F8C9863007AB2E0 /* FeedTableViewCell.swift */; };
+		AFC1F0241F8C9863007AB2E0 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC1F0221F8C9863007AB2E0 /* FeedTableViewCell.xib */; };
 		AFECFAD31F7DF321001A9A0E /* FeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */; };
 		E4AE01DB1F84A761002A1446 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE01DA1F84A761002A1446 /* UserProfile.swift */; };
 		E4AE01DD1F84AC46002A1446 /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */; };
@@ -79,6 +81,8 @@
 		AFBDE5BC1F7A268200441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5C21F7A34F000441353 /* BalloonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalloonView.xib; sourceTree = "<group>"; };
 		AFBDE5C41F7A390C00441353 /* BalloonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonView.swift; sourceTree = "<group>"; };
+		AFC1F0211F8C9863007AB2E0 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		AFC1F0221F8C9863007AB2E0 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUITests.swift; sourceTree = "<group>"; };
 		E4AE01DA1F84A761002A1446 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				E4F700691F7A4E8E00869BD5 /* ProfileView.swift */,
 				AFBDE5C41F7A390C00441353 /* BalloonView.swift */,
 				E4F7006B1F7B81F300869BD5 /* TutorialView.swift */,
+				AFC1F0211F8C9863007AB2E0 /* FeedTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				E4F700671F7A4BEA00869BD5 /* ProfileView.xib */,
 				E4F700631F7A260700869BD5 /* TutorialView.xib */,
 				AFBDE5C21F7A34F000441353 /* BalloonView.xib */,
+				AFC1F0221F8C9863007AB2E0 /* FeedTableViewCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -388,6 +394,7 @@
 				AFBDE5BD1F7A268200441353 /* .gitkeep in Resources */,
 				E4F700681F7A4BEA00869BD5 /* ProfileView.xib in Resources */,
 				AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */,
+				AFC1F0241F8C9863007AB2E0 /* FeedTableViewCell.xib in Resources */,
 				AFBDE5B91F7A265500441353 /* .gitkeep in Resources */,
 				AFBDE5C31F7A34F000441353 /* BalloonView.xib in Resources */,
 			);
@@ -438,6 +445,7 @@
 				E4F700701F7B9D3E00869BD5 /* UserFeedViewController.swift in Sources */,
 				AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */,
 				E4D89DA01F833AE1006A419A /* APIClient.swift in Sources */,
+				AFC1F0231F8C9863007AB2E0 /* FeedTableViewCell.swift in Sources */,
 				E4F7006C1F7B81F300869BD5 /* TutorialView.swift in Sources */,
 				E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */,
 				AF161EF11F78A6FF00B2DD73 /* FeedViewController.swift in Sources */,

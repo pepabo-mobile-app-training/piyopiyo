@@ -1,22 +1,23 @@
 import UIKit
 import WebKit
-class UserFeedViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
+class UserFeedViewController: UIViewController {
     
-    let defaultURL = URL(string: "http://shizuna.xyz")
-    var userFeedURL: URL?
-    
-    @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var backPageBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var forwardPageBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var avatarImageView: UIImageView! {
+        didSet {
+            avatarImageView.layer.cornerRadius = avatarImageView.bounds.width / 2
+            avatarImageView.layer.masksToBounds = true
+        }
+    }
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var feedTableView: UITableView! {
+        didSet {
+            let cellName = "FeedTableViewCell"
+            feedTableView.register(UINib(nibName: cellName, bundle: nil), forCellReuseIdentifier: cellName)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.accessibilityIdentifier = "userFeedWebView"
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
-        let myRequest = URLRequest(url: userFeedURL ?? defaultURL!)
-        webView.load(myRequest)
-        checkCanNavigate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,22 +27,24 @@ class UserFeedViewController: UIViewController, WKUIDelegate, WKNavigationDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    @IBAction func backPage(_ sender: Any) {
-        webView.goBack()
-    }
-    
-    @IBAction func forwardPage(_ sender: Any) {
-        webView.goForward()
-    }
-    
-    func checkCanNavigate() {
-        backPageBarButtonItem.isEnabled = webView.canGoBack
-        forwardPageBarButtonItem.isEnabled = webView.canGoForward
+}
+
+// MARK: - UITableViewDataSource
+
+extension UserFeedViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
     }
 
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!){
-        checkCanNavigate()
-    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
+        let cellName = "FeedTableViewCell"
+
+        guard let cell = feedTableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? FeedTableViewCell else {
+            return UITableViewCell()
+        }
+
+        return cell
+    }
 }

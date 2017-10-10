@@ -210,7 +210,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 guard let showingUserProfile = showingUserProfile else {
                     return
                 }
-                vc.userFeedURL = APIClient.userFeedURL(showingUserProfile)
                 self.showingUserProfile = nil
             default:
                 break
