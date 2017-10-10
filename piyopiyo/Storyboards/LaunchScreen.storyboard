@@ -1,10 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HiraginoMaruGothProN.ttc">
+            <string>HiraMaruProN-W4</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -13,13 +21,76 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud" translatesAutoresizingMaskIntoConstraints="NO" id="bXs-mE-bn3">
+                                <rect key="frame" x="-42" y="-19" width="203" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="203" id="Ubo-DP-9QZ"/>
+                                    <constraint firstAttribute="height" constant="105" id="kh4-io-c9e"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud" translatesAutoresizingMaskIntoConstraints="NO" id="EuU-3a-w70">
+                                <rect key="frame" x="221" y="41" width="183" height="95"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="8R6-vH-NQb"/>
+                                    <constraint firstAttribute="width" constant="183" id="Q92-aV-w7j"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title" translatesAutoresizingMaskIntoConstraints="NO" id="LAH-oG-wC5">
+                                <rect key="frame" x="127" y="335" width="267" height="248"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="248" id="O8z-b7-xOg"/>
+                                    <constraint firstAttribute="width" constant="267" id="hhs-9j-veQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ぴよぴよ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnp-Ew-inw">
+                                <rect key="frame" x="77.5" y="229.5" width="220" height="55"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="55"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glass" translatesAutoresizingMaskIntoConstraints="NO" id="bWc-qh-UwF">
+                                <rect key="frame" x="-69" y="546" width="499" height="132"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="132" id="VTJ-pj-yhQ"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXm-zn-UPl">
+                                <rect key="frame" x="172.5" y="318.5" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1FO-r9-WJD"/>
+                                    <constraint firstAttribute="width" constant="30" id="Epc-AI-jX9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.4195559607216176" green="0.81768080170374857" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="bWc-qh-UwF" secondAttribute="bottom" constant="-11" id="8Om-Wg-lrm"/>
+                            <constraint firstAttribute="trailing" secondItem="bWc-qh-UwF" secondAttribute="trailing" constant="-55" id="GBB-6k-lb5"/>
+                            <constraint firstItem="IXm-zn-UPl" firstAttribute="top" secondItem="dnp-Ew-inw" secondAttribute="bottom" constant="34" id="J15-uT-9dq"/>
+                            <constraint firstItem="bXs-mE-bn3" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-42" id="Psj-1v-jDT"/>
+                            <constraint firstItem="bXs-mE-bn3" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-19" id="Xsn-ES-hEM"/>
+                            <constraint firstItem="EuU-3a-w70" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="aCe-h6-iNR"/>
+                            <constraint firstAttribute="trailing" secondItem="LAH-oG-wC5" secondAttribute="trailing" constant="-19" id="bOG-cU-a7a"/>
+                            <constraint firstItem="bWc-qh-UwF" firstAttribute="top" secondItem="LAH-oG-wC5" secondAttribute="bottom" constant="-37" id="bj9-vr-ZnM"/>
+                            <constraint firstItem="IXm-zn-UPl" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="cof-z0-RfE"/>
+                            <constraint firstAttribute="trailing" secondItem="EuU-3a-w70" secondAttribute="trailing" constant="-29" id="ex6-LB-Pp4"/>
+                            <constraint firstItem="dnp-Ew-inw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jeC-OT-Gc7"/>
+                            <constraint firstItem="bWc-qh-UwF" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-69" id="s8h-Ru-i8G"/>
+                            <constraint firstItem="IXm-zn-UPl" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sYM-PZ-E4Z"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="50.724637681159422" y="374.18478260869568"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cloud" width="800" height="399"/>
+        <image name="glass" width="641" height="197"/>
+        <image name="title" width="1000" height="920"/>
+    </resources>
 </document>
