@@ -29,7 +29,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     private var balloonCycleCount: Int = 0
     private var balloonViews = [BalloonView]()
     
-    static let originalProfileSize = CGSize(width: 300, height: 533.5)
+    static let originalProfileSize = CGSize(width: 300, height: 390)
     static let originalProfilePoint = CGPoint(x: (screenSize.width - originalProfileSize.width)/2, y: (screenSize.height - originalProfileSize.height)/2)
 
     private var tutorialView: TutorialView?
