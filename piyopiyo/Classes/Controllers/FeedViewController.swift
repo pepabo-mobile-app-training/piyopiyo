@@ -114,6 +114,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     private func animateBalloon(_ balloonView: BalloonView, numberOfBalloon: Int) {
         let originBalloonX = FeedViewController.initialBalloonX - FeedViewController.balloonWidth
         let originBalloonY = FeedViewController.initialBalloonY - FeedViewController.balloonHeight
+        //let originBallonHeighit = balloonView.textView.contentSize.height + 40 /* > FeedViewController.balloonHeight ? balloonView.textView.contentSize.height + 20 :  FeedViewController.balloonHeight*/
+        print("height: \(balloonView.textView.contentSize.height), text: \(balloonView.textView.text)")
         
         self.balloonCycleCount += 1
         balloonView.layer.zPosition = CGFloat(self.balloonCycleCount)
@@ -126,12 +128,14 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         let animator = UIViewPropertyAnimator(duration: 5.0, curve: .easeIn, animations: nil)
 
         let inflateAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .linear) {
-            balloonView.frame = CGRect(x: originBalloonX, y: originBalloonY, width: FeedViewController.balloonWidth - 0.1, height: FeedViewController.balloonHeight - 0.1)
+            let originBallonHeighit = balloonView.textView.contentSize.height + 40
+            balloonView.frame = CGRect(x: originBalloonX, y: originBalloonY, width: FeedViewController.balloonWidth - 0.1, height: originBallonHeighit - 0.1)
             balloonView.layoutIfNeeded()
         }
 
         func completeInflationAnimator() {
-            balloonView.frame.size = CGSize(width: FeedViewController.balloonWidth, height: FeedViewController.balloonHeight)
+            let originBallonHeighit = balloonView.textView.contentSize.height + 40
+            balloonView.frame.size = CGSize(width: FeedViewController.balloonWidth, height: originBallonHeighit)
             balloonView.layoutIfNeeded()
         }
 
