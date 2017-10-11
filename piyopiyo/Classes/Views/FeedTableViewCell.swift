@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView! {
@@ -27,4 +28,9 @@ class FeedTableViewCell: UITableViewCell {
 
     }
     
+    func update(profile: UserProfile, micropost: Micropost) {
+        nameLabel.text = profile.name
+        avatarImageView.sd_setImage(with: profile.avatarURL, placeholderImage: UIImage(named: "avatar"))
+        contentTextView.text = micropost.content
+    }
 }
