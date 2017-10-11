@@ -61,8 +61,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
         microposts.fetchMicroposts()
 
-        let defaults = UserDefaults.standard
-        if !defaults.bool(forKey: "startApp") {
+        if !UserDefaults.standard.bool(forKey: "startApp") {
             tutorialView = TutorialView(frame: self.view.frame)
             if let tutorialView = tutorialView {
                 tutorialView.delegate = self
@@ -114,8 +113,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
 
     func startButtonDidTap() {
-        let userDefault = UserDefaults.standard
-        userDefault.set(true, forKey: "startApp")
+        UserDefaults.standard.set(true, forKey: "startApp")
 
         makeBalloons(FeedViewController.balloonCount)
         setupBalloons(FeedViewController.balloonCount)
