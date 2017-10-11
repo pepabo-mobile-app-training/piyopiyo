@@ -25,6 +25,7 @@
 		AFC1F0231F8C9863007AB2E0 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC1F0211F8C9863007AB2E0 /* FeedTableViewCell.swift */; };
 		AFC1F0241F8C9863007AB2E0 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC1F0221F8C9863007AB2E0 /* FeedTableViewCell.xib */; };
 		AFECFAD31F7DF321001A9A0E /* FeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */; };
+		E48B909E1F8E002B0080836C /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48B909D1F8E002B0080836C /* SwifteriOS.framework */; };
 		E4AE01DB1F84A761002A1446 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE01DA1F84A761002A1446 /* UserProfile.swift */; };
 		E4AE01DD1F84AC46002A1446 /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */; };
 		E4B874911F85E0CD00B7F0BF /* ContinuityMicroposts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */; };
@@ -84,6 +85,7 @@
 		AFC1F0211F8C9863007AB2E0 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		AFC1F0221F8C9863007AB2E0 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUITests.swift; sourceTree = "<group>"; };
+		E48B909D1F8E002B0080836C /* SwifteriOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifteriOS.framework; path = Carthage/Build/iOS/SwifteriOS.framework; sourceTree = "<group>"; };
 		E4AE01DA1F84A761002A1446 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
 		E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuityMicroposts.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				E4B874951F8736A900B7F0BF /* SDWebImage.framework in Frameworks */,
 				AF087D8E1F78E3DB006C6BAF /* SwiftyJSON.framework in Frameworks */,
 				AF087D8F1F78E3DB006C6BAF /* Alamofire.framework in Frameworks */,
+				E48B909E1F8E002B0080836C /* SwifteriOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +135,7 @@
 		AF087D8B1F78E3DB006C6BAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E48B909D1F8E002B0080836C /* SwifteriOS.framework */,
 				E4B874941F8736A900B7F0BF /* SDWebImage.framework */,
 				AF087D8D1F78E3DB006C6BAF /* Alamofire.framework */,
 				AF087D8C1F78E3DB006C6BAF /* SwiftyJSON.framework */,
@@ -426,6 +430,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwifteriOS.framework",
 			);
 			outputPaths = (
 			);
