@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7vJ-SZ-8XV">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="7vJ-SZ-8XV" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tg5-9H-eGO">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -31,33 +31,49 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="FeedViewController" customModule="piyopiyo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="PY6-ie-Z08">
+                                <rect key="frame" x="-134" y="-30" width="643" height="872"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hiyoko" translatesAutoresizingMaskIntoConstraints="NO" id="s90-Ne-38h">
-                                <rect key="frame" x="275" y="567" width="100" height="100"/>
+                                <rect key="frame" x="255" y="665" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="sFz-BJ-Q9U"/>
+                                    <constraint firstAttribute="height" constant="120" id="sFz-BJ-Q9U"/>
                                     <constraint firstAttribute="width" secondItem="s90-Ne-38h" secondAttribute="height" multiplier="1:1" id="xpF-jq-uV2"/>
                                 </constraints>
                             </imageView>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4B-UH-64h">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <view alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4B-UH-64h">
+                                <rect key="frame" x="-330" y="567" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="rBu-Vb-KHN" appends="YES" id="O63-Rm-zg5"/>
                                 </connections>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glass_feed" translatesAutoresizingMaskIntoConstraints="NO" id="l2u-B9-Tql">
+                                <rect key="frame" x="0.0" y="765" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="pd8-Dc-SIR"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="l2u-B9-Tql" secondAttribute="bottom" constant="-13" id="02E-Ul-wWe"/>
                             <constraint firstItem="s90-Ne-38h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="24d-C9-G4R"/>
                             <constraint firstItem="s4B-UH-64h" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4w1-L1-0RE"/>
                             <constraint firstItem="s4B-UH-64h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="J6u-we-jGi"/>
-                            <constraint firstItem="s90-Ne-38h" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="LHd-p8-nXU"/>
+                            <constraint firstItem="PY6-ie-Z08" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-30" id="N2t-gr-hJ4"/>
+                            <constraint firstItem="PY6-ie-Z08" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V8o-S5-e4Z"/>
                             <constraint firstItem="s4B-UH-64h" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VcZ-cx-Off"/>
                             <constraint firstItem="s4B-UH-64h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cab-1j-zBO"/>
+                            <constraint firstItem="l2u-B9-Tql" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gFE-wJ-Qq6"/>
+                            <constraint firstAttribute="bottom" secondItem="PY6-ie-Z08" secondAttribute="bottom" constant="-30" id="nbu-lx-DM9"/>
+                            <constraint firstItem="s90-Ne-38h" firstAttribute="bottom" secondItem="l2u-B9-Tql" secondAttribute="bottom" constant="-40" id="r3R-9p-TYN"/>
+                            <constraint firstItem="l2u-B9-Tql" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sZg-lP-FCz"/>
+                            <constraint firstItem="PY6-ie-Z08" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ygj-Zh-eGn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -86,6 +102,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg" width="643" height="915"/>
+        <image name="glass_feed" width="1200" height="274"/>
         <image name="hiyoko" width="879" height="751"/>
     </resources>
 </document>
