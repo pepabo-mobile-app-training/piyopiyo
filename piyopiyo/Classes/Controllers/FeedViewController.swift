@@ -60,10 +60,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         super.viewDidLoad()
 
         microposts.fetchMicroposts()
-        tutorialView = TutorialView(frame: self.view.frame)
-        if let tutorialView = tutorialView {
-            tutorialView.delegate = self
-            addTutorial(tutorialView: tutorialView)
+
+        if !UserDefaults.standard.bool(forKey: "startApp") {
+            tutorialView = TutorialView(frame: self.view.frame)
+            if let tutorialView = tutorialView {
+                tutorialView.delegate = self
+                addTutorial(tutorialView: tutorialView)
+            }
+        } else {
+            makeBalloons(FeedViewController.balloonCount)
+            setupBalloons(FeedViewController.balloonCount)
         }
         profileView.delegate = self
         activityIndicator = UIActivityIndicatorView()
@@ -107,6 +113,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
 
     func startButtonDidTap() {
+        UserDefaults.standard.set(true, forKey: "startApp")
+
         makeBalloons(FeedViewController.balloonCount)
         setupBalloons(FeedViewController.balloonCount)
     }
