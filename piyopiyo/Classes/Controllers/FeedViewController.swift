@@ -14,7 +14,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let hiyokoHeight: CGFloat = 100.0
     
     static let trailingMargin: CGFloat = 30.0
-    static let bottomMargin = hiyokoHeight + 10
+    static let bottomMargin = hiyokoHeight + 30
     
     static let balloonWidth = screenSize.width - trailingMargin * 2
     static let balloonHeight = balloonWidth / 2
