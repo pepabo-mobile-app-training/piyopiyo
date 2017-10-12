@@ -25,6 +25,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let balloonCount = 3                             //ふきだしViewの個数
     static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
     private var resetTriggerBalloonNumber: Int?             //リセットのタイミング（nil以外でリセットをかける）
+    private var balloonDuration: Double = 15.0
     
     private var balloonCycleCount: Int = 0
     private var balloonViews = [BalloonView]()
@@ -99,7 +100,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     
     func setupBalloons(_ count: Int) {
         for i in 0..<count {
-            let dispatchTime: DispatchTime = DispatchTime.now() + Double(1.7 * Double(i))
+            let dispatchTime: DispatchTime = DispatchTime.now() + Double(balloonDuration / Double(FeedViewController.balloonCount) * Double(i))
             DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
                 self.animateBalloon(self.balloonViews[i], numberOfBalloon: i)
             }
@@ -123,7 +124,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         
         balloonView.micropost = microposts.getMicropost()
 
-        let animator = UIViewPropertyAnimator(duration: 5.0, curve: .easeIn, animations: nil)
+        let animator = UIViewPropertyAnimator(duration: balloonDuration, curve: .easeIn, animations: nil)
 
         let inflateAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .linear) {
             balloonView.frame = CGRect(x: originBalloonX, y: originBalloonY, width: FeedViewController.balloonWidth - 0.1, height: FeedViewController.balloonHeight - 0.1)
