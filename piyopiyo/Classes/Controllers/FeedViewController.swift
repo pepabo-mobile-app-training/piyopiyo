@@ -25,8 +25,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let balloonCount = 3                             //ふきだしViewの個数
     static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
     private var resetTriggerBalloonNumber: Int?             //リセットのタイミング（nil以外でリセットをかける）
-    private var latestAppearanceBalloonNumber = 0
-    private var balloonDuration: Double = 6.0
+    private var latestAppearanceBalloonNumber = 0           //さいごに表示を開始したふきだしの番号
+    private var balloonDuration: Double = 6.0               //ふきだしアニメーション時間
     
     private var balloonCycleCount: Int = 0
     private var balloonViews = [BalloonView]()
