@@ -37,7 +37,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="PY6-ie-Z08">
                                 <rect key="frame" x="-412.66666666666669" y="0.0" width="1200.3333333333333" height="812"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6r-0y-dU6" userLabel="hiyoko">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6r-0y-dU6" userLabel="hiyoko">
                                 <rect key="frame" x="267" y="682" width="125" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Z6r-0y-dU6" secondAttribute="height" multiplier="5:4" id="7fa-LO-jg1"/>

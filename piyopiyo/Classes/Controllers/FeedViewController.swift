@@ -119,7 +119,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         setupBalloons(FeedViewController.balloonCount)
     }
     
-    func resetAnimateBalloon(){
+    func resetAnimateBalloon() {
         resetTriggerBalloonNumber = latestAppearanceBalloonNumber
         balloonCycleCount = 0
     }
@@ -237,12 +237,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         
         let jumpingMotion = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) {
             self.hiyoko.layer.position.y -= 20
-            self.hiyoko.layoutIfNeeded()
          }
   
         func landingMotion() {
             self.hiyoko.layer.position.y += 20
-            self.hiyoko.layoutIfNeeded()
         }
         animator.addAnimations(jumpingMotion.startAnimation)
         animator.addAnimations(landingMotion, delayFactor: 0.5)
