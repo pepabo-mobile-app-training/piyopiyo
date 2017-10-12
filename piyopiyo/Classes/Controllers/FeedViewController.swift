@@ -25,6 +25,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let balloonCount = 3                             //ふきだしViewの個数
     static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
     private var resetTriggerBalloonNumber: Int?             //リセットのタイミング（nil以外でリセットをかける）
+    private var latestAppearanceBalloonNumber = 0           //さいごに表示を開始したふきだしの番号
+    private var balloonDuration: Double = 6.0               //ふきだしアニメーション時間
     
     private var balloonCycleCount: Int = 0
     private var balloonViews = [BalloonView]()
@@ -42,7 +44,9 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             profileBackgroundView.isHidden = true
         }
     }
-
+    
+    @IBOutlet weak var hiyokoButton: UIButton!
+    
     private var activityIndicator: UIActivityIndicatorView! {
         didSet {
             activityIndicator.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
@@ -105,9 +109,13 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     
     func setupBalloons(_ count: Int) {
         for i in 0..<count {
-            let dispatchTime: DispatchTime = DispatchTime.now() + Double(1.7 * Double(i))
+            let balloonDuration = self.balloonDuration
+            let dispatchTime: DispatchTime = DispatchTime.now() + Double(balloonDuration / Double(FeedViewController.balloonCount) * Double(i))
             DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
-                self.animateBalloon(self.balloonViews[i], numberOfBalloon: i)
+                if self.resetTriggerBalloonNumber != nil {
+                    return
+                }
+                self.animateBalloon(self.balloonViews[i], numberOfBalloon: i, duration: balloonDuration)
             }
         }
     }
@@ -118,22 +126,28 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         makeBalloons(FeedViewController.balloonCount)
         setupBalloons(FeedViewController.balloonCount)
     }
+    
+    func resetAnimateBalloon() {
+        resetTriggerBalloonNumber = latestAppearanceBalloonNumber
+        balloonCycleCount = 0
+    }
 
-    private func animateBalloon(_ balloonView: BalloonView, numberOfBalloon: Int) {
+    private func animateBalloon(_ balloonView: BalloonView, numberOfBalloon: Int, duration: Double) {
         let originBalloonX = FeedViewController.initialBalloonX - FeedViewController.balloonWidth
         let originBalloonY = FeedViewController.initialBalloonY - FeedViewController.balloonHeight
         
-        self.balloonCycleCount += 1
-        balloonView.layer.zPosition = CGFloat(self.balloonCycleCount)
+        latestAppearanceBalloonNumber = numberOfBalloon
+        balloonCycleCount += 1
+        balloonView.layer.zPosition = CGFloat(balloonCycleCount)
 
         balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
         balloonView.layoutIfNeeded()
         
         balloonView.micropost = microposts.getMicropost()
 
-        let animator = UIViewPropertyAnimator(duration: 5.0, curve: .easeIn, animations: nil)
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .easeIn, animations: nil)
 
-        let inflateAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .linear) {
+        let inflateAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .easeOut) {
             balloonView.frame = CGRect(x: originBalloonX, y: originBalloonY, width: FeedViewController.balloonWidth - 0.1, height: FeedViewController.balloonHeight - 0.1)
             balloonView.layoutIfNeeded()
         }
@@ -154,7 +168,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
         func nextBalloon() {
             if !self.isDismiss {
-                self.animateBalloon(balloonView, numberOfBalloon: numberOfBalloon)
+                self.animateBalloon(balloonView, numberOfBalloon: numberOfBalloon, duration: duration)
             }
         }
         
@@ -224,6 +238,33 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             default:
                 break
         }
-        
     }
+    
+    func jumpHiyoko() {
+        let animator = UIViewPropertyAnimator(duration: 1.0, curve: .easeIn, animations: nil)
+        
+        let jumpingMotion = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) {
+            self.hiyokoButton.layer.position.y -= 20
+         }
+  
+        func landingMotion() {
+            self.hiyokoButton.layer.position.y += 20
+        }
+        animator.addAnimations(jumpingMotion.startAnimation)
+        animator.addAnimations(landingMotion, delayFactor: 0.5)
+
+        animator.startAnimation()
+
+    }
+    
+    @IBAction func hiyokoTapped(_ sender: Any) {
+        if balloonDuration >= 9.0 {
+            balloonDuration = 3.0
+        } else {
+            balloonDuration += 3.0
+        }
+        jumpHiyoko()
+        resetAnimateBalloon()
+    }
+    
 }

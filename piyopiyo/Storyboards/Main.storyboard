@@ -37,13 +37,20 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="PY6-ie-Z08">
                                 <rect key="frame" x="-412.5" y="0.0" width="1200" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hiyoko" translatesAutoresizingMaskIntoConstraints="NO" id="s90-Ne-38h">
-                                <rect key="frame" x="275" y="540" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6r-0y-dU6" userLabel="hiyoko">
+                                <rect key="frame" x="267" y="537" width="125" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="sFz-BJ-Q9U"/>
-                                    <constraint firstAttribute="width" secondItem="s90-Ne-38h" secondAttribute="height" multiplier="1:1" id="xpF-jq-uV2"/>
+                                    <constraint firstAttribute="width" secondItem="Z6r-0y-dU6" secondAttribute="height" multiplier="5:4" id="7fa-LO-jg1"/>
+                                    <constraint firstAttribute="height" constant="100" id="GHr-Bs-lq6"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="Button" image="hiyoko"/>
+                                <state key="highlighted">
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="hiyokoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gUV-jI-EBv"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glass_feed" translatesAutoresizingMaskIntoConstraints="NO" id="l2u-B9-Tql">
                                 <rect key="frame" x="0.0" y="620" width="375" height="60"/>
                                 <constraints>
@@ -62,8 +69,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="l2u-B9-Tql" secondAttribute="bottom" constant="-13" id="02E-Ul-wWe"/>
-                            <constraint firstItem="s90-Ne-38h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="24d-C9-G4R"/>
                             <constraint firstItem="s4B-UH-64h" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4w1-L1-0RE"/>
+                            <constraint firstAttribute="trailing" secondItem="Z6r-0y-dU6" secondAttribute="trailing" constant="-17" id="ICn-Q0-dUG"/>
                             <constraint firstItem="s4B-UH-64h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="J6u-we-jGi"/>
                             <constraint firstItem="PY6-ie-Z08" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="N2t-gr-hJ4"/>
                             <constraint firstItem="PY6-ie-Z08" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V8o-S5-e4Z"/>
@@ -71,14 +78,15 @@
                             <constraint firstItem="s4B-UH-64h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cab-1j-zBO"/>
                             <constraint firstItem="l2u-B9-Tql" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gFE-wJ-Qq6"/>
                             <constraint firstAttribute="bottom" secondItem="PY6-ie-Z08" secondAttribute="bottom" id="nbu-lx-DM9"/>
-                            <constraint firstItem="s90-Ne-38h" firstAttribute="bottom" secondItem="l2u-B9-Tql" secondAttribute="bottom" constant="-40" id="r3R-9p-TYN"/>
                             <constraint firstItem="l2u-B9-Tql" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sZg-lP-FCz"/>
+                            <constraint firstItem="l2u-B9-Tql" firstAttribute="top" secondItem="Z6r-0y-dU6" secondAttribute="bottom" constant="-17" id="x5t-qw-a9p"/>
                             <constraint firstItem="PY6-ie-Z08" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ygj-Zh-eGn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="cGc-Bw-a8u"/>
                     <connections>
+                        <outlet property="hiyokoButton" destination="Z6r-0y-dU6" id="X7Z-J2-kCE"/>
                         <outlet property="profileBackgroundView" destination="s4B-UH-64h" id="d6r-zI-RH0"/>
                         <segue destination="Xpz-S5-9ha" kind="show" identifier="showUserFeed" id="eWn-JF-mp5"/>
                     </connections>
