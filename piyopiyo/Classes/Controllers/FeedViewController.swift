@@ -43,7 +43,9 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             profileBackgroundView.isHidden = true
         }
     }
-
+    
+    @IBOutlet weak var hiyoko: UIButton!
+    
     private var activityIndicator: UIActivityIndicatorView! {
         didSet {
             activityIndicator.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
