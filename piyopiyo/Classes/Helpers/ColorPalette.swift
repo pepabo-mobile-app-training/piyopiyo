@@ -9,6 +9,6 @@
 import UIKit
 
 struct ColorPalette {
-    static let navigationBarButtonTintColor = UIColor(red: 105/255, green: 185/255, blue: 86/255, alpha: 0.5)
+    static let navigationBarButtonTintColor = UIColor.white
     static let navigationBarBackgroundColor = UIColor(red: 105/255, green: 185/255, blue: 86/255, alpha: 0.5)
 }
