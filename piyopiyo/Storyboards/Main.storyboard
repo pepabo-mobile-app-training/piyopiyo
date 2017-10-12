@@ -37,13 +37,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="PY6-ie-Z08">
                                 <rect key="frame" x="-412.66666666666669" y="0.0" width="1200.3333333333333" height="812"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6r-0y-dU6" userLabel="hiyoko">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6r-0y-dU6" userLabel="hiyoko">
                                 <rect key="frame" x="267" y="682" width="125" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Z6r-0y-dU6" secondAttribute="height" multiplier="5:4" id="7fa-LO-jg1"/>
                                     <constraint firstAttribute="height" constant="100" id="GHr-Bs-lq6"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="hiyoko"/>
+                                <state key="highlighted">
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="hiyokoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gUV-jI-EBv"/>
                                 </connections>
