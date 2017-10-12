@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwifteriOS
 
 class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegate, ProfileViewDelegate {
 
@@ -68,6 +69,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         profileView.delegate = self
         activityIndicator = UIActivityIndicatorView()
         view.addSubview(activityIndicator)
+        
+        
+        
+       
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -109,6 +114,15 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func startButtonDidTap() {
         makeBalloons(FeedViewController.balloonCount)
         setupBalloons(FeedViewController.balloonCount)
+        
+        
+        var swifter = Swifter(consumerKey: "xxx", consumerSecret: "xxx")
+        let url = URL(string: "swifter://success")!
+        swifter.authorize(with: url, presentFrom: self, success: { _, _ in
+            swifter.streamRandomSampleTweets(progress: { status in
+                dump(status["text"])
+            })
+        })
     }
 
     private func animateBalloon(_ balloonView: BalloonView, numberOfBalloon: Int) {
