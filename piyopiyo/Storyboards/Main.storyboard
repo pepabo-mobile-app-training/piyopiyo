@@ -44,6 +44,9 @@
                                     <constraint firstAttribute="height" constant="100" id="GHr-Bs-lq6"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="hiyoko"/>
+                                <connections>
+                                    <action selector="hiyokoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gUV-jI-EBv"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glass_feed" translatesAutoresizingMaskIntoConstraints="NO" id="l2u-B9-Tql">
                                 <rect key="frame" x="0.0" y="765" width="375" height="60"/>

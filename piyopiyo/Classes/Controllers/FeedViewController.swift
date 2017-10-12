@@ -25,7 +25,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let balloonCount = 3                             //ふきだしViewの個数
     static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
     private var resetTriggerBalloonNumber: Int?             //リセットのタイミング（nil以外でリセットをかける）
-    private var balloonDuration: Double = 15.0
+    private var balloonDuration: Double = 6.0
     
     private var balloonCycleCount: Int = 0
     private var balloonViews = [BalloonView]()
@@ -219,6 +219,14 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             default:
                 break
         }
-        
     }
+    
+    @IBAction func hiyokoTapped(_ sender: UIButton) {
+        if balloonDuration >= 15.0 {
+            balloonDuration = 3.0
+        } else {
+            balloonDuration += 3.0
+        }
+    }
+    
 }
