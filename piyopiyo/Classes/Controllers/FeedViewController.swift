@@ -139,7 +139,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
         let animator = UIViewPropertyAnimator(duration: duration, curve: .easeIn, animations: nil)
 
-        let inflateAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .linear) {
+        let inflateAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .easeOut) {
             balloonView.frame = CGRect(x: originBalloonX, y: originBalloonY, width: FeedViewController.balloonWidth - 0.1, height: FeedViewController.balloonHeight - 0.1)
             balloonView.layoutIfNeeded()
         }
@@ -232,12 +232,32 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     
+    func jumpHiyoko() {
+        let animator = UIViewPropertyAnimator(duration: 1.0, curve: .easeIn, animations: nil)
+        
+        let jumpingMotion = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) {
+            self.hiyoko.layer.position.y -= 20
+            self.hiyoko.layoutIfNeeded()
+         }
+  
+        func landingMotion() {
+            self.hiyoko.layer.position.y += 20
+            self.hiyoko.layoutIfNeeded()
+        }
+        animator.addAnimations(jumpingMotion.startAnimation)
+        animator.addAnimations(landingMotion, delayFactor: 0.5)
+
+        animator.startAnimation()
+
+    }
+    
     @IBAction func hiyokoTapped(_ sender: UIButton) {
         if balloonDuration >= 9.0 {
             balloonDuration = 3.0
         } else {
             balloonDuration += 3.0
         }
+        jumpHiyoko()
         resetAnimateBalloon()
     }
     
