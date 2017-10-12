@@ -45,7 +45,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     
-    @IBOutlet weak var hiyoko: UIButton!
+    @IBOutlet weak var hiyokoButton: UIButton!
     
     private var activityIndicator: UIActivityIndicatorView! {
         didSet {
@@ -244,11 +244,11 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         let animator = UIViewPropertyAnimator(duration: 1.0, curve: .easeIn, animations: nil)
         
         let jumpingMotion = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) {
-            self.hiyoko.layer.position.y -= 20
+            self.hiyokoButton.layer.position.y -= 20
          }
   
         func landingMotion() {
-            self.hiyoko.layer.position.y += 20
+            self.hiyokoButton.layer.position.y += 20
         }
         animator.addAnimations(jumpingMotion.startAnimation)
         animator.addAnimations(landingMotion, delayFactor: 0.5)
@@ -257,7 +257,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     }
     
-    @IBAction func hiyokoTapped(_ sender: UIButton) {
+    @IBAction func hiyokoTapped(_ sender: Any) {
         if balloonDuration >= 9.0 {
             balloonDuration = 3.0
         } else {
