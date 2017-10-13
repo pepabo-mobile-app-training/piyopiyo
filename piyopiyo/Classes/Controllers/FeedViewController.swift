@@ -192,7 +192,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         animator.startAnimation()
     }
 
-    func textViewDidTap(_ micropost: Micropost?) {
+    func textViewDidTap(_ micropost: MicroContent?) {
         activityIndicator.startAnimating()
         
         if let micropost = micropost {

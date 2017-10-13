@@ -10,17 +10,17 @@ import Foundation
 import SwiftyJSON
 
 class Micropost: MicroContent {
-    var userID: Int
+    var userID: String
     var content: String
     
-    init(content: String, userID: Int) {
+    init(content: String, userID: String) {
         self.content = content
         self.userID = userID
     }
     
     static func jsonToMicroposts(_ json: JSON) -> [Micropost] {
         return json["microposts"].arrayValue.map {
-            Micropost(content: $0["content"].stringValue, userID: $0["user_id"].intValue)
+            Micropost(content: $0["content"].stringValue, userID: $0["user_id"].stringValue)
         }
     }
     
@@ -30,7 +30,7 @@ class Micropost: MicroContent {
         }
     }
     
-    static func fetchUsersMicroposts(userID: Int, handler: @escaping (([Micropost]) -> Void)) {
+    static func fetchUsersMicroposts(userID: String, handler: @escaping (([Micropost]) -> Void)) {
         APIClient.request(endpoint: Endpoint.userFeed(userID)) { json in
             handler(jsonToMicroposts(json))
         }

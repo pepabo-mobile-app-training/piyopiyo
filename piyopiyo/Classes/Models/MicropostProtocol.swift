@@ -9,6 +9,6 @@
 import Foundation
 
 protocol MicroContent {
-    var userID: Int { get set }
+    var userID: String { get set }
     var content: String { get set }
 }

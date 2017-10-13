@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BalloonViewDelegate: class {
-    func textViewDidTap(_ micropost: Micropost?)
+    func textViewDidTap(_ micropost: MicroContent?)
 }
 
 class BalloonView: UIView {
@@ -17,7 +17,7 @@ class BalloonView: UIView {
     weak var delegate: BalloonViewDelegate?
     @IBOutlet weak var textView: UITextView!
     
-    var micropost: Micropost? {
+    var micropost: MicroContent? {
         didSet {
             guard let micropost = micropost else {
                 return
