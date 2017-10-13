@@ -24,7 +24,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     static let balloonCount = 3                             //ふきだしViewの個数
     static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
-    private var resetTriggerBalloonNumber: Int?             //リセットのタイミング（nil以外でリセットをかける）
+    private var resetTrigger: Bool = false                  //アニメーションのリセットフラグ
+    private var animatingBalloonCount = 0                   //アニメーション再生中のふきだし数
     private var latestAppearanceBalloonNumber = 0           //さいごに表示を開始したふきだしの番号
     private var balloonDuration: Double = 6.0               //ふきだしアニメーション時間
     
@@ -130,7 +131,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             let balloonDuration = self.balloonDuration
             let dispatchTime: DispatchTime = DispatchTime.now() + Double(balloonDuration / Double(FeedViewController.balloonCount) * Double(i))
             DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
-                if self.resetTriggerBalloonNumber != nil {
+                if self.resetTrigger {
                     return
                 }
                 self.animateBalloon(self.balloonViews[i], numberOfBalloon: i, duration: balloonDuration)
@@ -146,7 +147,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     func resetAnimateBalloon() {
-        resetTriggerBalloonNumber = latestAppearanceBalloonNumber
+        resetTrigger = true
         balloonCycleCount = 0
     }
 
@@ -156,6 +157,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         
         latestAppearanceBalloonNumber = numberOfBalloon
         balloonCycleCount += 1
+        animatingBalloonCount += 1
         balloonView.layer.zPosition = CGFloat(balloonCycleCount)
 
         balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
@@ -191,14 +193,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
         
         animator.addCompletion {_ in
-            if let resetTriggerBalloonIndex = self.resetTriggerBalloonNumber {
-                if resetTriggerBalloonIndex == numberOfBalloon {
-                    self.resetTriggerBalloonNumber = nil
+            self.animatingBalloonCount -= 1
+            print(self.animatingBalloonCount)
+            if self.resetTrigger {
+                if self.animatingBalloonCount == 0 {
+                    self.resetTrigger = false
                     self.balloonCycleCount = 0
                     self.setupBalloons(FeedViewController.balloonCount)
                 }
             } else if self.balloonCycleCount == (FeedViewController.resetBalloonCountValue - 1) {
-                self.resetTriggerBalloonNumber = numberOfBalloon
+                self.resetTrigger = true
                 nextBalloon()
             } else {
                 nextBalloon()
