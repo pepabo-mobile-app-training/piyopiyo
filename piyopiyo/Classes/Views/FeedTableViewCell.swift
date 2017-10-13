@@ -28,7 +28,7 @@ class FeedTableViewCell: UITableViewCell {
 
     }
     
-    func update(profile: UserProfile, micropost: Micropost) {
+    func update(profile: userProfile, micropost: Micropost) {
         nameLabel.text = profile.name
         avatarImageView.sd_setImage(with: profile.avatarURL, placeholderImage: UIImage(named: "avatar"))
         contentTextView.text = micropost.content

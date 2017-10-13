@@ -31,7 +31,7 @@ class APIClient {
         return baseUrl + endpoint.path()
     }
     
-    static func userFeedURL(_ userProfile: UserProfile) -> URL {
+    static func userFeedURL(_ userProfile: MicropostUserProfile) -> URL {
         return URL(string: "\(baseUrl)/users/\(userProfile.userID)")!
     }
 }

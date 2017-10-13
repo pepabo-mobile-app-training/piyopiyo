@@ -8,6 +8,12 @@
 
 import Foundation
 
-class Tweet {
+class Tweet: MicroContent {
+    var userID: String
+    var content: String
     
+    init(content: String, userID: String) {
+        self.content = content
+        self.userID = userID
+    }
 }
