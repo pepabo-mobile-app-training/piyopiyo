@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class Micropost {
+class Micropost: MicroContent {
     var userID: Int
     var content: String
     

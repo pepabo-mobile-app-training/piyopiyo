@@ -25,6 +25,8 @@
 		AFC1F0231F8C9863007AB2E0 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC1F0211F8C9863007AB2E0 /* FeedTableViewCell.swift */; };
 		AFC1F0241F8C9863007AB2E0 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC1F0221F8C9863007AB2E0 /* FeedTableViewCell.xib */; };
 		AFECFAD31F7DF321001A9A0E /* FeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */; };
+		E48B90A01F905C610080836C /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48B909F1F905C610080836C /* Tweet.swift */; };
+		E48B90A21F905C880080836C /* MicropostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48B90A11F905C880080836C /* MicropostProtocol.swift */; };
 		E4AE01DB1F84A761002A1446 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE01DA1F84A761002A1446 /* UserProfile.swift */; };
 		E4AE01DD1F84AC46002A1446 /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */; };
 		E4B874911F85E0CD00B7F0BF /* ContinuityMicroposts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */; };
@@ -84,6 +86,8 @@
 		AFC1F0211F8C9863007AB2E0 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		AFC1F0221F8C9863007AB2E0 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUITests.swift; sourceTree = "<group>"; };
+		E48B909F1F905C610080836C /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		E48B90A11F905C880080836C /* MicropostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicropostProtocol.swift; sourceTree = "<group>"; };
 		E4AE01DA1F84A761002A1446 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
 		E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuityMicroposts.swift; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 				AFBDE5BA1F7A267300441353 /* .gitkeep */,
 				E4D89DA11F833BE2006A419A /* Micropost.swift */,
 				E4AE01DA1F84A761002A1446 /* UserProfile.swift */,
+				E48B909F1F905C610080836C /* Tweet.swift */,
+				E48B90A11F905C880080836C /* MicropostProtocol.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				E4B874911F85E0CD00B7F0BF /* ContinuityMicroposts.swift in Sources */,
 				E4F7006A1F7A4E8E00869BD5 /* ProfileView.swift in Sources */,
 				E4F700701F7B9D3E00869BD5 /* UserFeedViewController.swift in Sources */,
+				E48B90A01F905C610080836C /* Tweet.swift in Sources */,
 				AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */,
 				E4D89DA01F833AE1006A419A /* APIClient.swift in Sources */,
 				AFC1F0231F8C9863007AB2E0 /* FeedTableViewCell.swift in Sources */,
@@ -453,6 +460,7 @@
 				E4AE01DB1F84A761002A1446 /* UserProfile.swift in Sources */,
 				E4D89DA21F833BE2006A419A /* Micropost.swift in Sources */,
 				AF113E2A1F8609070026921A /* ColorPalette.swift in Sources */,
+				E48B90A21F905C880080836C /* MicropostProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
