@@ -81,6 +81,21 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         view.addSubview(activityIndicator)
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "もどる", style: .plain, target: nil, action: nil)
+
+        NotificationCenter.default.addObserver(
+            forName:NSNotification.Name.UIApplicationDidBecomeActive,
+            object: nil,
+            queue: OperationQueue.main,
+            using: { _ in
+                self.resetAnimateBalloon()
+            })
+        
+        NotificationCenter.default.addObserver(
+            forName:NSNotification.Name.UIApplicationDidEnterBackground,
+            object: nil,
+            queue: OperationQueue.main,
+            using: { _ in
+            })
     }
 
     override func viewWillAppear(_ animated: Bool) {
