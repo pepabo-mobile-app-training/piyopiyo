@@ -56,7 +56,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             activityIndicator.layer.zPosition = CGFloat(FeedViewController.balloonCount + 3)
         }
     }
-    private var showingUserProfile: UserProfile?
+    private var showingUserProfile: userProfile?
     
     private var isDismiss = false
 
@@ -192,11 +192,11 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         animator.startAnimation()
     }
 
-    func textViewDidTap(_ micropost: Micropost?) {
+    func textViewDidTap(_ micropost: MicroContent?) {
         activityIndicator.startAnimating()
         
         if let micropost = micropost {
-            UserProfile.fetchUserProfile(userID: micropost.userID) { profile in
+            MicropostUserProfile.fetchUserProfile(userID: micropost.userID) { profile in
                 self.profileView.profile = profile
                 self.activityIndicator.stopAnimating()
                 self.view.addSubview(self.profileView)

@@ -1,5 +1,5 @@
 //
-//  UserProfile.swift
+//  MicropostProtocol.swift
 //  piyopiyo
 //
 //  Created by shohei.ogata on 2017/10/13.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-protocol userProfile {
+protocol MicroContent {
     var userID: String { get set }
-    var name: String { get set }
-    var avatarURL: URL? { get set }
+    var content: String { get set }
 }
