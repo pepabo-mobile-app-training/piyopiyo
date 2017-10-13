@@ -16,13 +16,13 @@ class TwitterAuthorization {
     static private let userDefaults = UserDefaults.standard
     static private let env = ProcessInfo.processInfo.environment
 
-    static func authorize(presentFrom: UIViewController?) {
+    static func authorize(presentFrom: UIViewController?) throws -> Bool {
         guard let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"] else {
-            return
+            throw TwitterClientError.missingEnvironmentKeys
         }
 
         if isAuthorized() {
-            return
+            return false
         }
 
         let swifter = Swifter(consumerKey: consumerKey, consumerSecret: consumerSecret)
@@ -35,8 +35,10 @@ class TwitterAuthorization {
             userDefaults.set(token.key, forKey: "twitter_key")
             userDefaults.set(token.secret, forKey: "twitter_secret")
         }, failure: { (error) in
-                // エラー処理
+            // エラー処理
         })
+
+        return true
     }
 
     static private func isAuthorized() -> Bool {
