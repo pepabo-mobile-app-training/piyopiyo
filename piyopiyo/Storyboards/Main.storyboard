@@ -51,12 +51,6 @@
                                     <action selector="hiyokoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gUV-jI-EBv"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glass_feed" translatesAutoresizingMaskIntoConstraints="NO" id="l2u-B9-Tql">
-                                <rect key="frame" x="0.0" y="620" width="375" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="pd8-Dc-SIR"/>
-                                </constraints>
-                            </imageView>
                             <view alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4B-UH-64h">
                                 <rect key="frame" x="-144" y="-306" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -79,6 +73,12 @@
                                     <action selector="hiyokoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GDR-wK-32f"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glass_feed" translatesAutoresizingMaskIntoConstraints="NO" id="l2u-B9-Tql">
+                                <rect key="frame" x="0.0" y="620" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="pd8-Dc-SIR"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
