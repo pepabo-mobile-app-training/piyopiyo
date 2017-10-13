@@ -25,6 +25,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let balloonCount = 3                             //ふきだしViewの個数
     static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
     private var resetTrigger: Bool = false                  //アニメーションのリセットフラグ
+    private var cancelTrigger: Bool = false
     private var animatingBalloonCount = 0                   //アニメーション再生中のふきだし数
     private var latestAppearanceBalloonNumber = 0           //さいごに表示を開始したふきだしの番号
     private var balloonDuration: Double = 6.0               //ふきだしアニメーション時間
@@ -88,7 +89,13 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             object: nil,
             queue: OperationQueue.main,
             using: { _ in
-                self.resetAnimateBalloon()
+                if self.animatingBalloonCount == 0 {
+                    self.setupBalloons(FeedViewController.balloonCount)
+                }
+                else {
+                    self.cancelTrigger = false
+                    self.resetAnimateBalloon()
+                }
             })
         
         NotificationCenter.default.addObserver(
@@ -96,6 +103,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             object: nil,
             queue: OperationQueue.main,
             using: { _ in
+                self.cancelTrigger = true
             })
     }
 
@@ -150,6 +158,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         resetTrigger = true
         balloonCycleCount = 0
     }
+ 
 
     private func animateBalloon(_ balloonView: BalloonView, numberOfBalloon: Int, duration: Double) {
         let originBalloonX = FeedViewController.initialBalloonX - FeedViewController.balloonWidth
@@ -194,8 +203,12 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         
         animator.addCompletion {_ in
             self.animatingBalloonCount -= 1
-            print(self.animatingBalloonCount)
-            if self.resetTrigger {
+            if self.cancelTrigger {
+                if self.animatingBalloonCount == 0 {
+                    self.cancelTrigger = false
+                    self.balloonCycleCount = 0
+                }
+            } else if self.resetTrigger {
                 if self.animatingBalloonCount == 0 {
                     self.resetTrigger = false
                     self.balloonCycleCount = 0
