@@ -14,13 +14,18 @@ import Alamofire
 class TwitterAuthorization {
     static private var sample: HTTPRequest?
     static private let userDefaults = UserDefaults.standard
+    static private let env = ProcessInfo.processInfo.environment
 
     static func authorize(presentFrom: UIViewController?) {
+        guard let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"] else {
+            return
+        }
+
         if isAuthorized() {
             return
         }
 
-        let swifter = Swifter(consumerKey: "xxx", consumerSecret: "xxx")
+        let swifter = Swifter(consumerKey: consumerKey, consumerSecret: consumerSecret)
         let callbackURL = URL(string: "piyopiyo://")!
 
         swifter.authorize(with: callbackURL, presentFrom: presentFrom, success: { (token, _) in
