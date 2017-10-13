@@ -18,6 +18,8 @@
 		AF161F041F78A6FF00B2DD73 /* piyopiyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F031F78A6FF00B2DD73 /* piyopiyoTests.swift */; };
 		AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */; };
 		AF3F1E3D1F90701B004F9456 /* TwitterAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F1E3C1F90701B004F9456 /* TwitterAuthorization.swift */; };
+		AF4260C41F90B77F00249975 /* TwitterAuthorizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4260C31F90B77F00249975 /* TwitterAuthorizationTests.swift */; };
+		AF4260C61F90C22500249975 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4260C51F90C22500249975 /* Error.swift */; };
 		AF914D221F908AB00085FE1C /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF914D211F908AB00085FE1C /* SwifteriOS.framework */; };
 		AFBDE5B91F7A265500441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5B81F7A265500441353 /* .gitkeep */; };
 		AFBDE5BB1F7A267300441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BA1F7A267300441353 /* .gitkeep */; };
@@ -83,6 +85,8 @@
 		AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piyopiyoUITests.swift; sourceTree = "<group>"; };
 		AF161F101F78A6FF00B2DD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF3F1E3C1F90701B004F9456 /* TwitterAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorization.swift; sourceTree = "<group>"; };
+		AF4260C31F90B77F00249975 /* TwitterAuthorizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorizationTests.swift; sourceTree = "<group>"; };
+		AF4260C51F90C22500249975 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		AF914D211F908AB00085FE1C /* SwifteriOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifteriOS.framework; path = Carthage/Build/iOS/SwifteriOS.framework; sourceTree = "<group>"; };
 		AFBDE5B81F7A265500441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BA1F7A267300441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 			children = (
 				AFBDE5B81F7A265500441353 /* .gitkeep */,
 				E4D89D9F1F833AE0006A419A /* APIClient.swift */,
+				AF4260C51F90C22500249975 /* Error.swift */,
 				E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */,
 				AF3F1E3C1F90701B004F9456 /* TwitterAuthorization.swift */,
 				AF113E291F8609070026921A /* ColorPalette.swift */,
@@ -282,6 +287,7 @@
 				AF161F051F78A6FF00B2DD73 /* Info.plist */,
 				E4D89DA31F8383CD006A419A /* MicropostTests.swift */,
 				E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */,
+				AF4260C31F90B77F00249975 /* TwitterAuthorizationTests.swift */,
 				E4B874921F8600FD00B7F0BF /* ContinuityMicropostsTests.swift */,
 			);
 			path = piyopiyoTests;
@@ -478,6 +484,7 @@
 				E4D89DA21F833BE2006A419A /* Micropost.swift in Sources */,
 				AF113E2A1F8609070026921A /* ColorPalette.swift in Sources */,
 				E48B90A21F905C880080836C /* MicroContent.swift in Sources */,
+				AF4260C61F90C22500249975 /* Error.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4AE01DD1F84AC46002A1446 /* UserProfileTests.swift in Sources */,
+				AF4260C41F90B77F00249975 /* TwitterAuthorizationTests.swift in Sources */,
 				AF161F041F78A6FF00B2DD73 /* piyopiyoTests.swift in Sources */,
 				E4B874931F8600FD00B7F0BF /* ContinuityMicropostsTests.swift in Sources */,
 				E4D89DA41F8383CD006A419A /* MicropostTests.swift in Sources */,
