@@ -78,6 +78,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         profileView.delegate = self
         activityIndicator = UIActivityIndicatorView()
         view.addSubview(activityIndicator)
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "もどる", style: .plain, target: nil, action: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
