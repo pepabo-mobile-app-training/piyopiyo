@@ -51,6 +51,20 @@
                                     <action selector="hiyokoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gUV-jI-EBv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCI-Ac-u4H" userLabel="hiyokomini">
+                                <rect key="frame" x="0.0" y="577" width="75" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gCI-Ac-u4H" secondAttribute="height" multiplier="5:4" id="fmH-YR-Luo"/>
+                                    <constraint firstAttribute="height" constant="60" id="oZV-JD-mnM" userLabel="height = 60"/>
+                                </constraints>
+                                <state key="normal" image="hiyokomini"/>
+                                <state key="highlighted">
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="miniHiyokoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bSR-M1-huQ"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glass_feed" translatesAutoresizingMaskIntoConstraints="NO" id="l2u-B9-Tql">
                                 <rect key="frame" x="0.0" y="620" width="375" height="60"/>
                                 <constraints>
@@ -69,6 +83,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="l2u-B9-Tql" secondAttribute="bottom" constant="-13" id="02E-Ul-wWe"/>
+                            <constraint firstItem="l2u-B9-Tql" firstAttribute="top" secondItem="gCI-Ac-u4H" secondAttribute="bottom" constant="-17" id="2P2-7S-Uvh"/>
                             <constraint firstItem="s4B-UH-64h" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4w1-L1-0RE"/>
                             <constraint firstAttribute="trailing" secondItem="Z6r-0y-dU6" secondAttribute="trailing" constant="-17" id="ICn-Q0-dUG"/>
                             <constraint firstItem="s4B-UH-64h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="J6u-we-jGi"/>
@@ -79,6 +94,7 @@
                             <constraint firstItem="l2u-B9-Tql" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gFE-wJ-Qq6"/>
                             <constraint firstAttribute="bottom" secondItem="PY6-ie-Z08" secondAttribute="bottom" id="nbu-lx-DM9"/>
                             <constraint firstItem="l2u-B9-Tql" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sZg-lP-FCz"/>
+                            <constraint firstItem="gCI-Ac-u4H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="w36-qr-SKU"/>
                             <constraint firstItem="l2u-B9-Tql" firstAttribute="top" secondItem="Z6r-0y-dU6" secondAttribute="bottom" constant="-17" id="x5t-qw-a9p"/>
                             <constraint firstItem="PY6-ie-Z08" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ygj-Zh-eGn"/>
                         </constraints>
@@ -87,6 +103,7 @@
                     <navigationItem key="navigationItem" id="cGc-Bw-a8u"/>
                     <connections>
                         <outlet property="hiyokoButton" destination="Z6r-0y-dU6" id="X7Z-J2-kCE"/>
+                        <outlet property="miniHiyokoButton" destination="gCI-Ac-u4H" id="Ir3-eY-Xl0"/>
                         <outlet property="profileBackgroundView" destination="s4B-UH-64h" id="d6r-zI-RH0"/>
                         <segue destination="Xpz-S5-9ha" kind="show" identifier="showUserFeed" id="eWn-JF-mp5"/>
                     </connections>
@@ -113,5 +130,6 @@
         <image name="bg" width="1200" height="1707"/>
         <image name="glass_feed" width="1200" height="274"/>
         <image name="hiyoko" width="879" height="751"/>
+        <image name="hiyokomini" width="189" height="161"/>
     </resources>
 </document>
