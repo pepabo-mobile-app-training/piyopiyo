@@ -33,7 +33,7 @@ class MicropostTests: XCTestCase {
     func testFetchUsersMicroposts() {
         let fetchUsersMicropostExpectation: XCTestExpectation? = self.expectation(description: "fetchUsersMicroposts")
         
-        Micropost.fetchUsersMicroposts(userID: 1) { microposts in
+        Micropost.fetchUsersMicroposts(userID: String(1)) { microposts in
             XCTAssertNotEqual(microposts.count, 0)
             fetchUsersMicropostExpectation?.fulfill()
         }
