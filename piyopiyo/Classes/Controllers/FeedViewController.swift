@@ -46,6 +46,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     @IBOutlet weak var hiyokoButton: UIButton!
+    @IBOutlet weak var miniHiyokoButton: UIButton!
     
     private var activityIndicator: UIActivityIndicatorView! {
         didSet {
@@ -267,6 +268,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
         jumpHiyoko()
         resetAnimateBalloon()
+    }
+    
+    @IBAction func miniHiyokoTapped(_ sender: Any) {
+        
     }
     
 }
