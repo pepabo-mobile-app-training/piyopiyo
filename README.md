@@ -39,5 +39,5 @@ Xcodeのメニューから Product > Scheme > Edit Scheme を選択します。
 『Environment Variables』に下記を設定します。
 
 - Name: consumerKey, Value: Consumer Keyの値
-- Name: consumerSecret, Value: onsumer Secretの値
+- Name: consumerSecret, Value: Consumer Secretの値
 
