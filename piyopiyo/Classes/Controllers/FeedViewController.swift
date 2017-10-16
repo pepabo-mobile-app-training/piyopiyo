@@ -165,7 +165,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                         if self.resetTrigger == ResetBalloonAnimation.reset {
                             self.restartAnimation()
                         }
-                        self.resetTrigger = ResetBalloonAnimation.none
                     }
                 } else {
                     self.animateBalloon(self.balloonViews[i], numberOfBalloon: i, duration: balloonDuration)
@@ -269,8 +268,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func restartAnimation() {
         if self.animatingBalloonCount == 0  && self.pendingSetupBalloonCount == 0 {
             self.balloonCycleCount = 0
-            self.resetTrigger = ResetBalloonAnimation.none
             self.setupBalloons(FeedViewController.balloonCount)
+            self.resetTrigger = ResetBalloonAnimation.none
         }
     }
 
