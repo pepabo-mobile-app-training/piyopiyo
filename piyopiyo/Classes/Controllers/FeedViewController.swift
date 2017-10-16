@@ -54,6 +54,9 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     
+    private var becomeActiveNotification: NSObjectProtocol?
+    private var enterBackgroundNotification: NSObjectProtocol?
+    
     @IBOutlet weak var hiyokoButton: UIButton!
     @IBOutlet weak var miniHiyokoButton: UIButton!
     
@@ -89,11 +92,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         activityIndicator = UIActivityIndicatorView()
         view.addSubview(activityIndicator)
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "もどる", style: .plain, target: nil, action: nil)
-
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "もどる", style: .plain, target: nil, action: nil)
         
-        NotificationCenter.default.addObserver(
-            forName:NSNotification.Name.UIApplicationDidBecomeActive,
+        becomeActiveNotification = NotificationCenter.default.addObserver (
+            forName: NSNotification.Name.UIApplicationDidBecomeActive,
             object: nil,
             queue: OperationQueue.main,
             using: { _ in
@@ -102,8 +104,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                     if self.resetTrigger == ResetBalloonAnimation.none {
                         //ふきだしリセットが完了していたら開始を行う
                         self.setupBalloons(FeedViewController.balloonCount)
-                    }
-                    else {
+                    } else {
                         //ふきだしキャンセル完了前ならふきだしループをリセットする
                         self.resetTrigger = ResetBalloonAnimation.none
                         self.resetAnimateBalloon()
@@ -111,7 +112,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 }
             })
         
-        NotificationCenter.default.addObserver(
+        enterBackgroundNotification = NotificationCenter.default.addObserver (
             forName:NSNotification.Name.UIApplicationDidEnterBackground,
             object: nil,
             queue: OperationQueue.main,
@@ -182,7 +183,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         resetTrigger = ResetBalloonAnimation.reset
         balloonCycleCount = 0
     }
- 
 
     private func animateBalloon(_ balloonView: BalloonView, numberOfBalloon: Int, duration: Double) {
         let originBalloonX = FeedViewController.initialBalloonX - FeedViewController.balloonWidth
