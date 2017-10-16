@@ -23,7 +23,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let initialBalloonY = screenSize.height - bottomMargin
 
     static let balloonCount = 3                             //ふきだしViewの個数
-    static let resetBalloonCountValue = 4                   //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
+    static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
     
     enum ResetBalloonAnimation {
         case reset                                          //ふきだしループのリセット
