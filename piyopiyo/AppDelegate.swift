@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwifteriOS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UINavigationBar.appearance().barTintColor = ColorPalette.navigationBarBackgroundColor
         UINavigationBar.appearance().tintColor = ColorPalette.navigationBarButtonTintColor
+        return true
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        Swifter.handleOpenURL(url)
         return true
     }
 
