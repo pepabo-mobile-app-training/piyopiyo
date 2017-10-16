@@ -23,7 +23,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let initialBalloonY = screenSize.height - bottomMargin
 
     static let balloonCount = 3                             //ふきだしViewの個数
-    static let resetBalloonCountValue = 4                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
+    static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
     
     enum ResetBalloonAnimation {
         case reset                                          //ふきだしループのリセット
@@ -110,20 +110,28 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     func restartView() {
+
         if self.isEnterBackground {
             self.isEnterBackground = false
             if self.resetTrigger == ResetBalloonAnimation.none {
                 //ふきだしリセットが完了していたら開始を行う
                 self.setupBalloons(FeedViewController.balloonCount)
+                print("setup!!!!----")
+
             } else {
                 //ふきだしキャンセル完了前ならふきだしループをリセットする
                 self.resetTrigger = ResetBalloonAnimation.none
                 self.resetAnimateBalloon()
+                
+                print("restart!!!!----")
+
             }
         }
     }
     
     func prepareViewClosing() {
+        print("prepare")
+
         self.resetTrigger = ResetBalloonAnimation.cancel
         self.isEnterBackground = true
     }
@@ -165,6 +173,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                     if self.pendingSetupBalloonCount == 0 {
                         //ふきだしアニメーション開始待機中にリセットがかかった場合はリセットをかける
                         if self.resetTrigger == ResetBalloonAnimation.reset {
+                            print("restart2!!!")
+
                             self.restartAnimation()
                         }
                         self.resetTrigger = ResetBalloonAnimation.none
@@ -278,7 +288,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     func restartAnimation() {
-        if self.animatingBalloonCount == 0 {
+        if self.animatingBalloonCount == 0  && self.pendingSetupBalloonCount == 0 {
             self.balloonCycleCount = 0
             self.resetTrigger = ResetBalloonAnimation.none
             self.setupBalloons(FeedViewController.balloonCount)
