@@ -110,7 +110,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     func restartView() {
-
         if self.isEnterBackground {
             self.isEnterBackground = false
             if self.resetTrigger == ResetBalloonAnimation.none {
@@ -132,7 +131,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: false)
-
         restartView()
     }
 
