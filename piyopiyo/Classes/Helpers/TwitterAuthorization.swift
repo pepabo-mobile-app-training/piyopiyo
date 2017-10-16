@@ -18,6 +18,8 @@ class TwitterAuthorization {
 
     static func authorize(presentFrom: UIViewController?) throws -> Bool {
         guard let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"] else {
+            print(env["consumerKey"] ?? "consumerKey is empty")
+            print(env["consumerSecret"] ?? "consumerSecret is empty")
             throw TwitterClientError.missingEnvironmentKeys
         }
 
