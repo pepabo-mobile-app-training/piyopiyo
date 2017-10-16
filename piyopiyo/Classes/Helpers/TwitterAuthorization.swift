@@ -12,17 +12,20 @@ import SwifteriOS
 import Alamofire
 
 class TwitterAuthorization {
-    static private var sample: HTTPRequest?
-    static private let userDefaults = UserDefaults.standard
-    static private let env = ProcessInfo.processInfo.environment
+    private let userDefaults = UserDefaults.standard
+    private let consumerKey: String
+    private let consumerSecret: String
 
-    static func authorize(presentFrom: UIViewController?) throws -> Bool {
-        guard let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"] else {
-            print(env["consumerKey"] ?? "consumerKey is empty")
-            print(env["consumerSecret"] ?? "consumerSecret is empty")
+    init(consumerKey: String?, consumerSecret: String?) throws {
+        guard let consumerKey = consumerKey, let consumerSecret = consumerSecret else {
             throw TwitterClientError.missingEnvironmentKeys
         }
 
+        self.consumerKey = consumerKey
+        self.consumerSecret = consumerSecret
+    }
+
+    func authorize(presentFrom: UIViewController?) -> Bool {
         if isAuthorized() {
             return false
         }
@@ -34,8 +37,8 @@ class TwitterAuthorization {
             guard let token = token else {
                 return
             }
-            userDefaults.set(token.key, forKey: "twitter_key")
-            userDefaults.set(token.secret, forKey: "twitter_secret")
+            self.userDefaults.set(token.key, forKey: "twitter_key")
+            self.userDefaults.set(token.secret, forKey: "twitter_secret")
         }, failure: { (error) in
             // エラー処理
         })
@@ -43,7 +46,7 @@ class TwitterAuthorization {
         return true
     }
 
-    static private func isAuthorized() -> Bool {
+    private func isAuthorized() -> Bool {
         let key = userDefaults.object(forKey: "twitter_key")
         let secret = userDefaults.object(forKey: "twitter_secret")
 
