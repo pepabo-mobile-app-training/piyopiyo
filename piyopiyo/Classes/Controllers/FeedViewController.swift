@@ -91,6 +91,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             setupBalloons(FeedViewController.balloonCount)
             isDismiss = false
         }
+        setBalloonUserInteractionEnabled(true)
     }
 
     private func addTutorial(tutorialView: TutorialView?) {
@@ -222,6 +223,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         profileBackgroundView.isHidden = true
         isDismiss = true
         showingUserProfile = profileView.profile
+        setBalloonUserInteractionEnabled(false)
         performSegue(withIdentifier: "showUserFeed", sender: nil)
     }
 
@@ -273,5 +275,12 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     @IBAction func miniHiyokoTapped(_ sender: Any) {
         
     }
+    
+    func setBalloonUserInteractionEnabled(_ isEnabled: Bool) {
+        balloonViews.forEach { (balloonView) in
+            balloonView.isUserInteractionEnabled = isEnabled
+        }
+    }
+    
     
 }
