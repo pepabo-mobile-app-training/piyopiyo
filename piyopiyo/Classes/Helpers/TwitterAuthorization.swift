@@ -15,6 +15,7 @@ class TwitterAuthorization {
     private let userDefaults = UserDefaults.standard
     private let consumerKey: String
     private let consumerSecret: String
+    private let callbackURL = URL(string: "piyopiyo://")!
 
     init(consumerKey: String?, consumerSecret: String?) throws {
         guard let consumerKey = consumerKey, let consumerSecret = consumerSecret else {
@@ -31,7 +32,6 @@ class TwitterAuthorization {
         }
 
         let swifter = Swifter(consumerKey: consumerKey, consumerSecret: consumerSecret)
-        let callbackURL = URL(string: "piyopiyo://")!
 
         swifter.authorize(with: callbackURL, presentFrom: presentFrom, success: { (token, _) in
             guard let token = token else {
@@ -50,10 +50,6 @@ class TwitterAuthorization {
         let key = userDefaults.object(forKey: "twitter_key")
         let secret = userDefaults.object(forKey: "twitter_secret")
 
-        if key != nil, secret != nil {
-            return true
-        } else {
-            return false
-        }
+        return key != nil && secret != nil
     }
 }
