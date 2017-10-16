@@ -116,22 +116,15 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             if self.resetTrigger == ResetBalloonAnimation.none {
                 //ふきだしリセットが完了していたら開始を行う
                 self.setupBalloons(FeedViewController.balloonCount)
-                print("setup!!!!----")
-
             } else {
                 //ふきだしキャンセル完了前ならふきだしループをリセットする
                 self.resetTrigger = ResetBalloonAnimation.none
                 self.resetAnimateBalloon()
-                
-                print("restart!!!!----")
-
             }
         }
     }
     
     func prepareViewClosing() {
-        print("prepare")
-
         self.resetTrigger = ResetBalloonAnimation.cancel
         self.isEnterBackground = true
     }
@@ -169,12 +162,9 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 self.pendingSetupBalloonCount -= 1
                 //リセットフラグが立っていたら処理を中断する
                 if self.resetTrigger != ResetBalloonAnimation.none {
-                    print("Dispose_PendingAnimation")
                     if self.pendingSetupBalloonCount == 0 {
                         //ふきだしアニメーション開始待機中にリセットがかかった場合はリセットをかける
                         if self.resetTrigger == ResetBalloonAnimation.reset {
-                            print("restart2!!!")
-
                             self.restartAnimation()
                         }
                         self.resetTrigger = ResetBalloonAnimation.none
@@ -241,30 +231,21 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             self.animatingBalloonCount -= 1
             if self.resetTrigger == ResetBalloonAnimation.cancel {
                 //キャンセル処理の場合はアニメーション終了後にキャンセル処理を行う
-                print("cancel??")
-
                 if self.animatingBalloonCount == 0 {
                     if self.pendingSetupBalloonCount == 0 {
                         self.resetTrigger = ResetBalloonAnimation.none
-                        print("cancel complete")
-
                     }
                     self.balloonCycleCount = 0
                 }
             } else if self.resetTrigger == ResetBalloonAnimation.reset {
                 //リセット処理の場合はアニメーション終了後に再開する
                 self.restartAnimation()
-                print("reset trigger!! ")
-
             } else if self.balloonCycleCount == (FeedViewController.resetBalloonCountValue - 1) {
                 //リセット条件を満たした場合（ふきだしカウンタが閾値を超えたら）リセットフラグを立てる
                 self.resetTrigger = ResetBalloonAnimation.reset
                 nextBalloon()
-                print("next balloon 1")
             } else {
                 nextBalloon()
-                print("next balloon 2")
-
             }
         }
 
@@ -292,8 +273,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             self.balloonCycleCount = 0
             self.resetTrigger = ResetBalloonAnimation.none
             self.setupBalloons(FeedViewController.balloonCount)
-            print("restart!!!")
-
         }
     }
 
