@@ -28,7 +28,8 @@ class TwitterAuthorization {
 
     func authorize(presentFrom: UIViewController?, handle: @escaping (_ result: Bool) -> Void) {
         if isAuthorized() {
-            handle(false)
+            handle(true)
+            return
         }
 
         let swifter = Swifter(consumerKey: consumerKey, consumerSecret: consumerSecret)

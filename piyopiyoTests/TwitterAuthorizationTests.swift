@@ -37,7 +37,7 @@ class TwitterAuthorizationTests: XCTestCase {
         let twitterAuthorizationException: XCTestExpectation? = self.expectation(description: "twitterAuthorization")
         
         twitterAuthorization!.authorize(presentFrom: UIViewController()) { result in
-            XCTAssertFalse(result)
+            XCTAssertTrue(result)
             userDefaults.removeObject(forKey: "twitter_key")
             userDefaults.removeObject(forKey: "twitter_secret")
             twitterAuthorizationException?.fulfill()
