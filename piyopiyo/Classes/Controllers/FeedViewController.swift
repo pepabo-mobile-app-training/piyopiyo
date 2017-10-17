@@ -241,10 +241,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 if self.balloonCycleCount == (FeedViewController.resetBalloonCountValue - 1) {
                     //リセット条件を満たした場合（ふきだしカウンタが閾値を超えたら）リセットフラグを立てる
                     self.resetTrigger = ResetBalloonAnimation.reset
-                    nextBalloon()
-                } else {
-                    nextBalloon()
                 }
+                nextBalloon()
             }
         }
 
