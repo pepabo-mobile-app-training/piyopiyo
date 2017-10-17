@@ -54,9 +54,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     
-    private var becomeActiveNotification: NSObjectProtocol?
-    private var enterBackgroundNotification: NSObjectProtocol?
-    
     @IBOutlet weak var hiyokoButton: UIButton!
     @IBOutlet weak var miniHiyokoButton: UIButton!
     
@@ -92,7 +89,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "もどる", style: .plain, target: nil, action: nil)
         
-        becomeActiveNotification = NotificationCenter.default.addObserver (
+        NotificationCenter.default.addObserver (
             forName: NSNotification.Name.UIApplicationDidBecomeActive,
             object: nil,
             queue: OperationQueue.main,
@@ -100,7 +97,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                self.restartView()
             })
         
-        enterBackgroundNotification = NotificationCenter.default.addObserver (
+        NotificationCenter.default.addObserver (
             forName:NSNotification.Name.UIApplicationDidEnterBackground,
             object: nil,
             queue: OperationQueue.main,
