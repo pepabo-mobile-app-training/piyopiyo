@@ -21,7 +21,7 @@ class ContinuityMicropostsTests: XCTestCase {
     
     func testGetMicroposts() {
         let microposts = ContinuityMicroposts()
-        microposts.fetchMicroposts()
+        microposts.fetchMicroContents()
         
         //初回Micropost取得の成功が３秒以内に終了するか否かを確認
         let fetchFirstMicropostExpectation: XCTestExpectation? = self.expectation(description: "fetchFirstMicroposts")
@@ -33,7 +33,7 @@ class ContinuityMicropostsTests: XCTestCase {
         
         //取得したMicropostが正しく取得できるかどうかを確認
         for _ in 0..<7 {
-            XCTAssertNotNil(microposts.getMicropost())
+            XCTAssertNotNil(microposts.getMicroContent())
         }
 
         //Micropostが一定数を下回った時に新たにMicropostを取りに行ってくれているかどうか確認
