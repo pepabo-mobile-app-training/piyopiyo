@@ -17,6 +17,7 @@
 		AF161EF61F78A6FF00B2DD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF161EF51F78A6FF00B2DD73 /* Assets.xcassets */; };
 		AF161F041F78A6FF00B2DD73 /* piyopiyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F031F78A6FF00B2DD73 /* piyopiyoTests.swift */; };
 		AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */; };
+		AF3103F51F95E74900FBCDC7 /* ContinuityTweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3103F41F95E74900FBCDC7 /* ContinuityTweets.swift */; };
 		AF3F1E3D1F90701B004F9456 /* TwitterAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F1E3C1F90701B004F9456 /* TwitterAuthorization.swift */; };
 		AF4260C41F90B77F00249975 /* TwitterAuthorizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4260C31F90B77F00249975 /* TwitterAuthorizationTests.swift */; };
 		AF4260C61F90C22500249975 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4260C51F90C22500249975 /* Error.swift */; };
@@ -84,6 +85,7 @@
 		AF161F0A1F78A6FF00B2DD73 /* piyopiyoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = piyopiyoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piyopiyoUITests.swift; sourceTree = "<group>"; };
 		AF161F101F78A6FF00B2DD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF3103F41F95E74900FBCDC7 /* ContinuityTweets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuityTweets.swift; sourceTree = "<group>"; };
 		AF3F1E3C1F90701B004F9456 /* TwitterAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorization.swift; sourceTree = "<group>"; };
 		AF4260C31F90B77F00249975 /* TwitterAuthorizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorizationTests.swift; sourceTree = "<group>"; };
 		AF4260C51F90C22500249975 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				E4D89D9F1F833AE0006A419A /* APIClient.swift */,
 				AF4260C51F90C22500249975 /* Error.swift */,
 				E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */,
+				AF3103F41F95E74900FBCDC7 /* ContinuityTweets.swift */,
 				AF3F1E3C1F90701B004F9456 /* TwitterAuthorization.swift */,
 				AF113E291F8609070026921A /* ColorPalette.swift */,
 			);
@@ -469,6 +472,7 @@
 				E4B874911F85E0CD00B7F0BF /* ContinuityMicroposts.swift in Sources */,
 				E4F7006A1F7A4E8E00869BD5 /* ProfileView.swift in Sources */,
 				E4F700701F7B9D3E00869BD5 /* UserFeedViewController.swift in Sources */,
+				AF3103F51F95E74900FBCDC7 /* ContinuityTweets.swift in Sources */,
 				E48B90A01F905C610080836C /* Tweet.swift in Sources */,
 				AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */,
 				AF3F1E3D1F90701B004F9456 /* TwitterAuthorization.swift in Sources */,
