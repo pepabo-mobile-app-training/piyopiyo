@@ -120,14 +120,9 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             if self.resetTrigger == ResetBalloonAnimation.none {
                 //ふきだしリセットが完了していたら開始を行う
                 self.setupBalloons(FeedViewController.balloonCount)
-                print("restart_view none")
-
             } else {
                 //ふきだしキャンセル完了前ならふきだしループをリセットする
-                self.resetTrigger = ResetBalloonAnimation.none
                 self.resetAnimateBalloon()
-                print("restart_view reset")
-
             }
         }
     }
@@ -135,7 +130,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func prepareViewClosing() {
         self.resetTrigger = ResetBalloonAnimation.cancel
         self.isEnterBackground = true
-        print("prepare_view_closing")
     }
     
     func initializeTwitterAuthorization(handle: @escaping (_ result: Bool) -> Void) {
@@ -194,8 +188,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                         //ふきだしアニメーション開始待機中にリセットがかかった場合はリセットをかける
                         self.restartAnimation()
                     }
-                default:
-                    return
+                case .cancel:
+                    if self.pendingSetupBalloonCount == 0 {
+                        self.resetTrigger = ResetBalloonAnimation.none
+                    }
                 }
             }
         }
@@ -371,7 +367,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 if !result {
                     self.microContentType = MicroContentType.micropost
                 }
-                print(result)
             }
         case .twitter:
             microContentType = MicroContentType.micropost
