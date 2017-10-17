@@ -17,7 +17,7 @@ class TwitterAuthorization {
     private let consumerSecret: String
     private let callbackURL = URL(string: "piyopiyo://")!
 
-    init(consumerKey: String?, consumerSecret: String? ) throws {
+    init(consumerKey: String?, consumerSecret: String?) throws {
         guard let consumerKey = consumerKey, let consumerSecret = consumerSecret else {
             throw TwitterClientError.missingEnvironmentKeys
         }

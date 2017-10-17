@@ -143,7 +143,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
         
         if let twitterAuthorization = twitterAuthorization {
-            _ = twitterAuthorization.authorize(presentFrom: self, handle: handle)
+            twitterAuthorization.authorize(presentFrom: self, handle: handle)
         } else {
             handle(false)
         }
