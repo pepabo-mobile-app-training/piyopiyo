@@ -22,6 +22,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let initialBalloonX = trailingMargin + balloonWidth
     static let initialBalloonY = screenSize.height - bottomMargin
 
+    private var twitterAuthorization: TwitterAuthorization? = nil
+    
     static let balloonCount = 3                             //ふきだしViewの個数
     static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
     private var resetTriggerBalloonNumber: Int?             //リセットのタイミング（nil以外でリセットをかける）
@@ -80,7 +82,17 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         activityIndicator = UIActivityIndicatorView()
         view.addSubview(activityIndicator)
         
+       
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "もどる", style: .plain, target: nil, action: nil)
+    }
+    
+    func initializeTwitterAuthorization() {
+        let env = ProcessInfo.processInfo.environment
+        guard let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"] else {
+            return
+        }
+        twitterAuthorization = try? TwitterAuthorization(consumerKey: consumerKey, consumerSecret: consumerSecret)
     }
 
     override func viewWillAppear(_ animated: Bool) {
