@@ -155,16 +155,17 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             let dispatchTime: DispatchTime = DispatchTime.now() + Double(balloonDuration / Double(FeedViewController.balloonCount) * Double(i))
             DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
                 self.pendingSetupBalloonCount -= 1
-                //リセットフラグが立っていたら処理を中断する
-                if self.resetTrigger != ResetBalloonAnimation.none {
+  
+                switch self.resetTrigger {
+                case .none:
+                     self.animateBalloon(self.balloonViews[i], numberOfBalloon: i, duration: balloonDuration)
+                case .reset:
                     if self.pendingSetupBalloonCount == 0 {
                         //ふきだしアニメーション開始待機中にリセットがかかった場合はリセットをかける
-                        if self.resetTrigger == ResetBalloonAnimation.reset {
-                            self.restartAnimation()
-                        }
+                        self.restartAnimation()
                     }
-                } else {
-                    self.animateBalloon(self.balloonViews[i], numberOfBalloon: i, duration: balloonDuration)
+                default:
+                    return
                 }
             }
         }
