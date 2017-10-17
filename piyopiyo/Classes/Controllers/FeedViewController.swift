@@ -22,7 +22,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let initialBalloonX = trailingMargin + balloonWidth
     static let initialBalloonY = screenSize.height - bottomMargin
 
-    private var twitterAuthorization: TwitterAuthorization? = nil
+    private var twitterAuthorization: TwitterAuthorization?
     
     static let balloonCount = 3                             //ふきだしViewの個数
     static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
@@ -362,8 +362,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         switch microContentType {
         case .micropost:
             microContentType = MicroContentType.twitter
-            _ = initializeTwitterAuthorization() { result in
-                
+            initializeTwitterAuthorization { result in
+                if !result {
+                    self.microContentType = MicroContentType.micropost
+                }
             }
         case .twitter:
             microContentType = MicroContentType.micropost
