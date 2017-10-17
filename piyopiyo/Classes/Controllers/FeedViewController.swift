@@ -224,7 +224,9 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         
         animator.addCompletion {_ in
             self.animatingBalloonCount -= 1
-            if self.resetTrigger == ResetBalloonAnimation.cancel {
+            
+            switch self.resetTrigger {
+            case .cancel:
                 //キャンセル処理の場合はアニメーション終了後にキャンセル処理を行う
                 if self.animatingBalloonCount == 0 {
                     if self.pendingSetupBalloonCount == 0 {
@@ -232,15 +234,17 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                     }
                     self.balloonCycleCount = 0
                 }
-            } else if self.resetTrigger == ResetBalloonAnimation.reset {
+            case .reset:
                 //リセット処理の場合はアニメーション終了後に再開する
                 self.restartAnimation()
-            } else if self.balloonCycleCount == (FeedViewController.resetBalloonCountValue - 1) {
-                //リセット条件を満たした場合（ふきだしカウンタが閾値を超えたら）リセットフラグを立てる
-                self.resetTrigger = ResetBalloonAnimation.reset
-                nextBalloon()
-            } else {
-                nextBalloon()
+            default:
+                if self.balloonCycleCount == (FeedViewController.resetBalloonCountValue - 1) {
+                    //リセット条件を満たした場合（ふきだしカウンタが閾値を超えたら）リセットフラグを立てる
+                    self.resetTrigger = ResetBalloonAnimation.reset
+                    nextBalloon()
+                } else {
+                    nextBalloon()
+                }
             }
         }
 
