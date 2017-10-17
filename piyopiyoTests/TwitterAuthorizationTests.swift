@@ -34,9 +34,15 @@ class TwitterAuthorizationTests: XCTestCase {
         userDefaults.set(consumerSecret, forKey: "twitter_secret")
 
         // すでにキーが存在するときfalseを返す（isAuthorized()メソッドの確認）
-        XCTAssertFalse(twitterAuthorization!.authorize(presentFrom: UIViewController()))
+        let twitterAuthorizationException: XCTestExpectation? = self.expectation(description: "twitterAuthorization")
+        
+        twitterAuthorization!.authorize(presentFrom: UIViewController()) { result in
+            XCTAssertFalse(result)
+            userDefaults.removeObject(forKey: "twitter_key")
+            userDefaults.removeObject(forKey: "twitter_secret")
+            twitterAuthorizationException?.fulfill()
+        }
+        waitForExpectations(timeout: 1, handler: nil)
 
-        userDefaults.removeObject(forKey: "twitter_key")
-        userDefaults.removeObject(forKey: "twitter_secret")
     }
 }

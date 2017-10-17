@@ -27,6 +27,12 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let balloonCount = 3                             //ふきだしViewの個数
     static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
     
+    enum MicroContentType {
+        case micropost
+        case twitter
+    }
+    private var microContentType: MicroContentType = MicroContentType.micropost
+    
     enum ResetBalloonAnimation {
         case reset                                          //ふきだしループのリセット
         case cancel                                         //ふきだしループの停止
@@ -127,12 +133,21 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         self.isEnterBackground = true
     }
     
-    func initializeTwitterAuthorization() {
-        let env = ProcessInfo.processInfo.environment
-        guard let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"] else {
-            return
+    func initializeTwitterAuthorization(handle: @escaping (_ result: Bool) -> Void) {
+        if twitterAuthorization == nil {
+            let env = ProcessInfo.processInfo.environment
+            guard let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"] else {
+                handle(false)
+                return
+            }
+            twitterAuthorization = try? TwitterAuthorization(consumerKey: consumerKey, consumerSecret: consumerSecret)
         }
-        twitterAuthorization = try? TwitterAuthorization(consumerKey: consumerKey, consumerSecret: consumerSecret)
+        
+        if let twitterAuthorization = twitterAuthorization {
+            _ = twitterAuthorization.authorize(presentFrom: self, handle: handle)
+        } else {
+            handle(false)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -180,7 +195,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             }
         }
     }
-
+    
     func startButtonDidTap() {
         UserDefaults.standard.set(true, forKey: "startApp")
 
@@ -344,7 +359,15 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     @IBAction func miniHiyokoTapped(_ sender: Any) {
-        
+        switch microContentType {
+        case .micropost:
+            microContentType = MicroContentType.twitter
+            _ = initializeTwitterAuthorization() { result in
+                
+            }
+        case .twitter:
+            microContentType = MicroContentType.micropost
+        }
     }
     
 }
