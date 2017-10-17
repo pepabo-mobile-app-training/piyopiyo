@@ -63,8 +63,15 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let env = ProcessInfo.processInfo.environment
+        let defaults = UserDefaults.standard
 
-        microcontents = ContinuityTweets()
+        guard let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"],
+            let oauthToken = defaults.string(forKey: "twitter_key"), let oauthTokenSecret = defaults.string(forKey: "twitter_secret") else {
+                return
+        }
+
+        microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
 
         if let microcontents = microcontents {
             microcontents.fetchMicroContents()
