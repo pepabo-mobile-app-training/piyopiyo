@@ -91,7 +91,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             setupBalloons(FeedViewController.balloonCount)
             isDismiss = false
         }
-        setBalloonUserInteractionEnabled(true)
     }
 
     private func addTutorial(tutorialView: TutorialView?) {
@@ -205,6 +204,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             }
         }
         profileBackgroundView.isHidden = false
+        setBalloonUserInteractionEnabled(false)
 
         profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 1)
         profileView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 2)
@@ -212,18 +212,19 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     func closeButtonDidTap() {
         profileBackgroundView.isHidden = true
+        setBalloonUserInteractionEnabled(true)
     }
 
     @IBAction func profileBackgroundDidTap(_ sender: UITapGestureRecognizer) {
         profileView.removeFromSuperview()
         profileBackgroundView.isHidden = true
+        setBalloonUserInteractionEnabled(true)
     }
 
     func showUserFeedButtonDidTap() {
         profileBackgroundView.isHidden = true
         isDismiss = true
         showingUserProfile = profileView.profile
-        setBalloonUserInteractionEnabled(false)
         performSegue(withIdentifier: "showUserFeed", sender: nil)
     }
 
@@ -281,6 +282,5 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             balloonView.isUserInteractionEnabled = isEnabled
         }
     }
-    
     
 }
