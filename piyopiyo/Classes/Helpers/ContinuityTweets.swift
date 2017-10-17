@@ -9,7 +9,7 @@
 import Foundation
 import SwifteriOS
 
-class ContinuityTweets {
+class ContinuityTweets: ContinuityMicroContents {
     private var tweets = [Tweet]()
     private var isRequestingTweets: Bool = false
     private var request: HTTPRequest?
@@ -20,7 +20,7 @@ class ContinuityTweets {
         return tweets.count
     }
 
-    func fetchMicroposts() {
+    func fetchMicroContents() {
         let env = ProcessInfo.processInfo.environment
         let defaults = UserDefaults.standard
 
@@ -44,9 +44,9 @@ class ContinuityTweets {
         }
     }
 
-    func getMicropost() -> Tweet? {
+    func getMicroContent() -> MicroContent? {
         if tweets.count < ContinuityTweets.lowestTweetCount {
-            fetchMicroposts()
+            fetchMicroContents()
         }
         if tweets.count != 0 {
             return tweets.removeFirst()

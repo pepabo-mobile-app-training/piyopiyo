@@ -53,7 +53,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     private var tutorialView: TutorialView?
     
-    private var microposts = ContinuityMicroposts()
+    private var microcontents: ContinuityMicroContents?
     private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
 
     @IBOutlet weak var profileBackgroundView: UIView! {
@@ -79,7 +79,11 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        microposts.fetchMicroposts()
+        microcontents = ContinuityTweets()
+
+        if let microcontents = microcontents {
+            microcontents.fetchMicroContents()
+        }
 
         if !UserDefaults.standard.bool(forKey: "startApp") {
             tutorialView = TutorialView(frame: self.view.frame)
@@ -217,7 +221,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
         balloonView.layoutIfNeeded()
         
-        balloonView.micropost = microposts.getMicropost()
+        guard let microcontents = microcontents else {
+            return
+        }
+        balloonView.micropost = microcontents.getMicroContent()
 
         let animator = UIViewPropertyAnimator(duration: duration, curve: .easeIn, animations: nil)
 
