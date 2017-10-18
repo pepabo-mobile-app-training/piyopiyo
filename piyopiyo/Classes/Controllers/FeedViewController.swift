@@ -282,6 +282,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             }
         }
         profileBackgroundView.isHidden = false
+        setBalloonUserInteractionEnabled(false)
 
         profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 1)
         profileView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 2)
@@ -297,11 +298,13 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     func closeButtonDidTap() {
         profileBackgroundView.isHidden = true
+        setBalloonUserInteractionEnabled(true)
     }
 
     @IBAction func profileBackgroundDidTap(_ sender: UITapGestureRecognizer) {
         profileView.removeFromSuperview()
         profileBackgroundView.isHidden = true
+        setBalloonUserInteractionEnabled(true)
     }
 
     func showUserFeedButtonDidTap() {
@@ -366,6 +369,12 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             }
         case .twitter:
             microContentType = MicroContentType.micropost
+        }
+    }
+    
+    func setBalloonUserInteractionEnabled(_ isEnabled: Bool) {
+        balloonViews.forEach { (balloonView) in
+            balloonView.isUserInteractionEnabled = isEnabled
         }
     }
     
