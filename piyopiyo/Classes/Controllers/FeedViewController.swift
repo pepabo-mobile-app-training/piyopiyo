@@ -22,8 +22,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let initialBalloonX = trailingMargin + balloonWidth
     static let initialBalloonY = screenSize.height - bottomMargin
 
+    private var twitterAuthorization: TwitterAuthorization?
+    
     static let balloonCount = 3                             //ふきだしViewの個数
     static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
+    
+    enum MicroContentType {
+        case micropost
+        case twitter
+    }
+    private var microContentType: MicroContentType = MicroContentType.micropost
     
     enum ResetBalloonAnimation {
         case reset                                          //ふきだしループのリセット
@@ -114,7 +122,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 self.setupBalloons(FeedViewController.balloonCount)
             } else {
                 //ふきだしキャンセル完了前ならふきだしループをリセットする
-                self.resetTrigger = ResetBalloonAnimation.none
                 self.resetAnimateBalloon()
             }
         }
@@ -123,6 +130,19 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func prepareViewClosing() {
         self.resetTrigger = ResetBalloonAnimation.cancel
         self.isEnterBackground = true
+    }
+    
+    func initializeTwitterAuthorization(handle: @escaping (_ result: Bool) -> Void) {
+        if twitterAuthorization == nil {
+            let env = ProcessInfo.processInfo.environment
+            twitterAuthorization = try? TwitterAuthorization(consumerKey: env["consumerKey"], consumerSecret:  env["consumerSecret"])
+        }
+        
+        if let twitterAuthorization = twitterAuthorization {
+            twitterAuthorization.authorize(presentFrom: self, handle: handle)
+        } else {
+            handle(false)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -164,13 +184,15 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                         //ふきだしアニメーション開始待機中にリセットがかかった場合はリセットをかける
                         self.restartAnimation()
                     }
-                default:
-                    return
+                case .cancel:
+                    if self.pendingSetupBalloonCount == 0 {
+                        self.resetTrigger = ResetBalloonAnimation.none
+                    }
                 }
             }
         }
     }
-
+    
     func startButtonDidTap() {
         UserDefaults.standard.set(true, forKey: "startApp")
 
@@ -338,7 +360,17 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     @IBAction func miniHiyokoTapped(_ sender: Any) {
-        
+        switch microContentType {
+        case .micropost:
+            microContentType = MicroContentType.twitter
+            initializeTwitterAuthorization { result in
+                if !result {
+                    self.microContentType = MicroContentType.micropost
+                }
+            }
+        case .twitter:
+            microContentType = MicroContentType.micropost
+        }
     }
     
     func setBalloonUserInteractionEnabled(_ isEnabled: Bool) {
