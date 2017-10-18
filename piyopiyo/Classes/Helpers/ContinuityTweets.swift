@@ -40,7 +40,9 @@ class ContinuityTweets: ContinuityMicroContents {
         if !isRequestingTweets {
             isRequestingTweets = true
             request = Tweet.fetchRandomTweets(swifter: swifter) { randomTweet in
-                self.tweets.append(randomTweet)
+                if !randomTweet.content.isEmpty {
+                    self.tweets.append(randomTweet)
+                }
 
                 if self.count == ContinuityTweets.maxTweetCount {
                     self.stop()
