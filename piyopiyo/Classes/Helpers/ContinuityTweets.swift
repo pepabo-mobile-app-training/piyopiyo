@@ -20,7 +20,7 @@ class ContinuityTweets: ContinuityMicroContents {
     private let oauthTokenSecret: String
 
     static let maxTweetCount = 50
-    static let lowestTweetCount = 5
+    static let lowestTweetCount = 15
 
     init(consumerKey: String, consumerSecret: String, oauthToken: String, oauthTokenSecret: String) {
         self.consumerKey = consumerKey
