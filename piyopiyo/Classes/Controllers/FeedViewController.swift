@@ -81,12 +81,12 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         let env = ProcessInfo.processInfo.environment
         let defaults = UserDefaults.standard
 
-        guard let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"],
-            let oauthToken = defaults.string(forKey: "twitter_key"), let oauthTokenSecret = defaults.string(forKey: "twitter_secret") else {
-                return
+        if let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"],
+            let oauthToken = defaults.string(forKey: "twitter_key"), let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
+            microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+        } else {
+            microcontents = ContinuityMicroposts()
         }
-
-        microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
 
         if let microcontents = microcontents {
             microcontents.fetchMicroContents()
@@ -391,5 +391,4 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             balloonView.isUserInteractionEnabled = isEnabled
         }
     }
-    
 }

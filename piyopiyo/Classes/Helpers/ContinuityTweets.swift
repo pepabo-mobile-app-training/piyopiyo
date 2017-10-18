@@ -60,7 +60,7 @@ class ContinuityTweets: ContinuityMicroContents {
         }
     }
 
-    func stop() {
+    private func stop() {
         self.request?.stop()
     }
 }
