@@ -135,11 +135,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func initializeTwitterAuthorization(handle: @escaping (_ result: Bool) -> Void) {
         if twitterAuthorization == nil {
             let env = ProcessInfo.processInfo.environment
-            guard let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"] else {
-                handle(false)
-                return
-            }
-            twitterAuthorization = try? TwitterAuthorization(consumerKey: consumerKey, consumerSecret: consumerSecret)
+            twitterAuthorization = try? TwitterAuthorization(consumerKey: env["consumerKey"], consumerSecret:  env["consumerSecret"])
         }
         
         if let twitterAuthorization = twitterAuthorization {
