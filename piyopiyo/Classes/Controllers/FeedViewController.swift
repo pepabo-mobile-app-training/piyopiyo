@@ -78,13 +78,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let env = ProcessInfo.processInfo.environment
-        let defaults = UserDefaults.standard
-
-        if let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"],
-            let oauthToken = defaults.string(forKey: "twitter_key"), let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
-            microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
-        }
 
         if !UserDefaults.standard.bool(forKey: "startApp") {
             tutorialView = TutorialView(frame: self.view.frame)
@@ -120,6 +113,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     func restartView() {
+        let env = ProcessInfo.processInfo.environment
+        let defaults = UserDefaults.standard
+
+        if microContentType == .twitter {
+            if let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"],
+                let oauthToken = defaults.string(forKey: "twitter_key"), let oauthTokenSecret =     defaults.string(forKey: "twitter_secret") {
+                microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+            }
+        }
+
         if self.isEnterBackground {
             self.isEnterBackground = false
             if self.resetTrigger == ResetBalloonAnimation.none {
@@ -200,6 +203,13 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     
     func startButtonDidTap() {
         UserDefaults.standard.set(true, forKey: "startApp")
+
+        self.microContentType = MicroContentType.twitter
+        self.initializeTwitterAuthorization { result in
+            if !result {
+                self.microContentType = MicroContentType.micropost
+            }
+        }
 
         makeBalloons(FeedViewController.balloonCount)
         setupBalloons(FeedViewController.balloonCount)
