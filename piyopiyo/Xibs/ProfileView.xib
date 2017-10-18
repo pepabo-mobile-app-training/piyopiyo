@@ -35,7 +35,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWs-qF-ZK2">
-                    <rect key="frame" x="243" y="20" width="44" height="44"/>
+                    <rect key="frame" x="243" y="33" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="URm-ve-m85"/>
                         <constraint firstAttribute="width" constant="44" id="s1S-6S-i4B"/>
@@ -85,7 +85,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TWs-qF-ZK2" secondAttribute="trailing" constant="13" id="4te-q9-No5"/>
                 <constraint firstItem="nFI-7O-MLE" firstAttribute="top" secondItem="PRA-8t-NQt" secondAttribute="bottom" constant="30" id="5Eh-pn-vwt"/>
                 <constraint firstItem="tXe-ji-jIM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="9z3-ZN-APF"/>
-                <constraint firstItem="TWs-qF-ZK2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Flk-Cf-fc2"/>
+                <constraint firstItem="TWs-qF-ZK2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="13" id="Flk-Cf-fc2"/>
                 <constraint firstItem="PRA-8t-NQt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="MNg-Nr-4Yi"/>
                 <constraint firstItem="Pkk-DH-BKU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RrI-p7-Ltn"/>
                 <constraint firstItem="nFI-7O-MLE" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="X4V-R5-Hl5"/>
