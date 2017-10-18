@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MenuViewDelegate: class {
+    
+}
+
 class MenuView: UIView {
    
     override init(frame: CGRect) {

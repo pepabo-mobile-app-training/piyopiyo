@@ -65,6 +65,11 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     @IBOutlet weak var hiyokoButton: UIButton!
     @IBOutlet weak var miniHiyokoButton: UIButton!
     @IBOutlet weak var switchingClientButton: UIButton!
+    @IBOutlet weak var menuView: MenuView! {
+        didSet {
+            menuView.isHidden = true
+        }
+    }
     
     private var activityIndicator: UIActivityIndicatorView! {
         didSet {
@@ -282,11 +287,20 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 self.view.addSubview(self.profileView)
             }
         }
+        showBackgroundView()
+        profileView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 2)
+    }
+    
+    func showBackgroundView() {
         profileBackgroundView.isHidden = false
         setBalloonUserInteractionEnabled(false)
-
+        
         profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 1)
-        profileView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 2)
+    }
+    
+    func hideBackgroundView() {
+        profileBackgroundView.isHidden = true
+        setBalloonUserInteractionEnabled(true)
     }
     
     func restartAnimation() {
@@ -298,14 +312,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
 
     func closeButtonDidTap() {
-        profileBackgroundView.isHidden = true
-        setBalloonUserInteractionEnabled(true)
+        hideBackgroundView()
     }
 
     @IBAction func profileBackgroundDidTap(_ sender: UITapGestureRecognizer) {
-        profileView.removeFromSuperview()
-        profileBackgroundView.isHidden = true
-        setBalloonUserInteractionEnabled(true)
+        if profileView.isDescendant(of: self.view) {
+            profileView.removeFromSuperview()
+        } else {
+            menuView.isHidden = true
+        }
+        hideBackgroundView()
     }
 
     func showUserFeedButtonDidTap() {
@@ -360,7 +376,9 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     @IBAction func miniHiyokoTapped(_ sender: Any) {
-
+        showBackgroundView()
+        menuView.isHidden = false
+        menuView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 2)
     }
     
     @IBAction func switchingClientButtonTapped(_ sender: Any) {
