@@ -53,7 +53,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     private var tutorialView: TutorialView?
     
-    private var microposts = ContinuityMicroposts()
+    private var microcontents: ContinuityMicroContents = ContinuityMicroposts()
     private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
 
     @IBOutlet weak var profileBackgroundView: UIView! {
@@ -78,8 +78,13 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let env = ProcessInfo.processInfo.environment
+        let defaults = UserDefaults.standard
 
-        microposts.fetchMicroposts()
+        if let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"],
+            let oauthToken = defaults.string(forKey: "twitter_key"), let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
+            microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+        }
 
         if !UserDefaults.standard.bool(forKey: "startApp") {
             tutorialView = TutorialView(frame: self.view.frame)
@@ -217,7 +222,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
         balloonView.layoutIfNeeded()
         
-        balloonView.micropost = microposts.getMicropost()
+        balloonView.micropost = microcontents.getMicroContent()
 
         let animator = UIViewPropertyAnimator(duration: duration, curve: .easeIn, animations: nil)
 
@@ -377,5 +382,4 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             balloonView.isUserInteractionEnabled = isEnabled
         }
     }
-    
 }
