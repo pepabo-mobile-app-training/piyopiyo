@@ -14,6 +14,7 @@ class ContinuityTweets: ContinuityMicroContents {
     private var isRequestingTweets: Bool = false
     private var request: HTTPRequest?
 
+    private var swifter: Swifter
     private let consumerKey: String
     private let consumerSecret: String
     private let oauthToken: String
@@ -27,6 +28,8 @@ class ContinuityTweets: ContinuityMicroContents {
         self.consumerSecret = consumerSecret
         self.oauthToken = oauthToken
         self.oauthTokenSecret = oauthTokenSecret
+
+        self.swifter = Swifter(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
     }
 
     var count: Int {
@@ -34,8 +37,6 @@ class ContinuityTweets: ContinuityMicroContents {
     }
 
     func fetchMicroContents() {
-        let swifter = Swifter(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
-
         if !isRequestingTweets {
             isRequestingTweets = true
             request = Tweet.fetchRandomTweets(swifter: swifter) { randomTweet in
