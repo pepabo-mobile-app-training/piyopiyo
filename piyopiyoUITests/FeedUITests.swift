@@ -7,14 +7,17 @@
 //
 
 import XCTest
+@testable import piyopiyo
 
 class FeedUITests: XCTestCase {
+    private let app = XCUIApplication()
 
     override func setUp() {
         super.setUp()
 
         continueAfterFailure = false
-        XCUIApplication().launch()
+        app.launchArguments.append(contentsOf: ["-startApp", "NO"])
+        app.launch()
     }
     
     override func tearDown() {
@@ -22,13 +25,13 @@ class FeedUITests: XCTestCase {
     }
     
     func testTapAppStart() {
-        let app = XCUIApplication()
         let startButton = app.buttons["startButton"]
         let durationOfBalloon: TimeInterval = 6.0
         
         XCTAssert(startButton.exists)
         
         startButton.tap()
+
         XCTAssertFalse(startButton.exists)
         
         for i in 0..<3 {
