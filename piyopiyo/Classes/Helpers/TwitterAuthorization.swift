@@ -43,7 +43,6 @@ class TwitterAuthorization {
             self.userDefaults.set(token.secret, forKey: "twitter_secret")
             handle(true)
         }, failure: { (error) in
-            // エラー処理
             handle(false)
         })
     }
