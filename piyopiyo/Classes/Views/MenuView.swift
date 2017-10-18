@@ -9,11 +9,19 @@
 import UIKit
 
 protocol MenuViewDelegate: class {
-    
+    func closeMenuButtonDidTap()
+    func showTutorialButtonDidTap()
+    func showAppInformationButtonDidTap()
 }
 
 class MenuView: UIView {
+    
+    weak var delegate: MenuViewDelegate?
    
+    @IBOutlet weak var showTutorialButton: UIButton!
+    @IBOutlet weak var showAppInformationButton: UIButton!
+    @IBOutlet weak var closeMenuButton: UIButton!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -31,6 +39,21 @@ class MenuView: UIView {
         view.frame = bounds
         addSubview(view)
     }
-
+    
+    @IBAction func showTutorialButtonDidTap(_ sender: Any) {
+        delegate?.showTutorialButtonDidTap()
+        removeFromSuperview()
+    }
+    
+    @IBAction func showAppInformationDidTap(_ sender: Any) {
+        delegate?.showAppInformationButtonDidTap()
+        removeFromSuperview()
+    }
+    
+    @IBAction func closeMenuButtonDidTap(_ sender: Any) {
+        delegate?.closeMenuButtonDidTap()
+        removeFromSuperview()
+    }
+    
 }
 

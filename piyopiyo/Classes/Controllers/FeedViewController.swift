@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegate, ProfileViewDelegate {
+class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegate, ProfileViewDelegate, MenuViewDelegate {
 
     static let screenSize = UIScreen.main.bounds.size
     static let hiyokoHeight: CGFloat = 100.0
@@ -68,6 +68,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     @IBOutlet weak var menuView: MenuView! {
         didSet {
             menuView.isHidden = true
+            menuView.delegate = self
         }
     }
     
@@ -379,6 +380,18 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         showBackgroundView()
         menuView.isHidden = false
         menuView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 2)
+    }
+    
+    func closeMenuButtonDidTap() {
+        hideBackgroundView()
+    }
+    
+    func showTutorialButtonDidTap() {
+        hideBackgroundView()
+    }
+    
+    func showAppInformationButtonDidTap() {
+        hideBackgroundView()
     }
     
     @IBAction func switchingClientButtonTapped(_ sender: Any) {
