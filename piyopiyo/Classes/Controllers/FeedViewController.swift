@@ -64,6 +64,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     
     @IBOutlet weak var hiyokoButton: UIButton!
     @IBOutlet weak var miniHiyokoButton: UIButton!
+    @IBOutlet weak var switchingClientButton: UIButton!
     
     private var activityIndicator: UIActivityIndicatorView! {
         didSet {
@@ -359,6 +360,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     @IBAction func miniHiyokoTapped(_ sender: Any) {
+
+    }
+    
+    @IBAction func switchingClientButtonTapped(_ sender: Any) {
         switch microContentType {
         case .micropost:
             microContentType = MicroContentType.twitter
