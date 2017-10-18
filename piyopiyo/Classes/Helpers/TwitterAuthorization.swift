@@ -26,24 +26,25 @@ class TwitterAuthorization {
         self.consumerSecret = consumerSecret
     }
 
-    func authorize(presentFrom: UIViewController?) -> Bool {
+    func authorize(presentFrom: UIViewController?, handle: @escaping (_ result: Bool) -> Void) {
         if isAuthorized() {
-            return false
+            handle(true)
+            return
         }
 
         let swifter = Swifter(consumerKey: consumerKey, consumerSecret: consumerSecret)
 
         swifter.authorize(with: callbackURL, presentFrom: presentFrom, success: { (token, _) in
             guard let token = token else {
+                handle(false)
                 return
             }
             self.userDefaults.set(token.key, forKey: "twitter_key")
             self.userDefaults.set(token.secret, forKey: "twitter_secret")
+            handle(true)
         }, failure: { (error) in
-            // エラー処理
+            handle(false)
         })
-
-        return true
     }
 
     private func isAuthorized() -> Bool {

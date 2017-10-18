@@ -1,6 +1,7 @@
 disabled_rules:
 - trailing_whitespace
 - discarded_notification_center_observer
+- type_body_length
 
 excluded:
   - Carthage
