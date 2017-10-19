@@ -227,11 +227,11 @@
 			isa = PBXGroup;
 			children = (
 				E4F700651F7A2FBD00869BD5 /* ColorButton.swift */,
-				E4F700691F7A4E8E00869BD5 /* ProfileView.swift */,
 				AFBDE5C41F7A390C00441353 /* BalloonView.swift */,
 				E4F7006B1F7B81F300869BD5 /* TutorialView.swift */,
 				AFC1F0211F8C9863007AB2E0 /* FeedTableViewCell.swift */,
 				E4F6C3CA1F987FE8006AF75E /* TutorialPage.swift */,
+				E4F700691F7A4E8E00869BD5 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

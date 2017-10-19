@@ -10,10 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialPage" customModule="piyopiyo" customModuleProvider="target">
+            <connections>
+                <outlet property="firstPageView" destination="wIo-u9-zTt" id="BgE-E9-wXI"/>
+                <outlet property="secondPageView" destination="Lph-lY-hob" id="8ai-KU-bdq"/>
+                <outlet property="thirdPageView" destination="rCY-Ao-MgC" id="Uf0-vU-wpe"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="2296" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="1007" height="595"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wIo-u9-zTt">
@@ -36,6 +42,7 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="hiyoko_with_baloon" translatesAutoresizingMaskIntoConstraints="NO" id="mvb-qF-IOr">
                             <rect key="frame" x="9" y="271" width="297" height="236"/>
                             <constraints>
+                                <constraint firstAttribute="height" constant="236" id="HxP-kd-lYF"/>
                                 <constraint firstAttribute="width" secondItem="mvb-qF-IOr" secondAttribute="height" multiplier="44:35" id="IGN-3E-VWM"/>
                             </constraints>
                         </imageView>
@@ -54,7 +61,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.76439612252003508" green="1" blue="0.19343071671851153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="mvb-qF-IOr" secondAttribute="trailing" constant="14" id="Biq-ru-in8"/>
                         <constraint firstAttribute="bottom" secondItem="mvb-qF-IOr" secondAttribute="bottom" constant="88" id="GIH-Bg-Avx"/>
@@ -64,14 +71,61 @@
                         <constraint firstItem="241-Jl-SRR" firstAttribute="centerX" secondItem="wIo-u9-zTt" secondAttribute="centerX" id="nUS-YA-Pqa"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lph-lY-hob">
+                    <rect key="frame" x="328" y="0.0" width="320" height="595"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="tutorial_speed" translatesAutoresizingMaskIntoConstraints="NO" id="2qb-9V-lQj">
+                            <rect key="frame" x="47" y="200" width="295" height="433"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="2qb-9V-lQj" secondAttribute="height" multiplier="295:433" id="rDa-Kn-p5Z"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.51258467675460839" green="0.97934550046920776" blue="0.58648564633323952" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="2qb-9V-lQj" secondAttribute="trailing" constant="-22" id="7OI-Fh-UwO"/>
+                        <constraint firstAttribute="bottom" secondItem="2qb-9V-lQj" secondAttribute="bottom" constant="-38" id="ZFh-GW-JNf"/>
+                        <constraint firstItem="2qb-9V-lQj" firstAttribute="leading" secondItem="Lph-lY-hob" secondAttribute="leading" constant="47" id="iKK-KR-XL6"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rCY-Ao-MgC">
+                    <rect key="frame" x="656" y="0.0" width="320" height="595"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="tutorial_menu" translatesAutoresizingMaskIntoConstraints="NO" id="zOt-gU-mkL">
+                            <rect key="frame" x="-15" y="199" width="288" height="437"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="zOt-gU-mkL" secondAttribute="height" multiplier="288:425" id="mB0-ZZ-5Dy"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.72168634422429423" green="0.945500970323913" blue="0.97934550046920776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="zOt-gU-mkL" secondAttribute="bottom" constant="-41" id="Phg-Jy-X5v"/>
+                        <constraint firstAttribute="trailing" secondItem="zOt-gU-mkL" secondAttribute="trailing" constant="47" id="bdI-CT-p8Q"/>
+                        <constraint firstItem="zOt-gU-mkL" firstAttribute="leading" secondItem="rCY-Ao-MgC" secondAttribute="leading" constant="-15" id="pDD-2g-tc6"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="wIo-u9-zTt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3Bu-oX-C8w"/>
+                <constraint firstItem="rCY-Ao-MgC" firstAttribute="leading" secondItem="Lph-lY-hob" secondAttribute="trailing" id="538-h8-pBG"/>
+                <constraint firstItem="wIo-u9-zTt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="CfQ-QT-DKh"/>
+                <constraint firstItem="Lph-lY-hob" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Kr2-Hs-RIw"/>
+                <constraint firstItem="wIo-u9-zTt" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="UcJ-xP-PjW"/>
+                <constraint firstItem="rCY-Ao-MgC" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="VQv-gP-H58"/>
+                <constraint firstItem="Lph-lY-hob" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="cb6-9w-Xmi"/>
+                <constraint firstItem="Lph-lY-hob" firstAttribute="leading" secondItem="wIo-u9-zTt" secondAttribute="trailing" id="y1X-6M-KtB"/>
+                <constraint firstItem="rCY-Ao-MgC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="z7I-Fe-ZAQ"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="985" y="51.5"/>
+            <point key="canvasLocation" x="340.5" y="15.5"/>
         </view>
     </objects>
     <resources>
         <image name="hiyoko_with_baloon" width="1498" height="1128"/>
+        <image name="tutorial_menu" width="1000" height="1497"/>
+        <image name="tutorial_speed" width="1694" height="2470"/>
     </resources>
 </document>

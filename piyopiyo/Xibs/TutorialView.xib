@@ -25,9 +25,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4t-b3-qYh" customClass="TutorialPage" customModule="piyopiyo" customModuleProvider="target">
-                            <rect key="frame" x="40" y="104" width="1351" height="393"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <viewLayoutGuide key="safeArea" id="etR-AC-0x8"/>
                         </view>
                     </subviews>
                 </scrollView>
