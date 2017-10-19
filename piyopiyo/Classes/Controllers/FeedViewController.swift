@@ -105,6 +105,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             queue: OperationQueue.main,
             using: { _ in
                self.restartView()
+               self.setBalloonUserInteractionEnabled(true)
             })
         
         NotificationCenter.default.addObserver (
@@ -369,7 +370,19 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         prepareViewClosing()
         profileBackgroundView.isHidden = true
         showingUserProfile = profileView.profile
-        performSegue(withIdentifier: "showUserFeed", sender: nil)
+
+        switch microContentType {
+        case .twitter:
+            if let id = showingUserProfile?.userID {
+                if let url = URL(string: "twitter://user?id=\(id)") {
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                }
+            }
+        case .micropost:
+            performSegue(withIdentifier: "showUserFeed", sender: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
