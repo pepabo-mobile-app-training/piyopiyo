@@ -167,6 +167,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         guard let tutorialView = tutorialView else {
             return
         }
+        tutorialView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 1)
         view.addSubview(tutorialView)
     }
     
@@ -371,7 +372,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         animator.addAnimations(landingMotion, delayFactor: 0.5)
 
         animator.startAnimation()
-
     }
     
     @IBAction func hiyokoTapped(_ sender: Any) {
