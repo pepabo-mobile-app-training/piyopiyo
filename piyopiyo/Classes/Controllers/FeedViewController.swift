@@ -86,13 +86,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let env = ProcessInfo.processInfo.environment
-        let defaults = UserDefaults.standard
-
-        if let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"],
-            let oauthToken = defaults.string(forKey: "twitter_key"), let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
-            microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
-        }
 
         if !UserDefaults.standard.bool(forKey: "startApp") {
             showTutorial()
@@ -217,6 +210,26 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             UserDefaults.standard.set(true, forKey: "startApp")
             makeBalloons(FeedViewController.balloonCount)
             setupBalloons(FeedViewController.balloonCount)
+        }
+    }
+
+    private func initializeTweets() {
+        let env = ProcessInfo.processInfo.environment
+        let defaults = UserDefaults.standard
+
+        self.initializeTwitterAuthorization { result in
+            if result {
+                self.microContentType = MicroContentType.twitter
+                if let consumerKey = env["consumerKey"],
+                    let consumerSecret = env["consumerSecret"],
+                    let oauthToken = defaults.string(forKey: "twitter_key"),
+                    let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
+                    self.microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+                    self.restartView()
+                }
+            } else {
+                self.microContentType = MicroContentType.micropost
+            }
         }
     }
     

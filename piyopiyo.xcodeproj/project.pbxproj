@@ -22,6 +22,7 @@
 		AF3F1E3D1F90701B004F9456 /* TwitterAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F1E3C1F90701B004F9456 /* TwitterAuthorization.swift */; };
 		AF4260C41F90B77F00249975 /* TwitterAuthorizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4260C31F90B77F00249975 /* TwitterAuthorizationTests.swift */; };
 		AF4260C61F90C22500249975 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4260C51F90C22500249975 /* Error.swift */; };
+		AF45F1C51F98489200805ABB /* FeedTutorialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF45F1C41F98489200805ABB /* FeedTutorialUITests.swift */; };
 		AF914D221F908AB00085FE1C /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF914D211F908AB00085FE1C /* SwifteriOS.framework */; };
 		AFBDE5B91F7A265500441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5B81F7A265500441353 /* .gitkeep */; };
 		AFBDE5BB1F7A267300441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BA1F7A267300441353 /* .gitkeep */; };
@@ -93,6 +94,7 @@
 		AF3F1E3C1F90701B004F9456 /* TwitterAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorization.swift; sourceTree = "<group>"; };
 		AF4260C31F90B77F00249975 /* TwitterAuthorizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorizationTests.swift; sourceTree = "<group>"; };
 		AF4260C51F90C22500249975 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		AF45F1C41F98489200805ABB /* FeedTutorialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTutorialUITests.swift; sourceTree = "<group>"; };
 		AF914D211F908AB00085FE1C /* SwifteriOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifteriOS.framework; path = Carthage/Build/iOS/SwifteriOS.framework; sourceTree = "<group>"; };
 		AFBDE5B81F7A265500441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BA1F7A267300441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			children = (
 				AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */,
 				AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */,
+				AF45F1C41F98489200805ABB /* FeedTutorialUITests.swift */,
 				AF161F101F78A6FF00B2DD73 /* Info.plist */,
 			);
 			path = piyopiyoUITests;
@@ -522,6 +525,7 @@
 			files = (
 				AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */,
 				AFECFAD31F7DF321001A9A0E /* FeedUITests.swift in Sources */,
+				AF45F1C51F98489200805ABB /* FeedTutorialUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
