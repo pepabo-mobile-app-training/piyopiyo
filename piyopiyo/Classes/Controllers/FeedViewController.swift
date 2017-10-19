@@ -79,7 +79,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             activityIndicator.center = self.view.center
             activityIndicator.hidesWhenStopped = true
             activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.white
-            activityIndicator.layer.zPosition = CGFloat(FeedViewController.balloonCount + 3)
+            activityIndicator.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 3)
         }
     }
     private var showingUserProfile: userProfile?
@@ -315,6 +315,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func hideBackgroundView() {
         profileBackgroundView.isHidden = true
         setBalloonUserInteractionEnabled(true)
+        activityIndicator.stopAnimating()                   //読み込み中インジケータが表示されたままになることを防ぐために実行
     }
     
     func restartAnimation() {
@@ -332,7 +333,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     @IBAction func profileBackgroundDidTap(_ sender: UITapGestureRecognizer) {
         if profileView.isDescendant(of: self.view) {
             profileView.removeFromSuperview()
-        } else {
+        } else if !menuView.isHidden {
             menuView.isHidden = true
             resetMiniHiyokoPosition()
         }
