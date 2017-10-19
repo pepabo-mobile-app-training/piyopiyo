@@ -15,16 +15,13 @@ class ContinuityTweets: ContinuityMicroContents {
     private var request: HTTPRequest?
 
     private var swifter: Swifter
-
     private let consumerKey: String
     private let consumerSecret: String
     private let oauthToken: String
     private let oauthTokenSecret: String
 
     static let maxTweetCount = 50
-
     static let lowestTweetCount = 15
-
 
     init(consumerKey: String, consumerSecret: String, oauthToken: String, oauthTokenSecret: String) {
         self.consumerKey = consumerKey

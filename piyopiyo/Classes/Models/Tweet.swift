@@ -26,9 +26,7 @@ class Tweet: MicroContent {
                   let userID = json["user"]["id"].double,
                   let name = json["user"]["name"].string,
                   let url = json["user"]["profile_image_url_https"].string else {
-
                 handler(Tweet(content: "", userID: "", profile: TwitterUserProfile(name: "", userID: "", avatarURL: nil)))
-
                 return
             }
             let profile = TwitterUserProfile(name: name, userID: String(userID), avatarURL: URL(string: url))
