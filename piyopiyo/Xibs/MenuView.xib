@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -70,8 +70,7 @@
             <connections>
                 <outlet property="closeMenuButton" destination="aOI-Xt-Y1v" id="lWY-2j-ykF"/>
                 <outlet property="showAppInformationButton" destination="O50-aL-p78" id="6Zh-nm-hUh"/>
-                <outlet property="showTutorialButton" destination="YWB-qz-cCl" id="4vC-Ap-PtW"/>
-                <outlet property="showTutorialButtonDidTap" destination="YWB-qz-cCl" id="BlP-wi-y0B"/>
+                <outlet property="showTutorialButton" destination="YWB-qz-cCl" id="DBF-Hc-QMO"/>
             </connections>
             <point key="canvasLocation" x="3" y="-356"/>
         </view>
