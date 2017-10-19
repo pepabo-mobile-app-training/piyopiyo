@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -128,6 +128,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cGc-Bw-a8u"/>
                     <connections>
+                        <outlet property="grassImageView" destination="l2u-B9-Tql" id="ZXF-8w-Lde"/>
                         <outlet property="hiyokoButton" destination="Z6r-0y-dU6" id="X7Z-J2-kCE"/>
                         <outlet property="menuView" destination="Yfe-XW-bWd" id="Ca3-tU-Kcs"/>
                         <outlet property="miniHiyokoButton" destination="gCI-Ac-u4H" id="Ir3-eY-Xl0"/>

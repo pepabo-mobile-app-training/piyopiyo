@@ -62,6 +62,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     
+    @IBOutlet weak var grassImageView: UIImageView!
     @IBOutlet weak var hiyokoButton: UIButton!
     @IBOutlet weak var miniHiyokoButton: UIButton!
     @IBOutlet weak var switchingClientButton: UIButton!
@@ -321,6 +322,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             profileView.removeFromSuperview()
         } else {
             menuView.isHidden = true
+            resetMiniHiyokoPosition()
         }
         hideBackgroundView()
     }
@@ -380,18 +382,28 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         showBackgroundView()
         menuView.isHidden = false
         menuView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 2)
+        miniHiyokoButton.layer.zPosition += CGFloat(FeedViewController.resetBalloonCountValue + 3)
+        grassImageView.layer.zPosition += CGFloat(FeedViewController.resetBalloonCountValue + 4)
+    }
+    
+    func resetMiniHiyokoPosition() {
+        miniHiyokoButton.layer.zPosition -= CGFloat(FeedViewController.resetBalloonCountValue + 3)
+        grassImageView.layer.zPosition -= CGFloat(FeedViewController.resetBalloonCountValue + 4)
     }
     
     func closeMenuButtonDidTap() {
         hideBackgroundView()
+        resetMiniHiyokoPosition()
     }
     
     func showTutorialButtonDidTap() {
         hideBackgroundView()
+        resetMiniHiyokoPosition()
     }
     
     func showAppInformationButtonDidTap() {
         hideBackgroundView()
+        resetMiniHiyokoPosition()
     }
     
     @IBAction func switchingClientButtonTapped(_ sender: Any) {
