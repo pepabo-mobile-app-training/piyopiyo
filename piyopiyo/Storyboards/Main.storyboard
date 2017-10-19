@@ -48,8 +48,7 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="miniHiyokoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UiR-uI-0vK"/>
-                                    <action selector="switchingClientButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mPY-3g-L7p"/>
+                                    <action selector="switchingClientButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vel-1l-QBb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6r-0y-dU6" userLabel="hiyoko">
