@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TwitterUserProfile: userProfile {
+class TwitterUserProfile: UserProfile {
     var userID: String
     var name: String
     var avatarURL: URL?

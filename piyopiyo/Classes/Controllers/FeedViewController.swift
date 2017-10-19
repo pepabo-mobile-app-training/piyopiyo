@@ -82,7 +82,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             activityIndicator.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 3)
         }
     }
-    private var showingUserProfile: userProfile?
+    private var showingUserProfile: UserProfile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -330,7 +330,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         setBalloonUserInteractionEnabled(true)
         activityIndicator.stopAnimating()                   //読み込み中インジケータが表示されたままになることを防ぐために実行
     }
-    
+
     func restartAnimation() {
         if self.animatingBalloonCount == 0  && self.pendingSetupBalloonCount == 0 {
             self.balloonCycleCount = 0
