@@ -8,16 +8,16 @@
 
 import Foundation
 
-class ContinuityMicroposts {
+class ContinuityMicroposts: ContinuityMicroContents {
     private var microposts = [Micropost]()
     private var isRequestingMicroposts: Bool = false
     static let lowestMicropostCount = 5
-    
+
     var count: Int {
         return microposts.count
     }
-    
-    func fetchMicroposts() {
+
+    func fetchMicroContents() {
         if !isRequestingMicroposts {
             isRequestingMicroposts = true
             Micropost.fetchRandomMicroposts { randomPosts in
@@ -26,10 +26,10 @@ class ContinuityMicroposts {
             }
         }
     }
-    
-    func getMicropost() -> Micropost? {
+
+    func getMicroContent() -> MicroContent? {
         if microposts.count < ContinuityMicroposts.lowestMicropostCount {
-            fetchMicroposts()
+            fetchMicroContents()
         }
         if microposts.count != 0 {
             return microposts.removeFirst()

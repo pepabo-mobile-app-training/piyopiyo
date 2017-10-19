@@ -48,12 +48,12 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     private var balloonViews = [BalloonView]()
     private var isEnterBackground: Bool = false             //バックグラウンド中かどうか
     
-    static let originalProfileSize = CGSize(width: 300, height: 390)
+    static let originalProfileSize = CGSize(width: 300, height: 480)
     static let originalProfilePoint = CGPoint(x: (screenSize.width - originalProfileSize.width)/2, y: (screenSize.height - originalProfileSize.height)/2)
 
     private var tutorialView: TutorialView?
     
-    private var microposts = ContinuityMicroposts()
+    private var microcontents: ContinuityMicroContents = ContinuityMicroposts()
     private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
 
     @IBOutlet weak var profileBackgroundView: UIView! {
@@ -86,8 +86,13 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let env = ProcessInfo.processInfo.environment
+        let defaults = UserDefaults.standard
 
-        microposts.fetchMicroposts()
+        if let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"],
+            let oauthToken = defaults.string(forKey: "twitter_key"), let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
+            microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+        }
 
         if !UserDefaults.standard.bool(forKey: "startApp") {
             showTutorial()
@@ -232,7 +237,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
         balloonView.layoutIfNeeded()
         
-        balloonView.micropost = microposts.getMicropost()
+        balloonView.micropost = microcontents.getMicroContent()
 
         let animator = UIViewPropertyAnimator(duration: duration, curve: .easeIn, animations: nil)
 
@@ -292,6 +297,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         if let micropost = micropost {
             MicropostUserProfile.fetchUserProfile(userID: micropost.userID) { profile in
                 self.profileView.profile = profile
+                self.profileView.microContent = micropost
                 self.activityIndicator.stopAnimating()
                 self.view.addSubview(self.profileView)
             }
@@ -432,5 +438,4 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             balloonView.isUserInteractionEnabled = isEnabled
         }
     }
-    
 }

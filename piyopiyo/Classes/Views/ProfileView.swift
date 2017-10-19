@@ -24,6 +24,14 @@ class ProfileView: UIView {
         }
     }
     
+    @IBOutlet weak var microContentTextView: UITextView! {
+        didSet {
+            microContentTextView.layer.cornerRadius = 5
+            microContentTextView.layer.borderWidth = 1
+            microContentTextView.layer.borderColor = ColorPalette.microContentTextViewBorderColor.cgColor
+        }
+    }
+    
     @IBOutlet weak var userNameLabel: UILabel!
     
     var profile: userProfile? {
@@ -33,6 +41,15 @@ class ProfileView: UIView {
             }
             userNameLabel.text = profile.name
             profileImageView.sd_setImage(with: profile.avatarURL, placeholderImage: UIImage(named: "avatar"))
+        }
+    }
+    
+    var microContent: MicroContent? {
+        didSet {
+            guard let microContent = microContent else {
+                return
+            }
+            microContentTextView.text = microContent.content
         }
     }
     
