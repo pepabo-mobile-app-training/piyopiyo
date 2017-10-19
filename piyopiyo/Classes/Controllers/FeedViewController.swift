@@ -48,7 +48,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     private var balloonViews = [BalloonView]()
     private var isEnterBackground: Bool = false             //バックグラウンド中かどうか
     
-    static let originalProfileSize = CGSize(width: 300, height: 390)
+    static let originalProfileSize = CGSize(width: 300, height: 480)
     static let originalProfilePoint = CGPoint(x: (screenSize.width - originalProfileSize.width)/2, y: (screenSize.height - originalProfileSize.height)/2)
 
     private var tutorialView: TutorialView?
@@ -282,6 +282,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         if let micropost = micropost {
             MicropostUserProfile.fetchUserProfile(userID: micropost.userID) { profile in
                 self.profileView.profile = profile
+                self.profileView.microContent = micropost
                 self.activityIndicator.stopAnimating()
                 self.view.addSubview(self.profileView)
             }
