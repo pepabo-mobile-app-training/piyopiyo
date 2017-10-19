@@ -113,18 +113,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     func restartView() {
-        let env = ProcessInfo.processInfo.environment
-        let defaults = UserDefaults.standard
-
-        if microContentType == .twitter {
-            if let consumerKey = env["consumerKey"],
-               let consumerSecret = env["consumerSecret"],
-               let oauthToken = defaults.string(forKey: "twitter_key"),
-               let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
-                microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
-            }
-        }
-
         if self.isEnterBackground {
             self.isEnterBackground = false
             if self.resetTrigger == ResetBalloonAnimation.none {
@@ -205,16 +193,30 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     
     func startButtonDidTap() {
         UserDefaults.standard.set(true, forKey: "startApp")
-
-        self.microContentType = MicroContentType.twitter
-        self.initializeTwitterAuthorization { result in
-            if !result {
-                self.microContentType = MicroContentType.micropost
-            }
-        }
+        initializeTweets()
 
         makeBalloons(FeedViewController.balloonCount)
         setupBalloons(FeedViewController.balloonCount)
+    }
+
+    private func initializeTweets() {
+        let env = ProcessInfo.processInfo.environment
+        let defaults = UserDefaults.standard
+
+        self.initializeTwitterAuthorization { result in
+            if result {
+                self.microContentType = MicroContentType.twitter
+                if let consumerKey = env["consumerKey"],
+                    let consumerSecret = env["consumerSecret"],
+                    let oauthToken = defaults.string(forKey: "twitter_key"),
+                    let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
+                    self.microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+                    self.restartView()
+                }
+            } else {
+                self.microContentType = MicroContentType.micropost
+            }
+        }
     }
     
     func resetAnimateBalloon() {
