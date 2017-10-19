@@ -16,7 +16,9 @@ class TutorialView: UIView {
 
     weak var delegate: TutorialDelegate?
     @IBOutlet weak var startButton: ColorButton!
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var tutorialPage: TutorialPage!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -33,6 +35,9 @@ class TutorialView: UIView {
         }
         view.frame = bounds
         addSubview(view)
+        
+        scrollView.contentSize = CGSize(width: tutorialPage.frame.width, height: tutorialPage.frame.height)
+        scrollView.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
     }
     
     @IBAction func startButtonDidTap(_ sender: ColorButton) {
