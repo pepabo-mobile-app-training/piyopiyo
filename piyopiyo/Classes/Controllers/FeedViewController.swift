@@ -304,15 +304,21 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         animator.startAnimation()
     }
 
-    func textViewDidTap(_ micropost: MicroContent?) {
+    func textViewDidTap(_ microcontent: MicroContent?) {
         activityIndicator.startAnimating()
         
-        if let micropost = micropost {
-            MicropostUserProfile.fetchUserProfile(userID: micropost.userID) { profile in
-                self.profileView.profile = profile
-                self.profileView.microContent = micropost
-                self.activityIndicator.stopAnimating()
-                self.view.addSubview(self.profileView)
+        if let microcontent = microcontent {
+            switch microContentType {
+            case .twitter:
+                if let tweet = microcontent as? Tweet {
+                    setupProfile(profile: tweet.profile, microContent: tweet)
+                }
+                activityIndicator.stopAnimating()
+            case .micropost:
+                MicropostUserProfile.fetchUserProfile(userID: microcontent.userID) { profile in
+                    self.setupProfile(profile: profile, microContent: microcontent)
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
         showBackgroundView()
@@ -329,6 +335,12 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         profileBackgroundView.isHidden = true
         setBalloonUserInteractionEnabled(true)
         activityIndicator.stopAnimating()                   //読み込み中インジケータが表示されたままになることを防ぐために実行
+    }
+
+    private func setupProfile(profile: UserProfile, microContent: MicroContent) {
+        profileView.profile = profile
+        profileView.microContent = microContent
+        view.addSubview(profileView)
     }
 
     func restartAnimation() {
