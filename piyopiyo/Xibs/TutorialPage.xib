@@ -13,13 +13,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialPage" customModule="piyopiyo" customModuleProvider="target">
             <connections>
                 <outlet property="firstPageView" destination="wIo-u9-zTt" id="BgE-E9-wXI"/>
+                <outlet property="fourthPageView" destination="7jC-Ja-hFr" id="khg-GA-Z6Z"/>
                 <outlet property="secondPageView" destination="Lph-lY-hob" id="8ai-KU-bdq"/>
                 <outlet property="thirdPageView" destination="rCY-Ao-MgC" id="Uf0-vU-wpe"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="1007" height="595"/>
+            <rect key="frame" x="0.0" y="0.0" width="1347" height="595"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wIo-u9-zTt">
@@ -61,7 +62,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.76439612252003508" green="1" blue="0.19343071671851153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.70120566098869874" green="1" blue="0.51252574135526863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="mvb-qF-IOr" secondAttribute="trailing" constant="14" id="Biq-ru-in8"/>
                         <constraint firstAttribute="bottom" secondItem="mvb-qF-IOr" secondAttribute="bottom" constant="88" id="GIH-Bg-Avx"/>
@@ -81,7 +82,7 @@
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="0.51258467675460839" green="0.97934550046920776" blue="0.58648564633323952" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.58346092283190321" green="1" blue="0.57598782705534246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="2qb-9V-lQj" secondAttribute="trailing" constant="-22" id="7OI-Fh-UwO"/>
                         <constraint firstAttribute="bottom" secondItem="2qb-9V-lQj" secondAttribute="bottom" constant="-38" id="ZFh-GW-JNf"/>
@@ -98,12 +99,17 @@
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="0.72168634422429423" green="0.945500970323913" blue="0.97934550046920776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.652041731468469" green="1" blue="0.79793645826151516" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="zOt-gU-mkL" secondAttribute="bottom" constant="-41" id="Phg-Jy-X5v"/>
                         <constraint firstAttribute="trailing" secondItem="zOt-gU-mkL" secondAttribute="trailing" constant="47" id="bdI-CT-p8Q"/>
                         <constraint firstItem="zOt-gU-mkL" firstAttribute="leading" secondItem="rCY-Ao-MgC" secondAttribute="leading" constant="-15" id="pDD-2g-tc6"/>
                     </constraints>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jC-Ja-hFr">
+                    <rect key="frame" x="984" y="0.0" width="320" height="595"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.71827939390550211" green="1" blue="0.97046485762163481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -120,7 +126,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="340.5" y="15.5"/>
+            <point key="canvasLocation" x="574.5" y="29.5"/>
         </view>
     </objects>
     <resources>

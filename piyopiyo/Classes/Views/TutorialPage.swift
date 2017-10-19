@@ -13,7 +13,9 @@ class TutorialPage: UIView {
     @IBOutlet weak var firstPageView: UIView!
     @IBOutlet weak var secondPageView: UIView!
     @IBOutlet weak var thirdPageView: UIView!
-    static let pageCount = 3
+    @IBOutlet weak var fourthPageView: UIView!
+    
+    static let pageCount = 4
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,7 +33,7 @@ class TutorialPage: UIView {
         }
         
         
-        let viewList = [firstPageView, secondPageView, thirdPageView]
+        let viewList = [firstPageView, secondPageView, thirdPageView, fourthPageView]
         let screenSize = UIScreen.main.bounds.size
         for i in 0..<viewList.count {
             guard let page = viewList[i] else {
