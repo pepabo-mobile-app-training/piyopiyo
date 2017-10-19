@@ -117,8 +117,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         let defaults = UserDefaults.standard
 
         if microContentType == .twitter {
-            if let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"],
-                let oauthToken = defaults.string(forKey: "twitter_key"), let oauthTokenSecret =     defaults.string(forKey: "twitter_secret") {
+            if let consumerKey = env["consumerKey"],
+               let consumerSecret = env["consumerSecret"],
+               let oauthToken = defaults.string(forKey: "twitter_key"),
+               let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
                 microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
             }
         }
