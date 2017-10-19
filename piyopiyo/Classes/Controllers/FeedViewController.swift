@@ -206,10 +206,12 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     func startButtonDidTap() {
-        UserDefaults.standard.set(true, forKey: "startApp")
-
-        makeBalloons(FeedViewController.balloonCount)
-        setupBalloons(FeedViewController.balloonCount)
+        //初回起動時のみアニメーションが再生されていない状態なのでアニメーションを開始する
+        if !UserDefaults.standard.bool(forKey: "startApp") {
+            UserDefaults.standard.set(true, forKey: "startApp")
+            makeBalloons(FeedViewController.balloonCount)
+            setupBalloons(FeedViewController.balloonCount)
+        }
     }
     
     func resetAnimateBalloon() {
