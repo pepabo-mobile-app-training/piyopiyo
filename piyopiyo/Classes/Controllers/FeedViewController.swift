@@ -309,7 +309,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func showBackgroundView() {
         profileBackgroundView.isHidden = false
         setBalloonUserInteractionEnabled(false)
-        
         profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 1)
     }
     
