@@ -41,18 +41,18 @@ class MenuView: UIView {
     }
     
     @IBAction func showTutorialButtonDidTap(_ sender: Any) {
+        self.isHidden = true
         delegate?.showTutorialButtonDidTap()
-        removeFromSuperview()
     }
     
     @IBAction func showAppInformationDidTap(_ sender: Any) {
+        self.isHidden = true
         delegate?.showAppInformationButtonDidTap()
-        removeFromSuperview()
     }
     
     @IBAction func closeMenuButtonDidTap(_ sender: Any) {
+        self.isHidden = true
         delegate?.closeMenuButtonDidTap()
-        removeFromSuperview()
     }
     
 }
