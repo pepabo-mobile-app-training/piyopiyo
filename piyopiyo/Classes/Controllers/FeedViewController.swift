@@ -90,11 +90,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         microposts.fetchMicroposts()
 
         if !UserDefaults.standard.bool(forKey: "startApp") {
-            tutorialView = TutorialView(frame: self.view.frame)
-            if let tutorialView = tutorialView {
-                tutorialView.delegate = self
-                addTutorial(tutorialView: tutorialView)
-            }
+            showTutorial()
         } else {
             makeBalloons(FeedViewController.balloonCount)
             setupBalloons(FeedViewController.balloonCount)
@@ -120,6 +116,14 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             using: { _ in
                 self.prepareViewClosing()
             })
+    }
+    
+    func showTutorial() {
+        tutorialView = TutorialView(frame: self.view.frame)
+        if let tutorialView = tutorialView {
+            tutorialView.delegate = self
+            addTutorial(tutorialView: tutorialView)
+        }
     }
     
     func restartView() {
@@ -399,6 +403,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func showTutorialButtonDidTap() {
         hideBackgroundView()
         resetMiniHiyokoPosition()
+        showTutorial()
     }
     
     func showAppInformationButtonDidTap() {
