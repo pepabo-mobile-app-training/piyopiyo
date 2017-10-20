@@ -90,9 +90,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         if !UserDefaults.standard.bool(forKey: "startApp") {
             showTutorial()
         } else {
-            initializeTweets()
-            makeBalloons(FeedViewController.balloonCount)
-            setupBalloons(FeedViewController.balloonCount)
+            setupContents(FeedViewController.balloonCount)
         }
         profileView.delegate = self
         activityIndicator = UIActivityIndicatorView()
@@ -210,10 +208,14 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         //初回起動時のみアニメーションが再生されていない状態なのでアニメーションを開始する
         if !UserDefaults.standard.bool(forKey: "startApp") {
             UserDefaults.standard.set(true, forKey: "startApp")
-            initializeTweets()
-            makeBalloons(FeedViewController.balloonCount)
-            setupBalloons(FeedViewController.balloonCount)
+            setupContents(FeedViewController.balloonCount)
         }
+    }
+
+    private func setupContents(_ count: Int) {
+        initializeTweets()
+        makeBalloons(count)
+        setupBalloons(count)
     }
 
     private func initializeTweets() {
