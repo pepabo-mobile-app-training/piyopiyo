@@ -39,8 +39,12 @@ class ContinuityTweets: ContinuityMicroContents {
     func fetchMicroContents() {
         if !isRequestingTweets {
             isRequestingTweets = true
-            request = Tweet.fetchRandomTweets(swifter: swifter) { randomTweet in
-                if !randomTweet.content.isEmpty {
+            request = Tweet.fetchRandomTweets(swifter: swifter) { randomTweet, error in
+                if let error = error {
+                    self.isRequestingTweets = false
+                }
+
+                if let randomTweet = randomTweet {
                     self.tweets.append(randomTweet)
                 }
 

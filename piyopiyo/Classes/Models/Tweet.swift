@@ -20,19 +20,21 @@ class Tweet: MicroContent {
         self.profile = profile
     }
 
-    static func fetchRandomTweets(swifter: Swifter, handler: @escaping ((Tweet) -> Void)) -> HTTPRequest {
+    static func fetchRandomTweets(swifter: Swifter, handler: @escaping ((Tweet?, Error?) -> Void)) -> HTTPRequest {
         return swifter.streamRandomSampleTweets(language:  ["ja"], progress: { json in
             guard let content = json["text"].string,
                   let userID = json["user"]["id"].double,
                   let name = json["user"]["name"].string,
                   let url = json["user"]["profile_image_url_https"].string else {
-                handler(Tweet(content: "", userID: "", profile: TwitterUserProfile(name: "", userID: "", avatarURL: nil)))
+                handler(nil, nil)
                 return
             }
             let profile = TwitterUserProfile(name: name, userID: String(userID), avatarURL: URL(string: url))
             let tweet = Tweet(content: content, userID: String(userID), profile: profile)
 
-            handler(tweet)
-        })
+            handler(tweet, nil)
+        }) { error in
+            handler(nil, error)
+        }
     }
 }
