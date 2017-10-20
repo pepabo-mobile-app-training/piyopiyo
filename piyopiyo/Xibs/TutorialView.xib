@@ -56,7 +56,7 @@
                         <action selector="startButtonDidTap:" destination="-1" eventType="touchUpInside" id="nR1-Lo-cmS"/>
                     </connections>
                 </button>
-                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Opp-pY-zHn">
+                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Opp-pY-zHn">
                     <rect key="frame" x="0.0" y="506" width="320" height="37"/>
                 </pageControl>
             </subviews>
