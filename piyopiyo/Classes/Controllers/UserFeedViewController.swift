@@ -19,7 +19,7 @@ class UserFeedViewController: UIViewController {
         }
     }
     
-    var profile: userProfile?
+    var profile: UserProfile?
     var microposts = [Micropost]()
 
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class UserFeedViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    private func fetchProfile(profile: userProfile) {
+    private func fetchProfile(profile: UserProfile) {
         nameLabel.text = profile.name
         avatarImageView.sd_setImage(with: profile.avatarURL, placeholderImage: UIImage(named: "avatar"))
     }

@@ -28,8 +28,8 @@
                         <constraint firstAttribute="height" constant="96" id="iNF-Jr-Vd1"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザー名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkk-DH-BKU">
-                    <rect key="frame" x="79.5" y="161" width="142" height="33.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザー名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Pkk-DH-BKU">
+                    <rect key="frame" x="16" y="161" width="268" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -85,9 +85,11 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TWs-qF-ZK2" secondAttribute="trailing" constant="13" id="4te-q9-No5"/>
                 <constraint firstItem="nFI-7O-MLE" firstAttribute="top" secondItem="PRA-8t-NQt" secondAttribute="bottom" constant="30" id="5Eh-pn-vwt"/>
                 <constraint firstItem="tXe-ji-jIM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="9z3-ZN-APF"/>
+                <constraint firstItem="Pkk-DH-BKU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Ae1-YF-Oeb"/>
                 <constraint firstItem="TWs-qF-ZK2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="13" id="Flk-Cf-fc2"/>
                 <constraint firstItem="PRA-8t-NQt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="MNg-Nr-4Yi"/>
                 <constraint firstItem="Pkk-DH-BKU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RrI-p7-Ltn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Pkk-DH-BKU" secondAttribute="trailing" constant="16" id="U3P-BR-tXy"/>
                 <constraint firstItem="nFI-7O-MLE" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="X4V-R5-Hl5"/>
                 <constraint firstItem="Pkk-DH-BKU" firstAttribute="top" secondItem="tXe-ji-jIM" secondAttribute="bottom" constant="15" id="YmC-x4-A6U"/>
                 <constraint firstItem="PRA-8t-NQt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="boe-Jd-Pm9"/>

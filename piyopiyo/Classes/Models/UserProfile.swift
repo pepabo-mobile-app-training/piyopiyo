@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol userProfile {
+protocol UserProfile {
     var userID: String { get set }
     var name: String { get set }
     var avatarURL: URL? { get set }

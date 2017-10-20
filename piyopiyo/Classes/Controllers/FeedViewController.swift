@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegate, ProfileViewDelegate {
+class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegate, ProfileViewDelegate, MenuViewDelegate {
 
     static let screenSize = UIScreen.main.bounds.size
     static let hiyokoHeight: CGFloat = 100.0
@@ -53,7 +53,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     private var tutorialView: TutorialView?
     
-    private var microcontents: ContinuityMicroContents = ContinuityMicroposts()
+    private var microContents: ContinuityMicroContents = ContinuityMicroposts()
     private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
 
     @IBOutlet weak var profileBackgroundView: UIView! {
@@ -62,8 +62,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     
+    @IBOutlet weak var grassImageView: UIImageView!
     @IBOutlet weak var hiyokoButton: UIButton!
     @IBOutlet weak var miniHiyokoButton: UIButton!
+    @IBOutlet weak var switchingClientButton: UIButton!
+    @IBOutlet weak var menuView: MenuView! {
+        didSet {
+            menuView.isHidden = true
+            menuView.delegate = self
+        }
+    }
     
     private var activityIndicator: UIActivityIndicatorView! {
         didSet {
@@ -71,27 +79,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             activityIndicator.center = self.view.center
             activityIndicator.hidesWhenStopped = true
             activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.white
-            activityIndicator.layer.zPosition = CGFloat(FeedViewController.balloonCount + 3)
+            activityIndicator.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 3)
         }
     }
-    private var showingUserProfile: userProfile?
+    private var showingUserProfile: UserProfile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let env = ProcessInfo.processInfo.environment
-        let defaults = UserDefaults.standard
-
-        if let consumerKey = env["consumerKey"], let consumerSecret = env["consumerSecret"],
-            let oauthToken = defaults.string(forKey: "twitter_key"), let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
-            microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
-        }
 
         if !UserDefaults.standard.bool(forKey: "startApp") {
-            tutorialView = TutorialView(frame: self.view.frame)
-            if let tutorialView = tutorialView {
-                tutorialView.delegate = self
-                addTutorial(tutorialView: tutorialView)
-            }
+            showTutorial()
         } else {
             makeBalloons(FeedViewController.balloonCount)
             setupBalloons(FeedViewController.balloonCount)
@@ -108,6 +105,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             queue: OperationQueue.main,
             using: { _ in
                self.restartView()
+               self.setBalloonUserInteractionEnabled(true)
             })
         
         NotificationCenter.default.addObserver (
@@ -117,6 +115,14 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             using: { _ in
                 self.prepareViewClosing()
             })
+    }
+    
+    func showTutorial() {
+        tutorialView = TutorialView(frame: self.view.frame)
+        if let tutorialView = tutorialView {
+            tutorialView.delegate = self
+            addTutorial(tutorialView: tutorialView)
+        }
     }
     
     func restartView() {
@@ -160,6 +166,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         guard let tutorialView = tutorialView else {
             return
         }
+        tutorialView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 1)
         view.addSubview(tutorialView)
     }
     
@@ -199,10 +206,32 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     func startButtonDidTap() {
-        UserDefaults.standard.set(true, forKey: "startApp")
+        //初回起動時のみアニメーションが再生されていない状態なのでアニメーションを開始する
+        if !UserDefaults.standard.bool(forKey: "startApp") {
+            UserDefaults.standard.set(true, forKey: "startApp")
+            makeBalloons(FeedViewController.balloonCount)
+            setupBalloons(FeedViewController.balloonCount)
+        }
+    }
 
-        makeBalloons(FeedViewController.balloonCount)
-        setupBalloons(FeedViewController.balloonCount)
+    private func initializeTweets() {
+        let env = ProcessInfo.processInfo.environment
+        let defaults = UserDefaults.standard
+
+        self.initializeTwitterAuthorization { result in
+            if result {
+                self.microContentType = MicroContentType.twitter
+                if let consumerKey = env["consumerKey"],
+                    let consumerSecret = env["consumerSecret"],
+                    let oauthToken = defaults.string(forKey: "twitter_key"),
+                    let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
+                    self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+                    self.restartView()
+                }
+            } else {
+                self.microContentType = MicroContentType.micropost
+            }
+        }
     }
     
     func resetAnimateBalloon() {
@@ -222,7 +251,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
         balloonView.layoutIfNeeded()
         
-        balloonView.micropost = microcontents.getMicroContent()
+        balloonView.micropost = microContents.getMicroContent()
 
         let animator = UIViewPropertyAnimator(duration: duration, curve: .easeIn, animations: nil)
 
@@ -276,24 +305,45 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         animator.startAnimation()
     }
 
-    func textViewDidTap(_ micropost: MicroContent?) {
+    func textViewDidTap(_ microContent: MicroContent?) {
         activityIndicator.startAnimating()
         
-        if let micropost = micropost {
-            MicropostUserProfile.fetchUserProfile(userID: micropost.userID) { profile in
-                self.profileView.profile = profile
-                self.profileView.microContent = micropost
-                self.activityIndicator.stopAnimating()
-                self.view.addSubview(self.profileView)
+        if let microContent = microContent {
+            switch microContentType {
+            case .twitter:
+                if let tweet = microContent as? Tweet {
+                    setupProfile(profile: tweet.profile, microContent: tweet)
+                }
+                activityIndicator.stopAnimating()
+            case .micropost:
+                MicropostUserProfile.fetchUserProfile(userID: microContent.userID) { profile in
+                    self.setupProfile(profile: profile, microContent: microContent)
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
-        profileBackgroundView.isHidden = false
-        setBalloonUserInteractionEnabled(false)
-
-        profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 1)
+        showBackgroundView()
         profileView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 2)
     }
     
+    func showBackgroundView() {
+        profileBackgroundView.isHidden = false
+        setBalloonUserInteractionEnabled(false)
+        profileBackgroundView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 1)
+    }
+    
+    func hideBackgroundView() {
+        profileBackgroundView.isHidden = true
+        setBalloonUserInteractionEnabled(true)
+        activityIndicator.stopAnimating()                   //読み込み中インジケータが表示されたままになることを防ぐために実行
+    }
+
+    private func setupProfile(profile: UserProfile, microContent: MicroContent) {
+        profileView.profile = profile
+        profileView.microContent = microContent
+        view.addSubview(profileView)
+    }
+
     func restartAnimation() {
         if self.animatingBalloonCount == 0  && self.pendingSetupBalloonCount == 0 {
             self.balloonCycleCount = 0
@@ -303,21 +353,36 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
 
     func closeButtonDidTap() {
-        profileBackgroundView.isHidden = true
-        setBalloonUserInteractionEnabled(true)
+        hideBackgroundView()
     }
 
     @IBAction func profileBackgroundDidTap(_ sender: UITapGestureRecognizer) {
-        profileView.removeFromSuperview()
-        profileBackgroundView.isHidden = true
-        setBalloonUserInteractionEnabled(true)
+        if profileView.isDescendant(of: self.view) {
+            profileView.removeFromSuperview()
+        } else if !menuView.isHidden {
+            menuView.isHidden = true
+            resetMiniHiyokoPosition()
+        }
+        hideBackgroundView()
     }
 
     func showUserFeedButtonDidTap() {
         prepareViewClosing()
         profileBackgroundView.isHidden = true
         showingUserProfile = profileView.profile
-        performSegue(withIdentifier: "showUserFeed", sender: nil)
+
+        switch microContentType {
+        case .twitter:
+            if let id = showingUserProfile?.userID {
+                if let url = URL(string: "twitter://user?id=\(id)") {
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                }
+            }
+        case .micropost:
+            performSegue(withIdentifier: "showUserFeed", sender: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -351,7 +416,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         animator.addAnimations(landingMotion, delayFactor: 0.5)
 
         animator.startAnimation()
-
     }
     
     @IBAction func hiyokoTapped(_ sender: Any) {
@@ -365,6 +429,35 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     @IBAction func miniHiyokoTapped(_ sender: Any) {
+        showBackgroundView()
+        menuView.isHidden = false
+        menuView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 2)
+        miniHiyokoButton.layer.zPosition += CGFloat(FeedViewController.resetBalloonCountValue + 3)
+        grassImageView.layer.zPosition += CGFloat(FeedViewController.resetBalloonCountValue + 4)
+    }
+    
+    func resetMiniHiyokoPosition() {
+        miniHiyokoButton.layer.zPosition -= CGFloat(FeedViewController.resetBalloonCountValue + 3)
+        grassImageView.layer.zPosition -= CGFloat(FeedViewController.resetBalloonCountValue + 4)
+    }
+    
+    func closeMenuButtonDidTap() {
+        hideBackgroundView()
+        resetMiniHiyokoPosition()
+    }
+    
+    func showTutorialButtonDidTap() {
+        hideBackgroundView()
+        resetMiniHiyokoPosition()
+        showTutorial()
+    }
+    
+    func showAppInformationButtonDidTap() {
+        hideBackgroundView()
+        resetMiniHiyokoPosition()
+    }
+    
+    @IBAction func switchingClientButtonTapped(_ sender: Any) {
         switch microContentType {
         case .micropost:
             microContentType = MicroContentType.twitter
