@@ -36,14 +36,16 @@ class TutorialView: UIView, UIScrollViewDelegate {
         }
         view.frame = bounds
         addSubview(view)
-        scrollView.translatesAutoresizingMaskIntoConstraints = true
+
         tutorialPage.translatesAutoresizingMaskIntoConstraints = true
-        
         tutorialPage.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: TutorialPage.viewSize())
         
+        scrollView.translatesAutoresizingMaskIntoConstraints = true
         scrollView.contentSize = TutorialPage.viewSize()
         scrollView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: UIScreen.main.bounds.size)
         scrollView.delegate = self
+        
+        startButton.isHidden = true
     }
     
     @IBAction func startButtonDidTap(_ sender: ColorButton) {
@@ -52,7 +54,15 @@ class TutorialView: UIView, UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        pageControl.currentPage = Int(scrollView.contentOffset.x / scrollView.frame.maxX)
+        let currentPage = Int(scrollView.contentOffset.x / scrollView.frame.maxX)
+        pageControl.currentPage = currentPage
+        
+        if currentPage == TutorialPage.pageCount-1 {
+            startButton.isHidden = false
+        } else {
+            startButton.isHidden = true
+        }
+        
     }
     
 }
