@@ -43,6 +43,7 @@ class TutorialView: UIView, UIScrollViewDelegate {
         
         scrollView.contentSize = TutorialPage.viewSize()
         scrollView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: UIScreen.main.bounds.size)
+        scrollView.delegate = self
     }
     
     @IBAction func startButtonDidTap(_ sender: ColorButton) {
@@ -50,7 +51,8 @@ class TutorialView: UIView, UIScrollViewDelegate {
         delegate?.startButtonDidTap()
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pageControl.currentPage = Int(scrollView.contentOffset.x / scrollView.frame.maxX)
     }
+    
 }
