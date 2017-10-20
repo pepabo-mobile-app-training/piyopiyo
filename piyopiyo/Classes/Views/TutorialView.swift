@@ -20,12 +20,12 @@ class TutorialView: UIView, UIScrollViewDelegate {
     @IBOutlet weak var tutorialPage: TutorialPage!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    var isNotFirstTutorial: Bool = true {
+    var isFirstTutorial: Bool = true {
         didSet {
-            if isNotFirstTutorial {
-                startButton.setTitle("とじる", for: .normal)
-            } else {
+            if isFirstTutorial {
                 startButton.setTitle("はじめる", for: .normal)
+            } else {
+                startButton.setTitle("とじる", for: .normal)
             }
         }
     }
