@@ -53,7 +53,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     private var tutorialView: TutorialView?
     
-    private var microcontents: ContinuityMicroContents = ContinuityMicroposts()
+    private var microContents: ContinuityMicroContents = ContinuityMicroposts()
     private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
 
     @IBOutlet weak var profileBackgroundView: UIView! {
@@ -82,7 +82,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             activityIndicator.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 3)
         }
     }
-    private var showingUserProfile: userProfile?
+    private var showingUserProfile: UserProfile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,6 +105,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             queue: OperationQueue.main,
             using: { _ in
                self.restartView()
+               self.setBalloonUserInteractionEnabled(true)
             })
         
         NotificationCenter.default.addObserver (
@@ -224,7 +225,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                     let consumerSecret = env["consumerSecret"],
                     let oauthToken = defaults.string(forKey: "twitter_key"),
                     let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
-                    self.microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+                    self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
                     self.restartView()
                 }
             } else {
@@ -250,7 +251,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
         balloonView.layoutIfNeeded()
         
-        balloonView.micropost = microcontents.getMicroContent()
+        balloonView.micropost = microContents.getMicroContent()
 
         let animator = UIViewPropertyAnimator(duration: duration, curve: .easeIn, animations: nil)
 
@@ -304,15 +305,21 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         animator.startAnimation()
     }
 
-    func textViewDidTap(_ micropost: MicroContent?) {
+    func textViewDidTap(_ microContent: MicroContent?) {
         activityIndicator.startAnimating()
         
-        if let micropost = micropost {
-            MicropostUserProfile.fetchUserProfile(userID: micropost.userID) { profile in
-                self.profileView.profile = profile
-                self.profileView.microContent = micropost
-                self.activityIndicator.stopAnimating()
-                self.view.addSubview(self.profileView)
+        if let microContent = microContent {
+            switch microContentType {
+            case .twitter:
+                if let tweet = microContent as? Tweet {
+                    setupProfile(profile: tweet.profile, microContent: tweet)
+                }
+                activityIndicator.stopAnimating()
+            case .micropost:
+                MicropostUserProfile.fetchUserProfile(userID: microContent.userID) { profile in
+                    self.setupProfile(profile: profile, microContent: microContent)
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
         showBackgroundView()
@@ -330,7 +337,13 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         setBalloonUserInteractionEnabled(true)
         activityIndicator.stopAnimating()                   //読み込み中インジケータが表示されたままになることを防ぐために実行
     }
-    
+
+    private func setupProfile(profile: UserProfile, microContent: MicroContent) {
+        profileView.profile = profile
+        profileView.microContent = microContent
+        view.addSubview(profileView)
+    }
+
     func restartAnimation() {
         if self.animatingBalloonCount == 0  && self.pendingSetupBalloonCount == 0 {
             self.balloonCycleCount = 0
@@ -357,7 +370,19 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         prepareViewClosing()
         profileBackgroundView.isHidden = true
         showingUserProfile = profileView.profile
-        performSegue(withIdentifier: "showUserFeed", sender: nil)
+
+        switch microContentType {
+        case .twitter:
+            if let id = showingUserProfile?.userID {
+                if let url = URL(string: "twitter://user?id=\(id)") {
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                }
+            }
+        case .micropost:
+            performSegue(withIdentifier: "showUserFeed", sender: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {

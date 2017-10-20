@@ -34,7 +34,7 @@ class ProfileView: UIView {
     
     @IBOutlet weak var userNameLabel: UILabel!
     
-    var profile: userProfile? {
+    var profile: UserProfile? {
         didSet {
             guard let profile = profile else {
                 return

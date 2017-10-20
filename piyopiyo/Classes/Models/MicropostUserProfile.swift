@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MicropostUserProfile: userProfile {
+class MicropostUserProfile: UserProfile {
     var userID: String
     var name: String
     var avatarURL: URL?
