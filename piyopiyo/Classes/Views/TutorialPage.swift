@@ -41,7 +41,6 @@ class TutorialPage: UIView {
             }
             page.translatesAutoresizingMaskIntoConstraints = true
             page.frame = CGRect(x: CGFloat(i)*screenSize.width, y: 0, width: screenSize.width, height: screenSize.height)
-            
         }
         view.frame = CGRect(origin: CGPoint(x: 0, y: 0), size:  TutorialPage.viewSize())
         addSubview(view)
