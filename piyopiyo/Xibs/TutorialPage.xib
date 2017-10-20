@@ -33,6 +33,7 @@
                                     <string key="content">みんなのつぶやきが
 ながれるよ！</string>
                                     <attributes>
+                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <font key="NSFont" size="30" name="HiraMaruProN-W4"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
@@ -54,6 +55,7 @@
                                     <string key="content">気になるつぶやきを
 タップ！</string>
                                     <attributes>
+                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <font key="NSFont" size="30" name="HiraMaruProN-W4"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
@@ -62,7 +64,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.70120566098869874" green="1" blue="0.51252574135526863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.12814300167165144" green="0.0021536422286963903" blue="0.61522446065989844" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="mvb-qF-IOr" secondAttribute="trailing" constant="14" id="Biq-ru-in8"/>
                         <constraint firstAttribute="bottom" secondItem="mvb-qF-IOr" secondAttribute="bottom" constant="88" id="GIH-Bg-Avx"/>
@@ -75,16 +77,31 @@
                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lph-lY-hob">
                     <rect key="frame" x="328" y="0.0" width="320" height="595"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="tutorial_speed" translatesAutoresizingMaskIntoConstraints="NO" id="2qb-9V-lQj">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="tutorial_speed" translatesAutoresizingMaskIntoConstraints="NO" id="2qb-9V-lQj">
                             <rect key="frame" x="47" y="200" width="295" height="433"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="2qb-9V-lQj" secondAttribute="height" multiplier="295:433" id="rDa-Kn-p5Z"/>
                             </constraints>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gx-ae-WT3">
+                            <rect key="frame" x="10" y="40" width="300" height="135"/>
+                            <attributedString key="attributedText">
+                                <fragment content="ひよこをさわって ふきだしの速さを 変えてみよう">
+                                    <attributes>
+                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <font key="NSFont" size="30" name="HiraMaruProN-W4"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.58346092283190321" green="1" blue="0.57598782705534246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.34156047393091865" green="0.35209271154258848" blue="0.85618258248730961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="2qb-9V-lQj" secondAttribute="trailing" constant="-22" id="7OI-Fh-UwO"/>
+                        <constraint firstItem="8gx-ae-WT3" firstAttribute="top" secondItem="Lph-lY-hob" secondAttribute="top" constant="40" id="B0u-tk-FB3"/>
+                        <constraint firstItem="8gx-ae-WT3" firstAttribute="centerX" secondItem="Lph-lY-hob" secondAttribute="centerX" id="IfJ-Kl-6ub"/>
                         <constraint firstAttribute="bottom" secondItem="2qb-9V-lQj" secondAttribute="bottom" constant="-38" id="ZFh-GW-JNf"/>
                         <constraint firstItem="2qb-9V-lQj" firstAttribute="leading" secondItem="Lph-lY-hob" secondAttribute="leading" constant="47" id="iKK-KR-XL6"/>
                     </constraints>
@@ -92,37 +109,81 @@
                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rCY-Ao-MgC">
                     <rect key="frame" x="656" y="0.0" width="320" height="595"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="tutorial_menu" translatesAutoresizingMaskIntoConstraints="NO" id="zOt-gU-mkL">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="tutorial_menu" translatesAutoresizingMaskIntoConstraints="NO" id="zOt-gU-mkL">
                             <rect key="frame" x="-15" y="199" width="288" height="437"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="zOt-gU-mkL" secondAttribute="height" multiplier="288:425" id="mB0-ZZ-5Dy"/>
                             </constraints>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kY6-BP-9Tx">
+                            <rect key="frame" x="10" y="40" width="300" height="135"/>
+                            <attributedString key="attributedText">
+                                <fragment content="子ひよこタップで いつでも使い方を 確認できるよ">
+                                    <attributes>
+                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <font key="NSFont" size="30" name="HiraMaruProN-W4"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.652041731468469" green="1" blue="0.79793645826151516" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.32133082562845849" green="0.76355384932320836" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="kY6-BP-9Tx" firstAttribute="top" secondItem="rCY-Ao-MgC" secondAttribute="top" constant="40" id="H1e-3l-t7K"/>
+                        <constraint firstItem="kY6-BP-9Tx" firstAttribute="centerX" secondItem="rCY-Ao-MgC" secondAttribute="centerX" id="MQp-wV-sGk"/>
                         <constraint firstAttribute="bottom" secondItem="zOt-gU-mkL" secondAttribute="bottom" constant="-41" id="Phg-Jy-X5v"/>
                         <constraint firstAttribute="trailing" secondItem="zOt-gU-mkL" secondAttribute="trailing" constant="47" id="bdI-CT-p8Q"/>
                         <constraint firstItem="zOt-gU-mkL" firstAttribute="leading" secondItem="rCY-Ao-MgC" secondAttribute="leading" constant="-15" id="pDD-2g-tc6"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jC-Ja-hFr">
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jC-Ja-hFr">
                     <rect key="frame" x="984" y="0.0" width="320" height="595"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.71827939390550211" green="1" blue="0.97046485762163481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGK-dV-h1t">
+                            <rect key="frame" x="10" y="44" width="300" height="135"/>
+                            <attributedString key="attributedText">
+                                <fragment content="Twitterに ログインして いますぐ使おう！">
+                                    <attributes>
+                                        <color key="NSColor" red="0.15964124747488187" green="0.18126244260886964" blue="0.39786246827411165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <font key="NSFont" size="30" name="HiraMaruProN-W4"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="tutorial_login" translatesAutoresizingMaskIntoConstraints="NO" id="OLu-QK-1nh">
+                            <rect key="frame" x="44" y="214" width="320" height="284"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="OLu-QK-1nh" secondAttribute="height" multiplier="80:71" id="AHt-Dm-2B3"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="glass_feed" translatesAutoresizingMaskIntoConstraints="NO" id="W7Z-nM-cV4">
+                            <rect key="frame" x="0.0" y="442" width="771" height="163"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.78546779763865027" green="0.93232732049321565" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="W7Z-nM-cV4" firstAttribute="top" secondItem="OLu-QK-1nh" secondAttribute="bottom" constant="-56" id="28y-5T-bZg"/>
+                        <constraint firstItem="DGK-dV-h1t" firstAttribute="top" secondItem="7jC-Ja-hFr" secondAttribute="top" constant="40" id="Hrr-sf-N8A"/>
+                        <constraint firstAttribute="trailing" secondItem="OLu-QK-1nh" secondAttribute="trailing" constant="-44" id="MWd-Oi-mq5"/>
+                        <constraint firstItem="DGK-dV-h1t" firstAttribute="centerX" secondItem="7jC-Ja-hFr" secondAttribute="centerX" id="T9f-tg-rC2"/>
+                        <constraint firstAttribute="bottom" secondItem="W7Z-nM-cV4" secondAttribute="bottom" constant="-10" id="Wz2-9H-ZsK"/>
+                        <constraint firstAttribute="trailing" secondItem="W7Z-nM-cV4" secondAttribute="trailing" constant="-451" id="Xkj-Eq-Asz"/>
+                        <constraint firstItem="DGK-dV-h1t" firstAttribute="centerX" secondItem="7jC-Ja-hFr" secondAttribute="centerX" id="cum-Lh-PTS"/>
+                        <constraint firstItem="OLu-QK-1nh" firstAttribute="leading" secondItem="7jC-Ja-hFr" secondAttribute="leading" constant="44" id="hSe-13-g2S"/>
+                        <constraint firstItem="W7Z-nM-cV4" firstAttribute="leading" secondItem="7jC-Ja-hFr" secondAttribute="leading" id="wDS-cA-xCr"/>
+                        <constraint firstAttribute="bottom" secondItem="OLu-QK-1nh" secondAttribute="bottom" constant="97" id="zSC-Kk-Tbf"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="wIo-u9-zTt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3Bu-oX-C8w"/>
-                <constraint firstItem="rCY-Ao-MgC" firstAttribute="leading" secondItem="Lph-lY-hob" secondAttribute="trailing" id="538-h8-pBG"/>
                 <constraint firstItem="wIo-u9-zTt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="CfQ-QT-DKh"/>
-                <constraint firstItem="Lph-lY-hob" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Kr2-Hs-RIw"/>
                 <constraint firstItem="wIo-u9-zTt" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="UcJ-xP-PjW"/>
-                <constraint firstItem="rCY-Ao-MgC" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="VQv-gP-H58"/>
-                <constraint firstItem="Lph-lY-hob" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="cb6-9w-Xmi"/>
-                <constraint firstItem="Lph-lY-hob" firstAttribute="leading" secondItem="wIo-u9-zTt" secondAttribute="trailing" id="y1X-6M-KtB"/>
-                <constraint firstItem="rCY-Ao-MgC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="z7I-Fe-ZAQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -130,7 +191,9 @@
         </view>
     </objects>
     <resources>
+        <image name="glass_feed" width="1200" height="274"/>
         <image name="hiyoko_with_baloon" width="1498" height="1128"/>
+        <image name="tutorial_login" width="1500" height="1311"/>
         <image name="tutorial_menu" width="1000" height="1497"/>
         <image name="tutorial_speed" width="1694" height="2470"/>
     </resources>
