@@ -26,8 +26,8 @@ class TwitterAuthorization {
         self.consumerSecret = consumerSecret
     }
 
-    func authorize(presentFrom: UIViewController?, handle: @escaping (_ result: Bool) -> Void) {
-        if isAuthorized() {
+    func authorize(isReset: Bool, presentFrom: UIViewController?, handle: @escaping (_ result: Bool) -> Void) {
+        if isAuthorized(), !isReset {
             handle(true)
             return
         }
