@@ -62,6 +62,6 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="balloon" width="800" height="499"/>
+        <image name="balloon" width="1000" height="499"/>
     </resources>
 </document>

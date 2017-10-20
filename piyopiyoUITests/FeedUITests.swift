@@ -16,22 +16,20 @@ class FeedUITests: XCTestCase {
         super.setUp()
 
         continueAfterFailure = false
-        app.launchArguments.append(contentsOf: ["-startApp", "NO"])
+
+        // 2回目以降の起動をテストする
+        app.launchArguments.append(contentsOf: ["-startApp", "YES"])
         app.launch()
     }
     
     override func tearDown() {
         super.tearDown()
     }
-    
-    func testTapAppStart() {
+
+    func testAnimateBalloon() {
         let startButton = app.buttons["startButton"]
         let durationOfBalloon: TimeInterval = 6.0
         
-        XCTAssert(startButton.exists)
-        
-        startButton.tap()
-
         XCTAssertFalse(startButton.exists)
         
         for i in 0..<3 {

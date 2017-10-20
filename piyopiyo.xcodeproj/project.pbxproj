@@ -22,6 +22,7 @@
 		AF3F1E3D1F90701B004F9456 /* TwitterAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F1E3C1F90701B004F9456 /* TwitterAuthorization.swift */; };
 		AF4260C41F90B77F00249975 /* TwitterAuthorizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4260C31F90B77F00249975 /* TwitterAuthorizationTests.swift */; };
 		AF4260C61F90C22500249975 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4260C51F90C22500249975 /* Error.swift */; };
+		AF45F1C51F98489200805ABB /* FeedTutorialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF45F1C41F98489200805ABB /* FeedTutorialUITests.swift */; };
 		AF914D221F908AB00085FE1C /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF914D211F908AB00085FE1C /* SwifteriOS.framework */; };
 		AFBDE5B91F7A265500441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5B81F7A265500441353 /* .gitkeep */; };
 		AFBDE5BB1F7A267300441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BA1F7A267300441353 /* .gitkeep */; };
@@ -31,6 +32,8 @@
 		AFC1F0231F8C9863007AB2E0 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC1F0211F8C9863007AB2E0 /* FeedTableViewCell.swift */; };
 		AFC1F0241F8C9863007AB2E0 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC1F0221F8C9863007AB2E0 /* FeedTableViewCell.xib */; };
 		AFECFAD31F7DF321001A9A0E /* FeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */; };
+		E46997261F97274F00D635AB /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46997251F97274E00D635AB /* MenuView.xib */; };
+		E46997281F9740CE00D635AB /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46997271F9740CE00D635AB /* MenuView.swift */; };
 		E48B90A01F905C610080836C /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48B909F1F905C610080836C /* Tweet.swift */; };
 		E48B90A21F905C880080836C /* MicroContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48B90A11F905C880080836C /* MicroContent.swift */; };
 		E48B90A41F9060AA0080836C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48B90A31F9060AA0080836C /* UserProfile.swift */; };
@@ -93,6 +96,7 @@
 		AF3F1E3C1F90701B004F9456 /* TwitterAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorization.swift; sourceTree = "<group>"; };
 		AF4260C31F90B77F00249975 /* TwitterAuthorizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorizationTests.swift; sourceTree = "<group>"; };
 		AF4260C51F90C22500249975 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		AF45F1C41F98489200805ABB /* FeedTutorialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTutorialUITests.swift; sourceTree = "<group>"; };
 		AF914D211F908AB00085FE1C /* SwifteriOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifteriOS.framework; path = Carthage/Build/iOS/SwifteriOS.framework; sourceTree = "<group>"; };
 		AFBDE5B81F7A265500441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BA1F7A267300441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 		AFC1F0211F8C9863007AB2E0 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		AFC1F0221F8C9863007AB2E0 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUITests.swift; sourceTree = "<group>"; };
+		E46997251F97274E00D635AB /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
+		E46997271F9740CE00D635AB /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		E48B909F1F905C610080836C /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		E48B90A11F905C880080836C /* MicroContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroContent.swift; sourceTree = "<group>"; };
 		E48B90A31F9060AA0080836C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -232,6 +238,7 @@
 				AFC1F0211F8C9863007AB2E0 /* FeedTableViewCell.swift */,
 				E4F6C3CA1F987FE8006AF75E /* TutorialPage.swift */,
 				E4F700691F7A4E8E00869BD5 /* ProfileView.swift */,
+				E46997271F9740CE00D635AB /* MenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,6 +261,7 @@
 				AFBDE5C21F7A34F000441353 /* BalloonView.xib */,
 				AFC1F0221F8C9863007AB2E0 /* FeedTableViewCell.xib */,
 				E4F6C3D21F98899F006AF75E /* TutorialPage.xib */,
+				E46997251F97274E00D635AB /* MenuView.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -310,6 +318,7 @@
 			children = (
 				AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */,
 				AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */,
+				AF45F1C41F98489200805ABB /* FeedTutorialUITests.swift */,
 				AF161F101F78A6FF00B2DD73 /* Info.plist */,
 			);
 			path = piyopiyoUITests;
@@ -424,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4F700641F7A260700869BD5 /* TutorialView.xib in Resources */,
+				E46997261F97274F00D635AB /* MenuView.xib in Resources */,
 				AF087D9A1F790BA5006C6BAF /* LaunchScreen.storyboard in Resources */,
 				E4F6C3D31F98899F006AF75E /* TutorialPage.xib in Resources */,
 				AF087D9B1F790BA5006C6BAF /* Main.storyboard in Resources */,
@@ -486,6 +496,7 @@
 				AF3103F51F95E74900FBCDC7 /* ContinuityTweets.swift in Sources */,
 				E48B90A01F905C610080836C /* Tweet.swift in Sources */,
 				AFBDE5C51F7A390C00441353 /* BalloonView.swift in Sources */,
+				E46997281F9740CE00D635AB /* MenuView.swift in Sources */,
 				AF3F1E3D1F90701B004F9456 /* TwitterAuthorization.swift in Sources */,
 				E4D89DA01F833AE1006A419A /* APIClient.swift in Sources */,
 				AFC1F0231F8C9863007AB2E0 /* FeedTableViewCell.swift in Sources */,
@@ -522,6 +533,7 @@
 			files = (
 				AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */,
 				AFECFAD31F7DF321001A9A0E /* FeedUITests.swift in Sources */,
+				AF45F1C51F98489200805ABB /* FeedTutorialUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
