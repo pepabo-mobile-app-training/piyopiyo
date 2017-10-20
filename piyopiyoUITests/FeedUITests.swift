@@ -33,7 +33,7 @@ class FeedUITests: XCTestCase {
         XCTAssertFalse(startButton.exists)
         
         for i in 0..<3 {
-            XCTAssert(app.textViews["balloonText\(i)"].waitForExistence(timeout: durationOfBalloon))
+            XCTAssert(app.staticTexts["balloonText\(i)"].waitForExistence(timeout: durationOfBalloon))
         }
     }
 }
