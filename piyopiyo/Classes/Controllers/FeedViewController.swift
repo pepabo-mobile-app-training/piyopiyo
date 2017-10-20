@@ -53,7 +53,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     private var tutorialView: TutorialView?
     
-    private var microcontents: ContinuityMicroContents = ContinuityMicroposts()
+    private var microContents: ContinuityMicroContents = ContinuityMicroposts()
     private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
 
     @IBOutlet weak var profileBackgroundView: UIView! {
@@ -225,7 +225,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                     let consumerSecret = env["consumerSecret"],
                     let oauthToken = defaults.string(forKey: "twitter_key"),
                     let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
-                    self.microcontents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+                    self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
                     self.restartView()
                 }
             } else {
@@ -251,7 +251,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
         balloonView.layoutIfNeeded()
         
-        balloonView.micropost = microcontents.getMicroContent()
+        balloonView.micropost = microContents.getMicroContent()
 
         let animator = UIViewPropertyAnimator(duration: duration, curve: .easeIn, animations: nil)
 
@@ -305,19 +305,19 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         animator.startAnimation()
     }
 
-    func textViewDidTap(_ microcontent: MicroContent?) {
+    func textViewDidTap(_ microContent: MicroContent?) {
         activityIndicator.startAnimating()
         
-        if let microcontent = microcontent {
+        if let microContent = microContent {
             switch microContentType {
             case .twitter:
-                if let tweet = microcontent as? Tweet {
+                if let tweet = microContent as? Tweet {
                     setupProfile(profile: tweet.profile, microContent: tweet)
                 }
                 activityIndicator.stopAnimating()
             case .micropost:
-                MicropostUserProfile.fetchUserProfile(userID: microcontent.userID) { profile in
-                    self.setupProfile(profile: profile, microContent: microcontent)
+                MicropostUserProfile.fetchUserProfile(userID: microContent.userID) { profile in
+                    self.setupProfile(profile: profile, microContent: microContent)
                     self.activityIndicator.stopAnimating()
                 }
             }
