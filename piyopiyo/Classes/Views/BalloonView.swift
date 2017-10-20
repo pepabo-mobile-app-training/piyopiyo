@@ -15,14 +15,14 @@ protocol BalloonViewDelegate: class {
 class BalloonView: UIView {
     
     weak var delegate: BalloonViewDelegate?
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var microContentLabel: UILabel!
     
     var micropost: MicroContent? {
         didSet {
             guard let micropost = micropost else {
                 return
             }
-            textView.text = micropost.content
+            microContentLabel.text = micropost.content
         }
     }
     
