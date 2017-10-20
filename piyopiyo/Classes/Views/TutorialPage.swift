@@ -31,7 +31,8 @@ class TutorialPage: UIView {
         guard let view = Bundle.main.loadNibNamed("TutorialPage", owner: self, options: nil)?.first as? UIView else {
             return
         }
-    
+        self.translatesAutoresizingMaskIntoConstraints = true
+
         let viewList = [firstPageView, secondPageView, thirdPageView, fourthPageView]
         let screenSize = UIScreen.main.bounds.size
         for i in 0..<viewList.count {
@@ -39,8 +40,8 @@ class TutorialPage: UIView {
                 continue
             }
             page.translatesAutoresizingMaskIntoConstraints = true
-            let pageRectangle = CGRect(x: CGFloat(i)*screenSize.width, y: 0, width: screenSize.width, height: screenSize.height)
-            page.frame = pageRectangle
+            page.frame = CGRect(x: CGFloat(i)*screenSize.width, y: 0, width: screenSize.width, height: screenSize.height)
+            
         }
         view.frame = CGRect(origin: CGPoint(x: 0, y: 0), size:  TutorialPage.viewSize())
         addSubview(view)

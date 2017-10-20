@@ -46,9 +46,6 @@ class TutorialView: UIView, UIScrollViewDelegate {
         }
         view.frame = bounds
         addSubview(view)
-
-        tutorialPage.translatesAutoresizingMaskIntoConstraints = true
-        tutorialPage.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: TutorialPage.viewSize())
         
         scrollView.translatesAutoresizingMaskIntoConstraints = true
         scrollView.contentSize = TutorialPage.viewSize()
