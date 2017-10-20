@@ -22,11 +22,7 @@ class TutorialView: UIView, UIScrollViewDelegate {
     
     var isFirstTutorial: Bool = true {
         didSet {
-            if isFirstTutorial {
-                startButton.setTitle("はじめる", for: .normal)
-            } else {
-                startButton.setTitle("とじる", for: .normal)
-            }
+            isFirstTutorial ? startButton.setTitle("はじめる", for: .normal) : startButton.setTitle("とじる", for: .normal)
         }
     }
     

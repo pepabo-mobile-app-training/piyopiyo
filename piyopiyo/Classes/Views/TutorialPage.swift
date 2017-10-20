@@ -14,6 +14,7 @@ class TutorialPage: UIView {
     @IBOutlet weak var secondPageView: UIView!
     @IBOutlet weak var thirdPageView: UIView!
     @IBOutlet weak var fourthPageView: UIView!
+    static let screenSize = UIScreen.main.bounds.size
     
     static let pageCount = 4
     
@@ -34,20 +35,18 @@ class TutorialPage: UIView {
         self.translatesAutoresizingMaskIntoConstraints = true
 
         let viewList = [firstPageView, secondPageView, thirdPageView, fourthPageView]
-        let screenSize = UIScreen.main.bounds.size
         for i in 0..<viewList.count {
             guard let page = viewList[i] else {
                 continue
             }
             page.translatesAutoresizingMaskIntoConstraints = true
-            page.frame = CGRect(x: CGFloat(i)*screenSize.width, y: 0, width: screenSize.width, height: screenSize.height)
+            page.frame = CGRect(x: CGFloat(i)*TutorialPage.screenSize.width, y: 0, width: TutorialPage.screenSize.width, height: TutorialPage.screenSize.height)
         }
-        view.frame = CGRect(origin: CGPoint(x: 0, y: 0), size:  TutorialPage.viewSize())
+        view.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: TutorialPage.viewSize())
         addSubview(view)
     }
     
     static func viewSize() -> CGSize {
-        let screenSize = UIScreen.main.bounds.size
-        return CGSize(width: CGFloat(TutorialPage.pageCount)*screenSize.width, height: screenSize.height)
+        return CGSize(width: CGFloat(TutorialPage.pageCount)*TutorialPage.screenSize.width, height: TutorialPage.screenSize.height)
     }
 }
