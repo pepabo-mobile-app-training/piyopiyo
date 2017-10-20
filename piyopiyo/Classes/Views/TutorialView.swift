@@ -35,17 +35,13 @@ class TutorialView: UIView {
         }
         view.frame = bounds
         addSubview(view)
-        
-       
-        
+        scrollView.translatesAutoresizingMaskIntoConstraints = true
         tutorialPage.translatesAutoresizingMaskIntoConstraints = true
+        
         tutorialPage.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: TutorialPage.viewSize())
         
-        
         scrollView.contentSize = TutorialPage.viewSize()
-        
-        let screenSize = UIScreen.main.bounds.size
-        scrollView.bounds = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
+        scrollView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: UIScreen.main.bounds.size)
     }
     
     @IBAction func startButtonDidTap(_ sender: ColorButton) {
