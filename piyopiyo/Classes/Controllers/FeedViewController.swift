@@ -27,12 +27,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let balloonCount = 3                             //ふきだしViewの個数
     static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
     
-    enum MicroContentType {
-        case micropost
-        case twitter
-    }
-    private var microContentType: MicroContentType = .twitter
-    
     enum ResetBalloonAnimation {
         case reset                                          //ふきだしループのリセット
         case cancel                                         //ふきだしループの停止
@@ -65,7 +59,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     @IBOutlet weak var grassImageView: UIImageView!
     @IBOutlet weak var hiyokoButton: UIButton!
     @IBOutlet weak var miniHiyokoButton: UIButton!
-    @IBOutlet weak var switchingClientButton: UIButton!
     @IBOutlet weak var menuView: MenuView! {
         didSet {
             menuView.isHidden = true
@@ -83,6 +76,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     private var showingUserProfile: UserProfile?
+    
+    static private let dummyToken = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -224,17 +219,19 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
         self.initializeTwitterAuthorization { result in
             if result {
-                self.microContentType = MicroContentType.twitter
                 if let consumerKey = env["consumerKey"],
-                    let consumerSecret = env["consumerSecret"],
-                    let oauthToken = defaults.string(forKey: "twitter_key"),
-                    let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
+                   let consumerSecret = env["consumerSecret"],
+                   let oauthToken = defaults.string(forKey: "twitter_key"),
+                   let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
                     self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
-                    self.restartView()
                 }
             } else {
-                self.microContentType = MicroContentType.micropost
+                if let consumerKey = env["consumerKey"],
+                   let consumerSecret = env["consumerSecret"] {
+                    self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: FeedViewController.dummyToken, oauthTokenSecret: FeedViewController.dummyToken)
+                }
             }
+            self.restartView()
         }
     }
     
@@ -313,18 +310,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         activityIndicator.startAnimating()
         
         if let microContent = microContent {
-            switch microContentType {
-            case .twitter:
-                if let tweet = microContent as? Tweet {
-                    setupProfile(profile: tweet.profile, microContent: tweet)
-                }
-                activityIndicator.stopAnimating()
-            case .micropost:
-                MicropostUserProfile.fetchUserProfile(userID: microContent.userID) { profile in
-                    self.setupProfile(profile: profile, microContent: microContent)
-                    self.activityIndicator.stopAnimating()
-                }
+            if let tweet = microContent as? Tweet {
+                setupProfile(profile: tweet.profile, microContent: tweet)
             }
+            activityIndicator.stopAnimating()
         }
         showBackgroundView()
         profileView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 2)
@@ -375,17 +364,12 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         profileBackgroundView.isHidden = true
         showingUserProfile = profileView.profile
 
-        switch microContentType {
-        case .twitter:
-            if let id = showingUserProfile?.userID {
-                if let url = URL(string: "twitter://user?id=\(id)") {
-                    if UIApplication.shared.canOpenURL(url) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    }
+        if let id = showingUserProfile?.userID {
+            if let url = URL(string: "twitter://user?id=\(id)") {
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
             }
-        case .micropost:
-            performSegue(withIdentifier: "showUserFeed", sender: nil)
         }
     }
 
@@ -459,20 +443,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func showAppInformationButtonDidTap() {
         hideBackgroundView()
         resetMiniHiyokoPosition()
-    }
-    
-    @IBAction func switchingClientButtonTapped(_ sender: Any) {
-        switch microContentType {
-        case .micropost:
-            microContentType = MicroContentType.twitter
-            initializeTwitterAuthorization { result in
-                if !result {
-                    self.microContentType = MicroContentType.micropost
-                }
-            }
-        case .twitter:
-            microContentType = MicroContentType.micropost
-        }
     }
     
     func setBalloonUserInteractionEnabled(_ isEnabled: Bool) {

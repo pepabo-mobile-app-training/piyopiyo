@@ -37,20 +37,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="PY6-ie-Z08">
                                 <rect key="frame" x="-412.5" y="0.0" width="1200" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v94-5o-PfT" userLabel="hiyokomini">
-                                <rect key="frame" x="83" y="592" width="56" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="v94-5o-PfT" secondAttribute="height" multiplier="5:4" id="XQV-7V-XEZ"/>
-                                    <constraint firstAttribute="height" constant="45" id="fTP-rh-bFL"/>
-                                </constraints>
-                                <state key="normal" image="hiyokomini"/>
-                                <state key="highlighted">
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="switchingClientButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vel-1l-QBb"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6r-0y-dU6" userLabel="hiyoko">
                                 <rect key="frame" x="267" y="537" width="125" height="100"/>
                                 <constraints>
@@ -85,6 +71,13 @@
                                     <constraint firstAttribute="height" constant="60" id="pd8-Dc-SIR"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfe-XW-bWd" customClass="MenuView" customModule="piyopiyo" customModuleProvider="target">
+                                <rect key="frame" x="40" y="409" width="270" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="6Iv-4t-LQg"/>
+                                    <constraint firstAttribute="height" constant="160" id="uNv-rl-gSb"/>
+                                </constraints>
+                            </view>
                             <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4B-UH-64h">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -94,23 +87,14 @@
                                     <outletCollection property="gestureRecognizers" destination="rBu-Vb-KHN" appends="YES" id="O63-Rm-zg5"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfe-XW-bWd" customClass="MenuView" customModule="piyopiyo" customModuleProvider="target">
-                                <rect key="frame" x="40" y="409" width="270" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="6Iv-4t-LQg"/>
-                                    <constraint firstAttribute="height" constant="160" id="uNv-rl-gSb"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="l2u-B9-Tql" secondAttribute="bottom" constant="-13" id="02E-Ul-wWe"/>
                             <constraint firstItem="l2u-B9-Tql" firstAttribute="top" secondItem="gCI-Ac-u4H" secondAttribute="bottom" constant="-17" id="2P2-7S-Uvh"/>
                             <constraint firstAttribute="trailing" secondItem="Z6r-0y-dU6" secondAttribute="trailing" constant="-17" id="ICn-Q0-dUG"/>
-                            <constraint firstItem="l2u-B9-Tql" firstAttribute="top" secondItem="v94-5o-PfT" secondAttribute="bottom" constant="-17" id="L7i-EK-aGD"/>
                             <constraint firstItem="PY6-ie-Z08" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="N2t-gr-hJ4"/>
                             <constraint firstItem="gCI-Ac-u4H" firstAttribute="top" secondItem="Yfe-XW-bWd" secondAttribute="bottom" constant="8" id="NNT-sx-WTI"/>
-                            <constraint firstItem="v94-5o-PfT" firstAttribute="leading" secondItem="gCI-Ac-u4H" secondAttribute="trailing" constant="8" id="R0Z-LB-b7f"/>
                             <constraint firstItem="Yfe-XW-bWd" firstAttribute="leading" secondItem="gCI-Ac-u4H" secondAttribute="trailing" constant="-35" id="Ttm-9L-Oj6"/>
                             <constraint firstItem="PY6-ie-Z08" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V8o-S5-e4Z"/>
                             <constraint firstItem="l2u-B9-Tql" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gFE-wJ-Qq6"/>
@@ -129,7 +113,6 @@
                         <outlet property="menuView" destination="Yfe-XW-bWd" id="Ca3-tU-Kcs"/>
                         <outlet property="miniHiyokoButton" destination="gCI-Ac-u4H" id="Ir3-eY-Xl0"/>
                         <outlet property="profileBackgroundView" destination="s4B-UH-64h" id="d6r-zI-RH0"/>
-                        <outlet property="switchingClientButton" destination="v94-5o-PfT" id="M2R-jg-cQn"/>
                         <segue destination="Xpz-S5-9ha" kind="show" identifier="showUserFeed" id="eWn-JF-mp5"/>
                     </connections>
                 </viewController>
