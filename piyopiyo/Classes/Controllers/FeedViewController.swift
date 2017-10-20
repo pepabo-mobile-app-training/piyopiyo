@@ -371,8 +371,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
 
     func showUserFeedButtonDidTap() {
-        prepareViewClosing()
-        profileBackgroundView.isHidden = true
+        hideBackgroundView()
         showingUserProfile = profileView.profile
 
         switch microContentType {
@@ -380,11 +379,13 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             if let id = showingUserProfile?.userID {
                 if let url = URL(string: "twitter://user?id=\(id)") {
                     if UIApplication.shared.canOpenURL(url) {
+                        prepareViewClosing()
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     }
                 }
             }
         case .micropost:
+            prepareViewClosing()
             performSegue(withIdentifier: "showUserFeed", sender: nil)
         }
     }
