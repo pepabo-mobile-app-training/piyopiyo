@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialView" customModule="piyopiyo" customModuleProvider="target">
             <connections>
+                <outlet property="pageControl" destination="Opp-pY-zHn" id="Lqp-Wz-OpM"/>
                 <outlet property="scrollView" destination="uwo-Kt-xCN" id="elF-Pv-JOp"/>
                 <outlet property="startButton" destination="khC-Ep-hpp" id="M6L-xt-BLO"/>
                 <outlet property="tutorialPage" destination="m4t-b3-qYh" id="FO6-iG-V82"/>
@@ -27,7 +28,7 @@
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4t-b3-qYh" customClass="TutorialPage" customModule="piyopiyo" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <viewLayoutGuide key="safeArea" id="etR-AC-0x8"/>
                         </view>
                     </subviews>
@@ -55,13 +56,19 @@
                         <action selector="startButtonDidTap:" destination="-1" eventType="touchUpInside" id="nR1-Lo-cmS"/>
                     </connections>
                 </button>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Opp-pY-zHn">
+                    <rect key="frame" x="0.0" y="506" width="320" height="37"/>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="khC-Ep-hpp" secondAttribute="bottom" constant="60" id="0HJ-LE-Unw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Opp-pY-zHn" secondAttribute="bottom" constant="25" id="C1Q-Dc-iKR"/>
                 <constraint firstItem="uwo-Kt-xCN" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="EWV-mi-QGt"/>
+                <constraint firstItem="Opp-pY-zHn" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ILk-81-aie"/>
                 <constraint firstItem="uwo-Kt-xCN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="V3g-Lm-u8p"/>
                 <constraint firstItem="khC-Ep-hpp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZJb-46-k1d"/>
+                <constraint firstItem="Opp-pY-zHn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kq2-vv-umn"/>
                 <constraint firstItem="uwo-Kt-xCN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pJC-VB-y6B"/>
                 <constraint firstItem="uwo-Kt-xCN" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="tUl-Et-5en"/>
             </constraints>

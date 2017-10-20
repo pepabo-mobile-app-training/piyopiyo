@@ -31,8 +31,7 @@ class TutorialPage: UIView {
         guard let view = Bundle.main.loadNibNamed("TutorialPage", owner: self, options: nil)?.first as? UIView else {
             return
         }
-        
-        
+    
         let viewList = [firstPageView, secondPageView, thirdPageView, fourthPageView]
         let screenSize = UIScreen.main.bounds.size
         for i in 0..<viewList.count {
@@ -44,7 +43,6 @@ class TutorialPage: UIView {
             page.frame = pageRectangle
         }
         view.frame = CGRect(origin: CGPoint(x: 0, y: 0), size:  TutorialPage.viewSize())
-        //view.frame = bounds
         addSubview(view)
     }
     
@@ -53,4 +51,3 @@ class TutorialPage: UIView {
         return CGSize(width: CGFloat(TutorialPage.pageCount)*screenSize.width, height: screenSize.height)
     }
 }
-

@@ -12,12 +12,13 @@ protocol TutorialDelegate: class {
     func startButtonDidTap()
 }
 
-class TutorialView: UIView {
+class TutorialView: UIView, UIScrollViewDelegate {
 
     weak var delegate: TutorialDelegate?
     @IBOutlet weak var startButton: ColorButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tutorialPage: TutorialPage!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,5 +48,9 @@ class TutorialView: UIView {
     @IBAction func startButtonDidTap(_ sender: ColorButton) {
         removeFromSuperview()
         delegate?.startButtonDidTap()
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        pageControl.currentPage = Int(scrollView.contentOffset.x / scrollView.frame.maxX)
     }
 }
