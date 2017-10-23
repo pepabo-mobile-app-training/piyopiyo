@@ -237,7 +237,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             }
         }
     }
-    
     func resetAnimateBalloon() {
         resetTrigger = ResetBalloonAnimation.reset
         balloonCycleCount = 0
@@ -382,8 +381,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                         prepareViewClosing()
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     } else {
-                        let alert: UIAlertController = UIAlertController(title: "ほかのつぶやきを見ることができません", message: "ほかのつぶやきを見るには、Twitterアプリをインストールしてください", preferredStyle:  UIAlertControllerStyle.alert)
-                        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                        let alert: UIAlertController = UIAlertController(title: "ほかのつぶやきを見ることができません", message: "ほかのつぶやきを見るには、Twitterアプリをインストールしてください", preferredStyle:  .alert)
+                        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
                         alert.addAction(okAction)
                         present(alert, animated: true, completion: nil)
                     }
