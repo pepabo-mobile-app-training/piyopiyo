@@ -12,11 +12,20 @@ protocol TutorialDelegate: class {
     func startButtonDidTap()
 }
 
-class TutorialView: UIView {
+class TutorialView: UIView, UIScrollViewDelegate {
 
     weak var delegate: TutorialDelegate?
     @IBOutlet weak var startButton: ColorButton!
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var tutorialPage: TutorialPage!
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    var isFirstTutorial: Bool = true {
+        didSet {
+            isFirstTutorial ? startButton.setTitle("はじめる", for: .normal) : startButton.setTitle("とじる", for: .normal)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -33,10 +42,29 @@ class TutorialView: UIView {
         }
         view.frame = bounds
         addSubview(view)
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = true
+        scrollView.contentSize = TutorialPage.viewSize()
+        scrollView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: UIScreen.main.bounds.size)
+        scrollView.delegate = self
+        
+        startButton.isHidden = true
     }
     
     @IBAction func startButtonDidTap(_ sender: ColorButton) {
         removeFromSuperview()
         delegate?.startButtonDidTap()
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let currentPage = Int(scrollView.contentOffset.x / scrollView.frame.maxX)
+        pageControl.currentPage = currentPage
+        
+        if currentPage == TutorialPage.pageCount-1 {
+            startButton.isHidden = false
+        } else {
+            startButton.isHidden = true
+        }
+    }
+    
 }

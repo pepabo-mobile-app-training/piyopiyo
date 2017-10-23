@@ -120,6 +120,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         tutorialView = TutorialView(frame: self.view.frame)
         if let tutorialView = tutorialView {
             tutorialView.delegate = self
+            tutorialView.isFirstTutorial = !UserDefaults.standard.bool(forKey: "startApp")
             addTutorial(tutorialView: tutorialView)
         }
     }
