@@ -85,7 +85,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         if !UserDefaults.standard.bool(forKey: "startApp") {
             showTutorial()
         } else {
-            setupContents(FeedViewController.balloonCount)
+            initializeTweets()
         }
         profileView.delegate = self
         activityIndicator = UIActivityIndicatorView()
@@ -124,7 +124,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             self.isEnterBackground = false
             if self.resetTrigger == ResetBalloonAnimation.none {
                 //ふきだしリセットが完了していたら開始を行う
-                self.setupBalloons(FeedViewController.balloonCount)
+                self.setupBalloons()
             } else {
                 //ふきだしキャンセル完了前ならふきだしループをリセットする
                 self.resetAnimateBalloon()
@@ -164,8 +164,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         view.addSubview(tutorialView)
     }
     
-    func makeBalloons(_ count: Int) {
-        for i in 0..<count {
+    func makeBalloons() {
+        for i in 0..<FeedViewController.balloonCount {
             let balloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0))
             balloonView.microContentLabel.accessibilityIdentifier = "balloonText\(i)"
             balloonViews += [balloonView]
@@ -174,8 +174,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     
-    func setupBalloons(_ count: Int) {
-        for i in 0..<count {
+    func setupBalloons() {
+        for i in 0..<FeedViewController.balloonCount {
             pendingSetupBalloonCount += 1
             let balloonDuration = self.balloonDuration
             let dispatchTime: DispatchTime = DispatchTime.now() + Double(balloonDuration / Double(FeedViewController.balloonCount) * Double(i))
@@ -203,14 +203,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         //初回起動時のみアニメーションが再生されていない状態なのでアニメーションを開始する
         if !UserDefaults.standard.bool(forKey: "startApp") {
             UserDefaults.standard.set(true, forKey: "startApp")
-            setupContents(FeedViewController.balloonCount)
+            initializeTweets()
         }
-    }
-
-    private func setupContents(_ count: Int) {
-        initializeTweets()
-        makeBalloons(count)
-        setupBalloons(count)
     }
 
     private func initializeTweets() {
@@ -224,12 +218,11 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                    let oauthToken = defaults.string(forKey: "twitter_key"),
                    let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
                     self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+                    self.makeBalloons()
+                    self.setupBalloons()
                 }
             } else {
-                if let consumerKey = env["consumerKey"],
-                   let consumerSecret = env["consumerSecret"] {
-                    self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: FeedViewController.dummyToken, oauthTokenSecret: FeedViewController.dummyToken)
-                }
+               
             }
             self.restartView()
         }
@@ -340,7 +333,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func restartAnimation() {
         if self.animatingBalloonCount == 0  && self.pendingSetupBalloonCount == 0 {
             self.balloonCycleCount = 0
-            self.setupBalloons(FeedViewController.balloonCount)
+            self.setupBalloons()
             self.resetTrigger = ResetBalloonAnimation.none
         }
     }
