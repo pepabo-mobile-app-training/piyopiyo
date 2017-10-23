@@ -23,7 +23,7 @@ class ContinuityTweets: ContinuityMicroContents {
     static let maxTweetCount = 50
     static let lowestTweetCount = 15
 
-    var isAutholized = true
+    var isAuthorized = true
 
     init(consumerKey: String, consumerSecret: String, oauthToken: String, oauthTokenSecret: String) {
         self.consumerKey = consumerKey
@@ -45,7 +45,7 @@ class ContinuityTweets: ContinuityMicroContents {
                 if let error = error as? SwifterError {
                     switch error.kind {
                     case .urlResponseError(status: 401, headers: _, errorCode: _):
-                        self.isAutholized = false
+                        self.isAuthorized = false
                     default:
                         break
                     }
@@ -68,7 +68,6 @@ class ContinuityTweets: ContinuityMicroContents {
         if tweets.count < ContinuityTweets.lowestTweetCount {
             fetchMicroContents()
         }
-
         if tweets.count != 0 {
             return tweets.removeFirst()
         } else {

@@ -10,5 +10,4 @@ import Foundation
 
 enum TwitterClientError : Error {
     case missingEnvironmentKeys
-    case notAuthorized
 }
