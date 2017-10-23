@@ -35,7 +35,7 @@ class TwitterAuthorizationTests: XCTestCase {
 
         // すでにキーが存在するときは、クロージャの引数にTrueがセットされる（isAuthorized()メソッドの確認）
         let twitterAuthorizationException: XCTestExpectation? = self.expectation(description: "twitterAuthorization")
-        twitterAuthorization!.authorize(presentFrom: UIViewController()) { result in
+        twitterAuthorization!.authorize(isReset: false, presentFrom: UIViewController()) { result in
             XCTAssertTrue(result)
             userDefaults.removeObject(forKey: "twitter_key")
             userDefaults.removeObject(forKey: "twitter_secret")
