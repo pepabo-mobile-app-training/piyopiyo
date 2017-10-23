@@ -48,8 +48,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     private var balloonViews = [BalloonView]()
     private var isEnterBackground: Bool = false             //バックグラウンド中かどうか
     
-    private var recentResetTime: Date?
-    static let intervalTorelanceRate = 0.23
+    private var recentResetTime: Date?                      //ふきだし初期位置移動時刻
+    static let intervalTorelanceRate = 0.23                 //ふきだしアニメーション間隔の許容誤差
     
     static let originalProfileSize = CGSize(width: 300, height: 480)
     static let originalProfilePoint = CGPoint(x: (screenSize.width - originalProfileSize.width)/2, y: (screenSize.height - originalProfileSize.height)/2)
