@@ -258,7 +258,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         if let tweets = microContents as? ContinuityTweets {
             if !tweets.isAuthorized {
                 tweets.isAuthorized = true
-                alert()
+                alertResetToken()
                 return
             }
         }
@@ -481,7 +481,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
 
-    private func alert() {
+    private func alertResetToken() {
         let title = "セッションが切れました"
         let message = "再度Twitter認証が必要です"
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
