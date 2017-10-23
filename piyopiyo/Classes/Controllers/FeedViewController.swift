@@ -238,7 +238,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             }
         }
     }
-    
     func resetAnimateBalloon() {
         resetTrigger = ResetBalloonAnimation.reset
         balloonCycleCount = 0
@@ -372,8 +371,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
 
     func showUserFeedButtonDidTap() {
-        prepareViewClosing()
-        profileBackgroundView.isHidden = true
+        hideBackgroundView()
         showingUserProfile = profileView.profile
 
         switch microContentType {
@@ -381,11 +379,18 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             if let id = showingUserProfile?.userID {
                 if let url = URL(string: "twitter://user?id=\(id)") {
                     if UIApplication.shared.canOpenURL(url) {
+                        prepareViewClosing()
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    } else {
+                        let alert: UIAlertController = UIAlertController(title: "ほかのつぶやきを見ることができません", message: "ほかのつぶやきを見るには、Twitterアプリをインストールしてください", preferredStyle:  .alert)
+                        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
+                        alert.addAction(okAction)
+                        present(alert, animated: true, completion: nil)
                     }
                 }
             }
         case .micropost:
+            prepareViewClosing()
             performSegue(withIdentifier: "showUserFeed", sender: nil)
         }
     }
