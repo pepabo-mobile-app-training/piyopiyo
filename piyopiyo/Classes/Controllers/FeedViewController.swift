@@ -471,6 +471,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     
     func showAppInformationButtonDidTap() {
         hideBackgroundView()
+        alertInformation()
         resetMiniHiyokoPosition()
     }
     
@@ -489,5 +490,27 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         })
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func alertInformation() {
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
+        var message = ""
+        if let version = version {
+            message = "現在のバージョン \(version)"
+        }
+        let alert = UIAlertController(title: "ぴよぴよ", message: message, preferredStyle: .alert)
+        let update = UIAlertAction(title: "最新にアップデート", style: .default, handler: { _ in
+            // TODO: 現在のバージョンが最新だったら表示しない。最新じゃなかったらAppStoreのアプリページに飛ばす。
+        })
+        let information = UIAlertAction(title: "アプリ情報", style: .default, handler: { _ in
+            if let url = URL(string: "https://github.com/pepabo-mobile-app-training/piyopiyo") {
+            UIApplication.shared.canOpenURL(url)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }})
+        let close = UIAlertAction(title: "閉じる", style: .cancel, handler: nil)
+        alert.addAction(update)
+        alert.addAction(information)
+        alert.addAction(close)
+        present(alert, animated: true, completion: nil)
     }
 }
