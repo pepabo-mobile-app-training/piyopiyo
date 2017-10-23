@@ -27,12 +27,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     static let balloonCount = 3                             //ふきだしViewの個数
     static let resetBalloonCountValue = 100                 //ふきだしアニメーションをリセットするタイミング（ふきだしをいくつアニメーションしたらリセットするか）
     
-    enum MicroContentType {
-        case micropost
-        case twitter
-    }
-    private var microContentType: MicroContentType = .twitter
-    
     enum ResetBalloonAnimation {
         case reset                                          //ふきだしループのリセット
         case cancel                                         //ふきだしループの停止
@@ -65,7 +59,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     @IBOutlet weak var grassImageView: UIImageView!
     @IBOutlet weak var hiyokoButton: UIButton!
     @IBOutlet weak var miniHiyokoButton: UIButton!
-    @IBOutlet weak var switchingClientButton: UIButton!
     @IBOutlet weak var menuView: MenuView! {
         didSet {
             menuView.isHidden = true
@@ -83,14 +76,14 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     private var showingUserProfile: UserProfile?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if !UserDefaults.standard.bool(forKey: "startApp") {
             showTutorial()
         } else {
-            setupContents(FeedViewController.balloonCount, isReset: false)
+            setupContents(isReset: false)
         }
         profileView.delegate = self
         activityIndicator = UIActivityIndicatorView()
@@ -130,7 +123,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             self.isEnterBackground = false
             if self.resetTrigger == ResetBalloonAnimation.none {
                 //ふきだしリセットが完了していたら開始を行う
-                self.setupBalloons(FeedViewController.balloonCount)
+                self.setupBalloons()
             } else {
                 //ふきだしキャンセル完了前ならふきだしループをリセットする
                 self.resetAnimateBalloon()
@@ -170,8 +163,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         view.addSubview(tutorialView)
     }
     
-    func makeBalloons(_ count: Int) {
-        for i in 0..<count {
+    func makeBalloons() {
+        for i in 0..<FeedViewController.balloonCount {
             let balloonView = BalloonView(frame: CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0))
             balloonView.microContentLabel.accessibilityIdentifier = "balloonText\(i)"
             balloonViews += [balloonView]
@@ -180,8 +173,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     
-    func setupBalloons(_ count: Int) {
-        for i in 0..<count {
+    func setupBalloons() {
+        for i in 0..<FeedViewController.balloonCount {
             pendingSetupBalloonCount += 1
             let balloonDuration = self.balloonDuration
             let dispatchTime: DispatchTime = DispatchTime.now() + Double(balloonDuration / Double(FeedViewController.balloonCount) * Double(i))
@@ -209,14 +202,15 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         //初回起動時のみアニメーションが再生されていない状態なのでアニメーションを開始する
         if !UserDefaults.standard.bool(forKey: "startApp") {
             UserDefaults.standard.set(true, forKey: "startApp")
-            setupContents(FeedViewController.balloonCount, isReset: false)
+            setupContents(isReset: false)
         }
     }
-
-    private func setupContents(_ count: Int, isReset: Bool) {
+    
+    private func setupContents(isReset: Bool) {
         initializeTweets(isReset)
-        makeBalloons(count)
-        setupBalloons(count)
+        makeBalloons()
+        setupBalloons()
+
     }
 
     private func initializeTweets(_ isReset: Bool) {
@@ -224,20 +218,19 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         let defaults = UserDefaults.standard
 
         self.initializeTwitterAuthorization(isReset: isReset) { result in
-            if result {
-                self.microContentType = MicroContentType.twitter
-                if let consumerKey = env["consumerKey"],
-                    let consumerSecret = env["consumerSecret"],
-                    let oauthToken = defaults.string(forKey: "twitter_key"),
-                    let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
-                    self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
-                    self.restartView()
-                }
+            guard let consumerKey = env["consumerKey"],
+                  let consumerSecret = env["consumerSecret"] else {
+                    return
+            }
+            if let oauthToken = defaults.string(forKey: "twitter_key"),
+               let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
+                self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
             } else {
-                self.microContentType = MicroContentType.micropost
+                self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: "", oauthTokenSecret: "")
             }
         }
     }
+    
     func resetAnimateBalloon() {
         resetTrigger = ResetBalloonAnimation.reset
         balloonCycleCount = 0
@@ -320,18 +313,10 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         activityIndicator.startAnimating()
         
         if let microContent = microContent {
-            switch microContentType {
-            case .twitter:
-                if let tweet = microContent as? Tweet {
-                    setupProfile(profile: tweet.profile, microContent: tweet)
-                }
-                activityIndicator.stopAnimating()
-            case .micropost:
-                MicropostUserProfile.fetchUserProfile(userID: microContent.userID) { profile in
-                    self.setupProfile(profile: profile, microContent: microContent)
-                    self.activityIndicator.stopAnimating()
-                }
+            if let tweet = microContent as? Tweet {
+                setupProfile(profile: tweet.profile, microContent: tweet)
             }
+            activityIndicator.stopAnimating()
         }
         showBackgroundView()
         profileView.layer.zPosition = CGFloat(FeedViewController.resetBalloonCountValue + 2)
@@ -358,7 +343,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     func restartAnimation() {
         if self.animatingBalloonCount == 0  && self.pendingSetupBalloonCount == 0 {
             self.balloonCycleCount = 0
-            self.setupBalloons(FeedViewController.balloonCount)
+            self.setupBalloons()
             self.resetTrigger = ResetBalloonAnimation.none
         }
     }
@@ -381,24 +366,18 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         hideBackgroundView()
         showingUserProfile = profileView.profile
 
-        switch microContentType {
-        case .twitter:
-            if let id = showingUserProfile?.userID {
-                if let url = URL(string: "twitter://user?id=\(id)") {
-                    if UIApplication.shared.canOpenURL(url) {
-                        prepareViewClosing()
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    } else {
-                        let alert: UIAlertController = UIAlertController(title: "ほかのつぶやきを見ることができません", message: "ほかのつぶやきを見るには、Twitterアプリをインストールしてください", preferredStyle:  .alert)
-                        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
-                        alert.addAction(okAction)
-                        present(alert, animated: true, completion: nil)
-                    }
+        if let id = showingUserProfile?.userID {
+            if let url = URL(string: "twitter://user?id=\(id)") {
+                if UIApplication.shared.canOpenURL(url) {
+                    prepareViewClosing()
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    let alert: UIAlertController = UIAlertController(title: "ほかのつぶやきを見ることができません", message: "ほかのつぶやきを見るには、Twitterアプリをインストールしてください", preferredStyle:  .alert)
+                    let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
+                    alert.addAction(okAction)
+                    present(alert, animated: true, completion: nil)
                 }
             }
-        case .micropost:
-            prepareViewClosing()
-            performSegue(withIdentifier: "showUserFeed", sender: nil)
         }
     }
 
