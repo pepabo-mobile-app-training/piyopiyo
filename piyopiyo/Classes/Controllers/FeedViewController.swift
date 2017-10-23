@@ -48,6 +48,9 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     private var balloonViews = [BalloonView]()
     private var isEnterBackground: Bool = false             //バックグラウンド中かどうか
     
+    private var recentResetTime: Date?
+    static let intervalTorelanceRate = 0.23
+    
     static let originalProfileSize = CGSize(width: 300, height: 480)
     static let originalProfilePoint = CGPoint(x: (screenSize.width - originalProfileSize.width)/2, y: (screenSize.height - originalProfileSize.height)/2)
 
@@ -290,6 +293,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
         
         animator.addCompletion {_ in
+            
             self.animatingBalloonCount -= 1
             
             switch self.resetTrigger {
@@ -298,6 +302,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 if self.animatingBalloonCount == 0 {
                     if self.pendingSetupBalloonCount == 0 {
                         self.resetTrigger = ResetBalloonAnimation.none
+                        self.recentResetTime = nil
                     }
                     self.balloonCycleCount = 0
                 }
@@ -308,7 +313,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                 if self.balloonCycleCount == (FeedViewController.resetBalloonCountValue - 1) {
                     //リセット条件を満たした場合（ふきだしカウンタが閾値を超えたら）リセットフラグを立てる
                     self.resetTrigger = ResetBalloonAnimation.reset
+                } else if let recentResetTime = self.recentResetTime {
+                    let elapsed = Date().timeIntervalSince(recentResetTime) as Double
+                    let targetInterval = (self.balloonDuration / Double(FeedViewController.balloonCount))
+                    let torelanceSecond = targetInterval * FeedViewController.intervalTorelanceRate
+                    if abs(targetInterval - elapsed) > torelanceSecond {
+                        self.resetTrigger = .reset
+                    }
+                    print(elapsed)
                 }
+                self.recentResetTime = Date()
                 nextBalloon()
             }
         }
@@ -360,6 +374,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             self.balloonCycleCount = 0
             self.setupBalloons(FeedViewController.balloonCount)
             self.resetTrigger = ResetBalloonAnimation.none
+            self.recentResetTime = nil
         }
     }
 
