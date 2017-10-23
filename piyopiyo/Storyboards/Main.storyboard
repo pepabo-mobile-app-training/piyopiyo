@@ -71,13 +71,6 @@
                                     <constraint firstAttribute="height" constant="60" id="pd8-Dc-SIR"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfe-XW-bWd" customClass="MenuView" customModule="piyopiyo" customModuleProvider="target">
-                                <rect key="frame" x="40" y="409" width="270" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="6Iv-4t-LQg"/>
-                                    <constraint firstAttribute="height" constant="160" id="uNv-rl-gSb"/>
-                                </constraints>
-                            </view>
                             <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4B-UH-64h">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,6 +79,13 @@
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="rBu-Vb-KHN" appends="YES" id="O63-Rm-zg5"/>
                                 </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfe-XW-bWd" customClass="MenuView" customModule="piyopiyo" customModuleProvider="target">
+                                <rect key="frame" x="40" y="409" width="270" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="6Iv-4t-LQg"/>
+                                    <constraint firstAttribute="height" constant="160" id="uNv-rl-gSb"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
