@@ -33,7 +33,7 @@ class TwitterAuthorization {
         }
 
         let swifter = Swifter(consumerKey: consumerKey, consumerSecret: consumerSecret)
-
+        
         swifter.authorize(with: callbackURL, presentFrom: presentFrom, success: { (token, _) in
             guard let token = token else {
                 handle(false)
