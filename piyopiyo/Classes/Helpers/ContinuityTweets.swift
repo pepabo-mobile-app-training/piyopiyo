@@ -23,6 +23,8 @@ class ContinuityTweets: ContinuityMicroContents {
     static let maxTweetCount = 50
     static let lowestTweetCount = 15
 
+    var isAuthorized = true
+
     init(consumerKey: String, consumerSecret: String, oauthToken: String, oauthTokenSecret: String) {
         self.consumerKey = consumerKey
         self.consumerSecret = consumerSecret
@@ -39,8 +41,18 @@ class ContinuityTweets: ContinuityMicroContents {
     func fetchMicroContents() {
         if !isRequestingTweets {
             isRequestingTweets = true
-            request = Tweet.fetchRandomTweets(swifter: swifter) { randomTweet in
-                if !randomTweet.content.isEmpty {
+            request = Tweet.fetchRandomTweets(swifter: swifter) { randomTweet, error in
+                if let error = error as? SwifterError {
+                    switch error.kind {
+                    case .urlResponseError(status: 401, headers: _, errorCode: _):
+                        self.isAuthorized = false
+                    default:
+                        break
+                    }
+                    self.isRequestingTweets = false
+                }
+
+                if let randomTweet = randomTweet {
                     self.tweets.append(randomTweet)
                 }
 
