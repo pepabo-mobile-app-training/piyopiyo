@@ -257,6 +257,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
         if let tweets = microContents as? ContinuityTweets {
             if !tweets.isAutholized {
+                tweets.isAutholized = true
                 alert()
                 return
             }
