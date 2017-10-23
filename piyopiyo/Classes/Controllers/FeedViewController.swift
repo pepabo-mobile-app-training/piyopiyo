@@ -471,6 +471,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     
     func showAppInformationButtonDidTap() {
         hideBackgroundView()
+        alertInformation()
         resetMiniHiyokoPosition()
     }
     
@@ -489,5 +490,19 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         })
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func alertInformation() {
+        let alert = UIAlertController(title: "ぴよぴよ", message: "現在のバージョン", preferredStyle: .alert)
+        let update = UIAlertAction(title: "最新にアップデート", style: .default, handler: { _ in
+        })
+        let information = UIAlertAction(title: "アプリ情報", style: .default, handler: { _ in
+        })
+        let close = UIAlertAction(title: "閉じる", style: .cancel, handler: { _ in
+        })
+        alert.addAction(update)
+        alert.addAction(information)
+        alert.addAction(close)
+        present(alert, animated: true, completion: nil)
     }
 }
