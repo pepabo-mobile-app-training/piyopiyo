@@ -85,7 +85,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         if !UserDefaults.standard.bool(forKey: "startApp") {
             showTutorial()
         } else {
-            initializeTweets()
+            setupContents()
         }
         profileView.delegate = self
         activityIndicator = UIActivityIndicatorView()
@@ -204,11 +204,27 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         //初回起動時のみアニメーションが再生されていない状態なのでアニメーションを開始する
         if !UserDefaults.standard.bool(forKey: "startApp") {
             UserDefaults.standard.set(true, forKey: "startApp")
-            initializeTweets()
+            setupContents()
+        }
+    }
+    
+    private func setupContents() {
+        initializeTweets { result in
+            if result {
+                self.makeBalloons()
+                self.setupBalloons()
+            } else {
+                let alert: UIAlertController = UIAlertController(title: "Twitterとの連携に失敗しました", message: "このアプリをご利用いただくには、Twitterとの連携を許可していただく必要があります。", preferredStyle:  .alert)
+                let okAction: UIAlertAction = UIAlertAction(title: "設定する", style: .default, handler: { (_ ) -> Void in
+                    self.setupContents()
+                })
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
 
-    private func initializeTweets() {
+    private func initializeTweets(handle: @escaping (_ result: Bool) -> Void) {
         let env = ProcessInfo.processInfo.environment
         let defaults = UserDefaults.standard
 
@@ -219,15 +235,14 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                    let oauthToken = defaults.string(forKey: "twitter_key"),
                    let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
                     self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
-                    self.makeBalloons()
-                    self.setupBalloons()
+                     handle(true)
                 }
             } else {
-               
+                handle(false)
             }
-            self.restartView()
         }
     }
+    
     func resetAnimateBalloon() {
         resetTrigger = ResetBalloonAnimation.reset
         balloonCycleCount = 0
