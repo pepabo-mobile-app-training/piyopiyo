@@ -209,36 +209,28 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     
     private func setupContents() {
-        initializeTweets { result in
-            if result {
-                self.makeBalloons()
-                self.setupBalloons()
-            } else {
-                let alert: UIAlertController = UIAlertController(title: "Twitterとの連携に失敗しました", message: "このアプリをご利用いただくには、Twitterとの連携を許可していただく必要があります。", preferredStyle:  .alert)
-                let okAction: UIAlertAction = UIAlertAction(title: "設定する", style: .default, handler: { (_ ) -> Void in
-                    self.setupContents()
-                })
-                alert.addAction(okAction)
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
+        initializeTweets()
+        makeBalloons()
+        setupBalloons()
     }
 
-    private func initializeTweets(handle: @escaping (_ result: Bool) -> Void) {
+    private func initializeTweets() {
         let env = ProcessInfo.processInfo.environment
         let defaults = UserDefaults.standard
 
-        self.initializeTwitterAuthorization { result in
+        self.initializeTwitterAuthorization() { result in
+            guard let consumerKey = env["consumerKey"],
+                  let consumerSecret = env["consumerSecret"] else {
+                    return
+            }
+            
             if result {
-                if let consumerKey = env["consumerKey"],
-                   let consumerSecret = env["consumerSecret"],
-                   let oauthToken = defaults.string(forKey: "twitter_key"),
+                if let oauthToken = defaults.string(forKey: "twitter_key"),
                    let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
                     self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
-                     handle(true)
                 }
             } else {
-                handle(false)
+                self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: "", oauthTokenSecret: "")
             }
         }
     }

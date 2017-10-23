@@ -43,14 +43,13 @@ class TwitterAuthorization {
             self.userDefaults.set(token.secret, forKey: "twitter_secret")
             handle(true)
         }, failure: { (error) in
-            
             handle(false)
         })
     }
 
     private func isAuthorized() -> Bool {
         let key = userDefaults.object(forKey: "twitter_key")
-        let secret = userDefaults.object(forKey: "twitter_secret")
+        let secret = userDefqaults.object(forKey: "twitter_secret")
 
         return key != nil && secret != nil
     }
