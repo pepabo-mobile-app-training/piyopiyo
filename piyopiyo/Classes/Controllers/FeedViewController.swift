@@ -259,7 +259,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             if !tweets.isAuthorized {
                 tweets.isAuthorized = true
                 alertResetToken()
-                return
             }
         }
         
@@ -486,7 +485,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         let message = "再度Twitter認証が必要です"
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: { _ in
-            self.setupContents(FeedViewController.balloonCount, isReset: true)
+            self.initializeTweets(true)
         })
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
