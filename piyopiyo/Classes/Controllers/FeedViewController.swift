@@ -76,9 +76,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     private var showingUserProfile: UserProfile?
-    
-    static private let dummyToken = ""
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
