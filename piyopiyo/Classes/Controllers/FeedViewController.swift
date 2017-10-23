@@ -85,7 +85,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         if !UserDefaults.standard.bool(forKey: "startApp") {
             showTutorial()
         } else {
-            setupContents()
+            setupContents(isReset: false)
         }
         profileView.delegate = self
         activityIndicator = UIActivityIndicatorView()
@@ -138,14 +138,14 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         self.isEnterBackground = true
     }
     
-    func initializeTwitterAuthorization(handle: @escaping (_ result: Bool) -> Void) {
+    func initializeTwitterAuthorization(isReset: Bool, handle: @escaping (_ result: Bool) -> Void) {
         if twitterAuthorization == nil {
             let env = ProcessInfo.processInfo.environment
             twitterAuthorization = try? TwitterAuthorization(consumerKey: env["consumerKey"], consumerSecret:  env["consumerSecret"])
         }
         
         if let twitterAuthorization = twitterAuthorization {
-            twitterAuthorization.authorize(presentFrom: self, handle: handle)
+            twitterAuthorization.authorize(isReset: isReset, presentFrom: self, handle: handle)
         } else {
             handle(false)
         }
@@ -204,26 +204,26 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         //初回起動時のみアニメーションが再生されていない状態なのでアニメーションを開始する
         if !UserDefaults.standard.bool(forKey: "startApp") {
             UserDefaults.standard.set(true, forKey: "startApp")
-            setupContents()
+            setupContents(isReset: false)
         }
     }
     
-    private func setupContents() {
-        initializeTweets()
+    private func setupContents(isReset: Bool) {
+        initializeTweets(isReset)
         makeBalloons()
         setupBalloons()
+
     }
 
-    private func initializeTweets() {
+    private func initializeTweets(_ isReset: Bool) {
         let env = ProcessInfo.processInfo.environment
         let defaults = UserDefaults.standard
 
-        self.initializeTwitterAuthorization() { result in
+        self.initializeTwitterAuthorization(isReset: isReset) { result in
             guard let consumerKey = env["consumerKey"],
                   let consumerSecret = env["consumerSecret"] else {
                     return
             }
-            
             if result {
                 if let oauthToken = defaults.string(forKey: "twitter_key"),
                    let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
@@ -251,6 +251,13 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
         balloonView.frame = CGRect(x: FeedViewController.initialBalloonX, y: FeedViewController.initialBalloonY, width: 0, height: 0)
         balloonView.layoutIfNeeded()
+
+        if let tweets = microContents as? ContinuityTweets {
+            if !tweets.isAuthorized {
+                tweets.isAuthorized = true
+                alertResetToken()
+            }
+        }
         
         balloonView.micropost = microContents.getMicroContent()
 
@@ -454,5 +461,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         balloonViews.forEach { (balloonView) in
             balloonView.isUserInteractionEnabled = isEnabled
         }
+    }
+
+    private func alertResetToken() {
+        let title = "セッションが切れました"
+        let message = "再度Twitter認証が必要です"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: { _ in
+            self.initializeTweets(true)
+        })
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
 }
