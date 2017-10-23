@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -78,9 +78,9 @@
                     <rect key="frame" x="328" y="0.0" width="320" height="595"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="tutorial_speed" translatesAutoresizingMaskIntoConstraints="NO" id="2qb-9V-lQj">
-                            <rect key="frame" x="47" y="200" width="295" height="433"/>
+                            <rect key="frame" x="29" y="198" width="320" height="468"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="2qb-9V-lQj" secondAttribute="height" multiplier="295:433" id="rDa-Kn-p5Z"/>
+                                <constraint firstAttribute="width" secondItem="2qb-9V-lQj" secondAttribute="height" multiplier="80:117" id="5lO-6A-aPT"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gx-ae-WT3">
@@ -99,18 +99,18 @@
                     </subviews>
                     <color key="backgroundColor" red="0.34156047393091865" green="0.35209271154258848" blue="0.85618258248730961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="2qb-9V-lQj" secondAttribute="trailing" constant="-22" id="7OI-Fh-UwO"/>
                         <constraint firstItem="8gx-ae-WT3" firstAttribute="top" secondItem="Lph-lY-hob" secondAttribute="top" constant="40" id="B0u-tk-FB3"/>
+                        <constraint firstAttribute="trailing" secondItem="2qb-9V-lQj" secondAttribute="trailing" constant="-29" id="BYN-bj-bBk"/>
                         <constraint firstItem="8gx-ae-WT3" firstAttribute="centerX" secondItem="Lph-lY-hob" secondAttribute="centerX" id="IfJ-Kl-6ub"/>
-                        <constraint firstAttribute="bottom" secondItem="2qb-9V-lQj" secondAttribute="bottom" constant="-38" id="ZFh-GW-JNf"/>
-                        <constraint firstItem="2qb-9V-lQj" firstAttribute="leading" secondItem="Lph-lY-hob" secondAttribute="leading" constant="47" id="iKK-KR-XL6"/>
+                        <constraint firstAttribute="bottom" secondItem="2qb-9V-lQj" secondAttribute="bottom" constant="-71" id="j2F-LL-35k"/>
+                        <constraint firstItem="2qb-9V-lQj" firstAttribute="leading" secondItem="Lph-lY-hob" secondAttribute="leading" constant="29" id="tpm-vy-tFF"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rCY-Ao-MgC">
                     <rect key="frame" x="656" y="0.0" width="320" height="595"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="tutorial_menu" translatesAutoresizingMaskIntoConstraints="NO" id="zOt-gU-mkL">
-                            <rect key="frame" x="-15" y="199" width="288" height="437"/>
+                            <rect key="frame" x="-38" y="200" width="320" height="468"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="zOt-gU-mkL" secondAttribute="height" multiplier="288:425" id="mB0-ZZ-5Dy"/>
                             </constraints>
@@ -131,11 +131,11 @@
                     </subviews>
                     <color key="backgroundColor" red="0.32133082562845849" green="0.76355384932320836" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="zOt-gU-mkL" secondAttribute="trailing" constant="38" id="FRr-lt-x8l"/>
                         <constraint firstItem="kY6-BP-9Tx" firstAttribute="top" secondItem="rCY-Ao-MgC" secondAttribute="top" constant="40" id="H1e-3l-t7K"/>
+                        <constraint firstAttribute="bottom" secondItem="zOt-gU-mkL" secondAttribute="bottom" constant="-73" id="IFY-ec-be5"/>
+                        <constraint firstItem="zOt-gU-mkL" firstAttribute="leading" secondItem="rCY-Ao-MgC" secondAttribute="leading" constant="-38" id="Kip-lz-2FO"/>
                         <constraint firstItem="kY6-BP-9Tx" firstAttribute="centerX" secondItem="rCY-Ao-MgC" secondAttribute="centerX" id="MQp-wV-sGk"/>
-                        <constraint firstAttribute="bottom" secondItem="zOt-gU-mkL" secondAttribute="bottom" constant="-41" id="Phg-Jy-X5v"/>
-                        <constraint firstAttribute="trailing" secondItem="zOt-gU-mkL" secondAttribute="trailing" constant="47" id="bdI-CT-p8Q"/>
-                        <constraint firstItem="zOt-gU-mkL" firstAttribute="leading" secondItem="rCY-Ao-MgC" secondAttribute="leading" constant="-15" id="pDD-2g-tc6"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jC-Ja-hFr">
@@ -194,7 +194,7 @@
         <image name="glass_feed" width="1200" height="274"/>
         <image name="hiyoko_with_baloon" width="1498" height="1128"/>
         <image name="tutorial_login" width="1500" height="1311"/>
-        <image name="tutorial_menu" width="1000" height="1497"/>
-        <image name="tutorial_speed" width="1694" height="2470"/>
+        <image name="tutorial_menu" width="1124" height="1590"/>
+        <image name="tutorial_speed" width="1124" height="1590"/>
     </resources>
 </document>
