@@ -32,6 +32,10 @@ class ContinuityTweets: ContinuityMicroContents {
         self.oauthTokenSecret = oauthTokenSecret
 
         self.swifter = Swifter(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+        
+        if self.oauthToken.isEmpty || self.oauthTokenSecret.isEmpty {
+            isAuthorized = false
+        }
     }
 
     var count: Int {

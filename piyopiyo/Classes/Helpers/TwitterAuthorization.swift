@@ -49,7 +49,7 @@ class TwitterAuthorization {
 
     private func isAuthorized() -> Bool {
         let key = userDefaults.object(forKey: "twitter_key")
-        let secret = userDefqaults.object(forKey: "twitter_secret")
+        let secret = userDefaults.object(forKey: "twitter_secret")
 
         return key != nil && secret != nil
     }
