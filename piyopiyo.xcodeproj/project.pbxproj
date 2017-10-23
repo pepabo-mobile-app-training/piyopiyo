@@ -22,7 +22,6 @@
 		AF3F1E3D1F90701B004F9456 /* TwitterAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F1E3C1F90701B004F9456 /* TwitterAuthorization.swift */; };
 		AF4260C41F90B77F00249975 /* TwitterAuthorizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4260C31F90B77F00249975 /* TwitterAuthorizationTests.swift */; };
 		AF4260C61F90C22500249975 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4260C51F90C22500249975 /* Error.swift */; };
-		AF45F1C51F98489200805ABB /* FeedTutorialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF45F1C41F98489200805ABB /* FeedTutorialUITests.swift */; };
 		AF914D221F908AB00085FE1C /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF914D211F908AB00085FE1C /* SwifteriOS.framework */; };
 		AFBDE5B91F7A265500441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5B81F7A265500441353 /* .gitkeep */; };
 		AFBDE5BB1F7A267300441353 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = AFBDE5BA1F7A267300441353 /* .gitkeep */; };
@@ -46,6 +45,8 @@
 		E4D89DA01F833AE1006A419A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D89D9F1F833AE0006A419A /* APIClient.swift */; };
 		E4D89DA21F833BE2006A419A /* Micropost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D89DA11F833BE2006A419A /* Micropost.swift */; };
 		E4D89DA41F8383CD006A419A /* MicropostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D89DA31F8383CD006A419A /* MicropostTests.swift */; };
+		E4F6C3CB1F987FE8006AF75E /* TutorialPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6C3CA1F987FE8006AF75E /* TutorialPage.swift */; };
+		E4F6C3D31F98899F006AF75E /* TutorialPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F6C3D21F98899F006AF75E /* TutorialPage.xib */; };
 		E4F700641F7A260700869BD5 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F700631F7A260700869BD5 /* TutorialView.xib */; };
 		E4F700661F7A2FBD00869BD5 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F700651F7A2FBD00869BD5 /* ColorButton.swift */; };
 		E4F700681F7A4BEA00869BD5 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F700671F7A4BEA00869BD5 /* ProfileView.xib */; };
@@ -94,7 +95,6 @@
 		AF3F1E3C1F90701B004F9456 /* TwitterAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorization.swift; sourceTree = "<group>"; };
 		AF4260C31F90B77F00249975 /* TwitterAuthorizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorizationTests.swift; sourceTree = "<group>"; };
 		AF4260C51F90C22500249975 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		AF45F1C41F98489200805ABB /* FeedTutorialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTutorialUITests.swift; sourceTree = "<group>"; };
 		AF914D211F908AB00085FE1C /* SwifteriOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifteriOS.framework; path = Carthage/Build/iOS/SwifteriOS.framework; sourceTree = "<group>"; };
 		AFBDE5B81F7A265500441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		AFBDE5BA1F7A267300441353 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -118,6 +118,8 @@
 		E4D89D9F1F833AE0006A419A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		E4D89DA11F833BE2006A419A /* Micropost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Micropost.swift; sourceTree = "<group>"; };
 		E4D89DA31F8383CD006A419A /* MicropostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicropostTests.swift; sourceTree = "<group>"; };
+		E4F6C3CA1F987FE8006AF75E /* TutorialPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPage.swift; sourceTree = "<group>"; };
+		E4F6C3D21F98899F006AF75E /* TutorialPage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialPage.xib; sourceTree = "<group>"; };
 		E4F700631F7A260700869BD5 /* TutorialView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
 		E4F700651F7A2FBD00869BD5 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		E4F700671F7A4BEA00869BD5 /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
@@ -229,10 +231,11 @@
 			isa = PBXGroup;
 			children = (
 				E4F700651F7A2FBD00869BD5 /* ColorButton.swift */,
-				E4F700691F7A4E8E00869BD5 /* ProfileView.swift */,
 				AFBDE5C41F7A390C00441353 /* BalloonView.swift */,
 				E4F7006B1F7B81F300869BD5 /* TutorialView.swift */,
 				AFC1F0211F8C9863007AB2E0 /* FeedTableViewCell.swift */,
+				E4F6C3CA1F987FE8006AF75E /* TutorialPage.swift */,
+				E4F700691F7A4E8E00869BD5 /* ProfileView.swift */,
 				E46997271F9740CE00D635AB /* MenuView.swift */,
 			);
 			path = Views;
@@ -255,6 +258,7 @@
 				E4F700631F7A260700869BD5 /* TutorialView.xib */,
 				AFBDE5C21F7A34F000441353 /* BalloonView.xib */,
 				AFC1F0221F8C9863007AB2E0 /* FeedTableViewCell.xib */,
+				E4F6C3D21F98899F006AF75E /* TutorialPage.xib */,
 				E46997251F97274E00D635AB /* MenuView.xib */,
 			);
 			path = Xibs;
@@ -312,7 +316,6 @@
 			children = (
 				AF161F0E1F78A6FF00B2DD73 /* piyopiyoUITests.swift */,
 				AFECFAD21F7DF321001A9A0E /* FeedUITests.swift */,
-				AF45F1C41F98489200805ABB /* FeedTutorialUITests.swift */,
 				AF161F101F78A6FF00B2DD73 /* Info.plist */,
 			);
 			path = piyopiyoUITests;
@@ -429,6 +432,7 @@
 				E4F700641F7A260700869BD5 /* TutorialView.xib in Resources */,
 				E46997261F97274F00D635AB /* MenuView.xib in Resources */,
 				AF087D9A1F790BA5006C6BAF /* LaunchScreen.storyboard in Resources */,
+				E4F6C3D31F98899F006AF75E /* TutorialPage.xib in Resources */,
 				AF087D9B1F790BA5006C6BAF /* Main.storyboard in Resources */,
 				E4F7006E1F7B9BB900869BD5 /* UserFeed.storyboard in Resources */,
 				AFBDE5BB1F7A267300441353 /* .gitkeep in Resources */,
@@ -484,6 +488,7 @@
 			files = (
 				E4B874911F85E0CD00B7F0BF /* ContinuityMicroposts.swift in Sources */,
 				E4F7006A1F7A4E8E00869BD5 /* ProfileView.swift in Sources */,
+				E4F6C3CB1F987FE8006AF75E /* TutorialPage.swift in Sources */,
 				E4F700701F7B9D3E00869BD5 /* UserFeedViewController.swift in Sources */,
 				AF3103F51F95E74900FBCDC7 /* ContinuityTweets.swift in Sources */,
 				E48B90A01F905C610080836C /* Tweet.swift in Sources */,
@@ -525,7 +530,6 @@
 			files = (
 				AF161F0F1F78A6FF00B2DD73 /* piyopiyoUITests.swift in Sources */,
 				AFECFAD31F7DF321001A9A0E /* FeedUITests.swift in Sources */,
-				AF45F1C51F98489200805ABB /* FeedTutorialUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

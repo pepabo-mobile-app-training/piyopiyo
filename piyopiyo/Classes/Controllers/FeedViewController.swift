@@ -115,6 +115,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         tutorialView = TutorialView(frame: self.view.frame)
         if let tutorialView = tutorialView {
             tutorialView.delegate = self
+            tutorialView.isFirstTutorial = !UserDefaults.standard.bool(forKey: "startApp")
             addTutorial(tutorialView: tutorialView)
         }
     }
@@ -227,7 +228,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             self.restartView()
         }
     }
-    
     func resetAnimateBalloon() {
         resetTrigger = ResetBalloonAnimation.reset
         balloonCycleCount = 0
@@ -353,14 +353,19 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
 
     func showUserFeedButtonDidTap() {
-        prepareViewClosing()
-        profileBackgroundView.isHidden = true
+        hideBackgroundView()
         showingUserProfile = profileView.profile
 
         if let id = showingUserProfile?.userID {
             if let url = URL(string: "twitter://user?id=\(id)") {
                 if UIApplication.shared.canOpenURL(url) {
+                    prepareViewClosing()
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    let alert: UIAlertController = UIAlertController(title: "ほかのつぶやきを見ることができません", message: "ほかのつぶやきを見るには、Twitterアプリをインストールしてください", preferredStyle:  .alert)
+                    let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
+                    alert.addAction(okAction)
+                    present(alert, animated: true, completion: nil)
                 }
             }
         }
