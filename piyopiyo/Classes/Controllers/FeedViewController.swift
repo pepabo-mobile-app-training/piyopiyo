@@ -313,7 +313,6 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
                     if abs(targetInterval - elapsed) > torelanceSecond {
                         self.resetTrigger = .reset
                     }
-                    print(elapsed)
                 }
                 self.recentResetTime = Date()
                 nextBalloon()
