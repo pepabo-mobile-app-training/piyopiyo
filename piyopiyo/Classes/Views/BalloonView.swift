@@ -26,7 +26,7 @@ class BalloonView: UIView {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineHeightMultiple = 1.4
             paragraphStyle.lineBreakMode = .byTruncatingTail
-            attributedText.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedText.length))
+            attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedText.length))
             microContentLabel.attributedText = attributedText
         }
     }
