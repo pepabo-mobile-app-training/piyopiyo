@@ -22,12 +22,7 @@ class BalloonView: UIView {
             guard let micropost = micropost else {
                 return
             }
-            let attributedText = NSMutableAttributedString(string: micropost.content)
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineHeightMultiple = 1.4
-            paragraphStyle.lineBreakMode = .byTruncatingTail
-            attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedText.length))
-            microContentLabel.attributedText = attributedText
+            microContentLabel.text = micropost.content
         }
     }
     
