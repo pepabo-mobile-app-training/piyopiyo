@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum TwitterClientError : Error {
+enum TwitterClientError: Error {
     case missingEnvironmentKeys
 }
