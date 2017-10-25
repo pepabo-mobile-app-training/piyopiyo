@@ -475,8 +475,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
 
     private func alertResetToken() {
-        let title = "セッションが切れました"
-        let message = "再度Twitter認証が必要です"
+        let title = "Twitter認証に失敗しました"
+        let message = "アプリを使用するためには、Twitterで認証する必要があります。"
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: { _ in
             self.initializeTweets(true)
