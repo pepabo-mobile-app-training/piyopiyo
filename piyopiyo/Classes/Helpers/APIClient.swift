@@ -21,7 +21,7 @@ class APIClient {
             switch response.result {
             case .success(let value):
                 handler(JSON(value))
-            case .failure(let error):
+            case .failure:
                 handler([])
             }
         }

@@ -220,7 +220,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         let env = ProcessInfo.processInfo.environment
         let defaults = UserDefaults.standard
 
-        self.initializeTwitterAuthorization(isReset: isReset) { result in
+        self.initializeTwitterAuthorization(isReset: isReset) { _ in
             guard let consumerKey = env["consumerKey"],
                   let consumerSecret = env["consumerSecret"] else {
                     return

@@ -22,7 +22,7 @@ class MicropostTests: XCTestCase {
     func testFatchRandomMicroposts() {
         let fetchRandomMicropostExpectation: XCTestExpectation? = self.expectation(description: "fetchRandomMicroposts")
 
-        Micropost.fetchRandomMicroposts() { microposts in
+        Micropost.fetchRandomMicroposts { microposts in
             XCTAssertEqual(microposts.count, 10)
             fetchRandomMicropostExpectation?.fulfill()
         }
