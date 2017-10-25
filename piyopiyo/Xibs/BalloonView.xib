@@ -28,7 +28,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="260" height="150"/>
                 </imageView>
                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日はいい天気だなあ。朝食も美味しかったなあ。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="36U-W4-47p">
-                    <rect key="frame" x="16" y="6" width="228" height="124"/>
+                    <rect key="frame" x="16" y="0.0" width="228" height="130"/>
                     <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
             <constraints>
                 <constraint firstItem="2em-0u-ba3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9Za-P0-tJc"/>
                 <constraint firstItem="36U-W4-47p" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="GpK-Fq-LNa"/>
-                <constraint firstItem="36U-W4-47p" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="6" id="Ocg-tE-lYO"/>
+                <constraint firstItem="36U-W4-47p" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Ocg-tE-lYO"/>
                 <constraint firstItem="2em-0u-ba3" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ROz-rf-hT2"/>
                 <constraint firstItem="2em-0u-ba3" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="UG3-mj-83Z"/>
                 <constraint firstItem="2em-0u-ba3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Vec-bU-dOo"/>
