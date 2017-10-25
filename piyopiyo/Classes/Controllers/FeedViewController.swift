@@ -79,6 +79,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         }
     }
     private var showingUserProfile: UserProfile?
+    private var connectionAlertClosed = false
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -242,7 +243,8 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     private func animateBalloon(_ balloonView: BalloonView, numberOfBalloon: Int, duration: Double) {
         let originBalloonX = FeedViewController.initialBalloonX - FeedViewController.balloonWidth
         let originBalloonY = FeedViewController.initialBalloonY - FeedViewController.balloonHeight
-        
+        let noConnectionText = "通信中…"
+
         latestAppearanceBalloonNumber = numberOfBalloon
         balloonCycleCount += 1
         animatingBalloonCount += 1
@@ -255,10 +257,16 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             if !tweets.isAuthorized {
                 tweets.isAuthorized = true
                 alertResetToken()
+            } else if !tweets.isConnected {
+                tweets.isConnected = true
+                balloonView.microContentLabel.text = noConnectionText
+                if !connectionAlertClosed {
+                    alertConnection()
+                }
+            } else {
+                balloonView.micropost = microContents.getMicroContent()
             }
         }
-        
-        balloonView.micropost = microContents.getMicroContent()
 
         let animator = UIViewPropertyAnimator(duration: duration, curve: .easeIn, animations: nil)
 
@@ -485,6 +493,17 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
         self.present(alert, animated: true, completion: nil)
     }
     
+    private func alertConnection() {
+        let title = "通信状況が不安定です"
+        let message = "ネットワークに接続できる状態にしてください。"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: { _ in
+            self.connectionAlertClosed = true
+        })
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+
     private func alertInformation() {
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
         var message = ""

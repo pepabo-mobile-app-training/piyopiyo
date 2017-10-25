@@ -24,6 +24,7 @@ class ContinuityTweets: ContinuityMicroContents {
     static let lowestTweetCount = 15
 
     var isAuthorized = true
+    var isConnected = true
 
     init(consumerKey: String, consumerSecret: String, oauthToken: String, oauthTokenSecret: String) {
         self.consumerKey = consumerKey
@@ -54,6 +55,11 @@ class ContinuityTweets: ContinuityMicroContents {
                         break
                     }
                     self.isRequestingTweets = false
+                } else if let error = error {
+                    if error.localizedDescription == "The Internet connection appears to be offline." {
+                        self.isConnected = false
+                        self.isRequestingTweets = false
+                    }
                 }
 
                 if let randomTweet = randomTweet {
