@@ -38,13 +38,10 @@
 		E48B90A41F9060AA0080836C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48B90A31F9060AA0080836C /* UserProfile.swift */; };
 		E48B90A61F90671C0080836C /* TwitterUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48B90A51F90671C0080836C /* TwitterUserProfile.swift */; };
 		E4AE01DB1F84A761002A1446 /* MicropostUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE01DA1F84A761002A1446 /* MicropostUserProfile.swift */; };
-		E4AE01DD1F84AC46002A1446 /* UserProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */; };
 		E4B874911F85E0CD00B7F0BF /* ContinuityMicroposts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */; };
-		E4B874931F8600FD00B7F0BF /* ContinuityMicropostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B874921F8600FD00B7F0BF /* ContinuityMicropostsTests.swift */; };
 		E4B874951F8736A900B7F0BF /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B874941F8736A900B7F0BF /* SDWebImage.framework */; };
 		E4D89DA01F833AE1006A419A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D89D9F1F833AE0006A419A /* APIClient.swift */; };
 		E4D89DA21F833BE2006A419A /* Micropost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D89DA11F833BE2006A419A /* Micropost.swift */; };
-		E4D89DA41F8383CD006A419A /* MicropostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D89DA31F8383CD006A419A /* MicropostTests.swift */; };
 		E4F6C3CB1F987FE8006AF75E /* TutorialPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6C3CA1F987FE8006AF75E /* TutorialPage.swift */; };
 		E4F6C3D31F98899F006AF75E /* TutorialPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F6C3D21F98899F006AF75E /* TutorialPage.xib */; };
 		E4F700641F7A260700869BD5 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F700631F7A260700869BD5 /* TutorialView.xib */; };
@@ -111,13 +108,10 @@
 		E48B90A31F9060AA0080836C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		E48B90A51F90671C0080836C /* TwitterUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUserProfile.swift; sourceTree = "<group>"; };
 		E4AE01DA1F84A761002A1446 /* MicropostUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicropostUserProfile.swift; sourceTree = "<group>"; };
-		E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTests.swift; sourceTree = "<group>"; };
 		E4B874901F85E0CD00B7F0BF /* ContinuityMicroposts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuityMicroposts.swift; sourceTree = "<group>"; };
-		E4B874921F8600FD00B7F0BF /* ContinuityMicropostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuityMicropostsTests.swift; sourceTree = "<group>"; };
 		E4B874941F8736A900B7F0BF /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 		E4D89D9F1F833AE0006A419A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		E4D89DA11F833BE2006A419A /* Micropost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Micropost.swift; sourceTree = "<group>"; };
-		E4D89DA31F8383CD006A419A /* MicropostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicropostTests.swift; sourceTree = "<group>"; };
 		E4F6C3CA1F987FE8006AF75E /* TutorialPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPage.swift; sourceTree = "<group>"; };
 		E4F6C3D21F98899F006AF75E /* TutorialPage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialPage.xib; sourceTree = "<group>"; };
 		E4F700631F7A260700869BD5 /* TutorialView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
@@ -303,10 +297,7 @@
 			children = (
 				AF161F031F78A6FF00B2DD73 /* piyopiyoTests.swift */,
 				AF161F051F78A6FF00B2DD73 /* Info.plist */,
-				E4D89DA31F8383CD006A419A /* MicropostTests.swift */,
-				E4AE01DC1F84AC46002A1446 /* UserProfileTests.swift */,
 				AF4260C31F90B77F00249975 /* TwitterAuthorizationTests.swift */,
-				E4B874921F8600FD00B7F0BF /* ContinuityMicropostsTests.swift */,
 			);
 			path = piyopiyoTests;
 			sourceTree = "<group>";
@@ -516,11 +507,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4AE01DD1F84AC46002A1446 /* UserProfileTests.swift in Sources */,
 				AF4260C41F90B77F00249975 /* TwitterAuthorizationTests.swift in Sources */,
 				AF161F041F78A6FF00B2DD73 /* piyopiyoTests.swift in Sources */,
-				E4B874931F8600FD00B7F0BF /* ContinuityMicropostsTests.swift in Sources */,
-				E4D89DA41F8383CD006A419A /* MicropostTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
