@@ -20,17 +20,21 @@ class ContinuityTweets: ContinuityMicroContents {
     private let oauthToken: String
     private let oauthTokenSecret: String
 
+    private let objectionableWords: [String]
+
     static let maxTweetCount = 50
     static let lowestTweetCount = 15
 
     var isAuthorized = true
     var isConnected = true
 
-    init(consumerKey: String, consumerSecret: String, oauthToken: String, oauthTokenSecret: String) {
+    init(consumerKey: String, consumerSecret: String, oauthToken: String, oauthTokenSecret: String, objectionableWords: [String]) {
         self.consumerKey = consumerKey
         self.consumerSecret = consumerSecret
         self.oauthToken = oauthToken
         self.oauthTokenSecret = oauthTokenSecret
+
+        self.objectionableWords = objectionableWords
 
         self.swifter = Swifter(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
         
@@ -63,7 +67,9 @@ class ContinuityTweets: ContinuityMicroContents {
                 }
 
                 if let randomTweet = randomTweet {
-                    self.tweets.append(randomTweet)
+                    if self.objectionableWords.index(of: randomTweet.content) == nil {
+                        self.tweets.append(randomTweet)
+                    }
                 }
 
                 if self.count == ContinuityTweets.maxTweetCount {
