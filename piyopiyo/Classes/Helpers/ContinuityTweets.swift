@@ -28,7 +28,7 @@ class ContinuityTweets: ContinuityMicroContents {
     var isAuthorized = true
     var isConnected = true
 
-    init(consumerKey: String, consumerSecret: String, oauthToken: String, oauthTokenSecret: String, objectionableWords: [String]) {
+    init(consumerKey: String, consumerSecret: String, oauthToken: String, oauthTokenSecret: String, objectionableWords: [String] = []) {
         self.consumerKey = consumerKey
         self.consumerSecret = consumerSecret
         self.oauthToken = oauthToken

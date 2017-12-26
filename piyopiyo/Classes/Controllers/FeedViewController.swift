@@ -50,7 +50,7 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
 
     private var tutorialView: TutorialView?
     
-    private var microContents: ContinuityMicroContents = ContinuityTweets(consumerKey: "", consumerSecret: "", oauthToken: "", oauthTokenSecret: "", objectionableWords: [])
+    private var microContents: ContinuityMicroContents = ContinuityTweets(consumerKey: "", consumerSecret: "", oauthToken: "", oauthTokenSecret: "")
     private let profileView = ProfileView(frame: CGRect(origin: FeedViewController.originalProfilePoint, size: FeedViewController.originalProfileSize))
 
     @IBOutlet weak var profileBackgroundView: UIView! {
