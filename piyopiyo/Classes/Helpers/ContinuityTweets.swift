@@ -67,7 +67,7 @@ class ContinuityTweets: ContinuityMicroContents {
                 }
 
                 if let randomTweet = randomTweet {
-                    if self.objectionableWords.index(of: randomTweet.content) == nil {
+                    if self.isAppropriateTweet(content: randomTweet.content) {
                         self.tweets.append(randomTweet)
                     }
                 }
@@ -93,5 +93,14 @@ class ContinuityTweets: ContinuityMicroContents {
 
     private func stop() {
         self.request?.stop()
+    }
+
+    private func isAppropriateTweet(content: String) -> Bool {
+        for objectionableWord in objectionableWords {
+            if content.contains(objectionableWord) {
+                return false
+            }
+        }
+        return true
     }
 }
