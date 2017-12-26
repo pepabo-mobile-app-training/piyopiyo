@@ -80,9 +80,13 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
     }
     private var showingUserProfile: UserProfile?
     private var connectionAlertClosed = false
+
+    private var objectionableWords: [String] = []
         
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        objectionableWords = ObjectionableWords.readTextFile()
 
         if !UserDefaults.standard.bool(forKey: "startApp") {
             showTutorial()
@@ -228,9 +232,9 @@ class FeedViewController: UIViewController, TutorialDelegate, BalloonViewDelegat
             }
             if let oauthToken = defaults.string(forKey: "twitter_key"),
                let oauthTokenSecret = defaults.string(forKey: "twitter_secret") {
-                self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+                self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret, objectionableWords: self.objectionableWords)
             } else {
-                self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: "", oauthTokenSecret: "")
+                self.microContents = ContinuityTweets(consumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: "", oauthTokenSecret: "", objectionableWords: self.objectionableWords)
             }
         }
     }
